@@ -6,7 +6,7 @@ export const siteConfig: SiteConfig = {
 	author: "Jessica Schmukler",
 	// Date.prototype.toLocaleDateString() parameters, found in src/utils/date.ts.
 	date: {
-		locale: "en-GB",
+		locale: "en-US", // Cambiado a US para clientes de USA/Canada
 		options: {
 			day: "numeric",
 			month: "short",
@@ -14,20 +14,20 @@ export const siteConfig: SiteConfig = {
 		},
 	},
 	// Used as the default description meta property and webmanifest description
-	description: "An opinionated starter theme for Astro",
+	description: "Expert Technical SEO Consultant specializing in Google indexation issues, Index Bloat solutions, and server optimization. Serving US & Canada markets remotely from Argentina.",
 	// HTML lang property, found in src/layouts/Base.astro L:18 & astro.config.ts L:48
-	lang: "en-GB",
+	lang: "en-US", // Cambiado para mejor targeting geográfico
 	// Meta property, found in src/components/BaseHead.astro L:42
-	ogLocale: "en_GB",
+	ogLocale: "en_US", // Consistencia con lang
 	/* 
 		- Used to construct the meta title property found in src/components/BaseHead.astro L:11 
 		- The webmanifest name found in astro.config.ts L:42
 		- The link value found in src/components/layout/Header.astro L:35
 		- In the footer found in src/components/layout/Footer.astro L:12
 	*/
-	title: "SEO Repair Lab",
-	// ! Please remember to replace the following site property with your own domain, used in astro.config.ts
-	url: "https://astro-cactus.chriswilliams.dev/",
+	title: "SEO Repair Lab - Technical SEO Consultant",
+	// ! CRITICAL: Replace with your actual domain once deployed
+	url: "https://seorepairlab.com/", // Asumiendo tu dominio final
 };
 
 // Used to generate links in both the Header & Footer.
@@ -41,12 +41,20 @@ export const menuLinks: { path: string; title: string }[] = [
 		title: "About",
 	},
 	{
-		path: "/posts/",
-		title: "Blog",
+		path: "/services/",
+		title: "Services", // Más comercial que "Blog"
 	},
 	{
-		path: "/notes/",
-		title: "Notes",
+		path: "/case-studies/",
+		title: "Case Studies", // Mejor para mostrar expertise
+	},
+	{
+		path: "/blog/",
+		title: "Blog", // Renombrado de "posts"
+	},
+	{
+		path: "/contact/",
+		title: "Contact", // Esencial para consultoría
 	},
 ];
 
@@ -56,11 +64,11 @@ export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
 		borderRadius: "4px",
 		codeFontFamily:
 			'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
-		codeFontSize: "0.875rem",
-		codeLineHeight: "1.7142857rem",
-		codePaddingInline: "1rem",
+		codeFontSize: "1rem", // Aumentado de 0.875rem para mejor legibilidad
+		codeLineHeight: "1.6", // Mejorado para lectura
+		codePaddingInline: "1.25rem", // Más padding para mejor UX
 		frames: {
-			frameBoxShadowCssValue: "none",
+			frameBoxShadowCssValue: "0 4px 6px -1px rgba(0, 0, 0, 0.1)", // Sutil sombra para definición
 		},
 		uiLineHeight: "inherit",
 	},
