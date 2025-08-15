@@ -1,63 +1,168 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
-import SocialList from "@/components/SocialList.astro";
-import PostPreview from "@/components/blog/PostPreview.astro";
-import Note from "@/components/note/Note.astro";
-import { getAllPosts } from "@/data/post";
 import PageLayout from "@/layouts/Base.astro";
-import { collectionDateSort } from "@/utils/date";
 
-// Posts
-const MAX_POSTS = 10;
-const allPosts = await getAllPosts();
-const allPostsByDate = allPosts
-	.sort(collectionDateSort)
-	.slice(0, MAX_POSTS) as CollectionEntry<"post">[];
-
-// Notes
-const MAX_NOTES = 5;
-const allNotes = await getCollection("note");
-const latestNotes = allNotes.sort(collectionDateSort).slice(0, MAX_NOTES);
+const meta = {
+	title: "Jessica Schmukler - Technical SEO Consultant",
+	description:
+		"Expert Technical SEO Consultant with 10+ years fixing complex Google indexation issues, Index Bloat, and server problems. Serving 200+ clients across US & Canada.",
+};
 ---
 
-<PageLayout meta={{ title: "Home" }}>
-	<section>
-		<h1 class="title mb-6">Hello World!</h1>
-		<p class="mb-4">
-			Hi, I’m Jess, a Technical SEO Consultant, I do a different type of analysis to find out what
-			is slowing your SEO performance. I not only find the most probable root cause but I also
-			create a detailed recommendation report for your DEV or inhhouse collaborators to easily
-			apply. This framework is quite unique and creates huge savings to businesses by shortening the
-			diagnose and planning time.
-		</p>
-		<SocialList />
-	</section>
-	<section class="mt-16">
-		<h2 class="title text-accent mb-6 text-xl"><a href="/posts/">Posts</a></h2>
-		<ul class="space-y-6" role="list">
-			{
-				allPostsByDate.map((p) => (
-					<li class="grid gap-2 sm:grid-cols-[auto_1fr]">
-						<PostPreview post={p} />
-					</li>
-				))
-			}
-		</ul>
-	</section>
-	{
-		latestNotes.length > 0 && (
-			<section class="mt-16">
-				<h2 class="title text-accent mb-6 text-xl">
-					<a href="/notes/">Notes</a>
-				</h2>
-				<ul class="space-y-6" role="list">
-					{latestNotes.map((note) => (
+<PageLayout meta={meta}>
+	<section class="space-y-8">
+		<!-- Hero Section -->
+		<div class="space-y-6">
+			<h1 class="title text-4xl lg:text-5xl">
+				Technical SEO <span class="text-accent">Problems Solved</span>
+			</h1>
+
+			<p class="max-w-3xl text-xl text-gray-600 lg:text-2xl dark:text-gray-300">
+				I diagnose and fix the complex technical issues that prevent Google from properly crawling,
+				indexing, and ranking your website. <span class="text-accent font-semibold"
+					>200+ clients</span
+				>
+				across North America trust my systematic approach.
+			</p>
+		</div>
+
+		<!-- Stats Section -->
+		<div class="grid grid-cols-2 gap-6 py-8 md:grid-cols-3">
+			<div class="text-center">
+				<div class="text-accent text-3xl font-bold">200+</div>
+				<div class="text-sm text-gray-600 dark:text-gray-400">Technical Audits</div>
+			</div>
+			<div class="text-center">
+				<div class="text-accent text-3xl font-bold">10+</div>
+				<div class="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
+			</div>
+			<div class="col-span-2 text-center md:col-span-1">
+				<div class="text-accent text-3xl font-bold">100%</div>
+				<div class="text-sm text-gray-600 dark:text-gray-400">Technical Focus</div>
+			</div>
+		</div>
+
+		<!-- Core Expertise Section -->
+		<div class="space-y-6">
+			<h2 class="text-2xl font-semibold">
+				When Your Website Has <span class="text-accent">Technical SEO Issues</span>
+			</h2>
+
+			<div class="grid gap-8 md:grid-cols-2">
+				<div class="space-y-4">
+					<h3 class="text-accent text-lg font-medium">Complex Problems I Solve:</h3>
+					<ul class="space-y-2 text-gray-700 dark:text-gray-300">
 						<li>
-							<Note note={note} as="h3" isPreview />
+							• <strong>Index Bloat:</strong> Fixing low-quality pages destroying crawl budget
 						</li>
-					))}
-				</ul>
-			</section>
-		)
-	}
+						<li>
+							• <strong>Indexation Issues:</strong> Pages not appearing in Google search results
+						</li>
+						<li>• <strong>Server Problems:</strong> 5xx errors, slow response times, downtime</li>
+						<li>• <strong>Site Architecture:</strong> Poor internal linking and URL structure</li>
+					</ul>
+				</div>
+
+				<div class="space-y-4">
+					<h3 class="text-accent text-lg font-medium">My Technical Expertise:</h3>
+					<ul class="space-y-2 text-gray-700 dark:text-gray-300">
+						<li>• Advanced crawl budget optimization</li>
+						<li>• Schema markup implementation and debugging</li>
+						<li>• Core Web Vitals and performance optimization</li>
+						<li>• International SEO (hreflang) configuration</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!-- Why Technical SEO -->
+		<div class="space-y-4 rounded-lg bg-gray-50 p-6 dark:bg-gray-800">
+			<h3 class="text-xl font-semibold">
+				Why <span class="text-accent">Technical SEO</span> Matters More Than Content
+			</h3>
+			<p class="text-gray-700 dark:text-gray-300">
+				You can have the best content in the world, but if Google can't crawl, understand, or index
+				your website properly, it won't rank. I focus exclusively on the technical foundation that
+				makes everything else possible.
+			</p>
+			<p class="text-sm text-gray-600 dark:text-gray-400">
+				<strong
+					>No keyword research. No content strategy. Just pure technical problem-solving.</strong
+				>
+				That's what 200+ businesses across US & Canada have relied on me for.
+			</p>
+		</div>
+
+		<!-- Process Section -->
+		<div class="space-y-6">
+			<h3 class="text-xl font-semibold">My Technical SEO Process</h3>
+			<div class="grid gap-4 md:grid-cols-4">
+				<div class="space-y-2 text-center">
+					<div
+						class="bg-accent mx-auto flex h-12 w-12 items-center justify-center rounded-full font-bold text-white"
+					>
+						1
+					</div>
+					<h4 class="font-medium">Deep Technical Audit</h4>
+					<p class="text-sm text-gray-600 dark:text-gray-400">
+						Crawl analysis, server diagnostics, architecture review
+					</p>
+				</div>
+				<div class="space-y-2 text-center">
+					<div
+						class="bg-accent mx-auto flex h-12 w-12 items-center justify-center rounded-full font-bold text-white"
+					>
+						2
+					</div>
+					<h4 class="font-medium">Issue Prioritization</h4>
+					<p class="text-sm text-gray-600 dark:text-gray-400">
+						Rank problems by impact on indexation and rankings
+					</p>
+				</div>
+				<div class="space-y-2 text-center">
+					<div
+						class="bg-accent mx-auto flex h-12 w-12 items-center justify-center rounded-full font-bold text-white"
+					>
+						3
+					</div>
+					<h4 class="font-medium">Technical Implementation</h4>
+					<p class="text-sm text-gray-600 dark:text-gray-400">
+						Fix critical issues affecting Google's understanding
+					</p>
+				</div>
+				<div class="space-y-2 text-center">
+					<div
+						class="bg-accent mx-auto flex h-12 w-12 items-center justify-center rounded-full font-bold text-white"
+					>
+						4
+					</div>
+					<h4 class="font-medium">Monitoring & Validation</h4>
+					<p class="text-sm text-gray-600 dark:text-gray-400">
+						Ensure fixes work and performance improves
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- CTA Section -->
+		<div class="space-y-4 text-center">
+			<h3 class="text-2xl font-semibold">Ready to Fix Your Technical SEO Issues?</h3>
+			<p class="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-300">
+				Let's diagnose the technical problems preventing your website from ranking in Google.
+			</p>
+			<div class="flex flex-col justify-center gap-4 pt-4 sm:flex-row">
+				<a
+					href="/contact/"
+					class="bg-accent hover:bg-accent/90 rounded-lg px-8 py-3 font-semibold text-white transition-colors"
+				>
+					Get Technical SEO Audit
+				</a>
+				<a
+					href="/services/"
+					class="border-accent text-accent hover:bg-accent/10 rounded-lg border px-8 py-3 font-semibold transition-colors"
+				>
+					View Technical Services
+				</a>
+			</div>
+		</div>
+	</section>
 </PageLayout>
