@@ -21,6 +21,7 @@
 		color-scheme: light dark;
 		accent-color: var(--color-accent);
 		scrollbar-gutter: stable;
+		font-size: 18px; /* Aumentar tamaño base de fuente */
 
 		&[data-theme="light"] {
 			color-scheme: light;
@@ -35,6 +36,21 @@
 			--color-accent-2: oklch(94.66% 0 0);
 			--color-quote: oklch(94.8% 0.106 136.49);
 		}
+	}
+
+	body {
+		line-height: 1.6; /* Mejor espaciado entre líneas */
+	}
+
+	/* Aumentar tamaño específico de párrafos */
+	p {
+		font-size: 1.1em;
+		line-height: 1.7;
+	}
+
+	/* Enlaces más visibles */
+	a {
+		font-weight: 500;
 	}
 
 	:target {
@@ -67,7 +83,7 @@
 	}
 
 	.title {
-		@apply text-accent-2 text-2xl font-semibold;
+		@apply text-accent-2 text-3xl font-semibold; /* Aumentado de text-2xl a text-3xl */
 	}
 }
 
