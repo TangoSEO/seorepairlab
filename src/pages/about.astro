@@ -2,35 +2,145 @@
 import PageLayout from "@/layouts/Base.astro";
 
 const meta = {
-	description: "I'm a starter theme for Astro.build",
-	title: "About",
+	title: "About Jessica Schmukler - Technical SEO Expert",
+	description:
+		"Jessica Schmukler is a Technical SEO Consultant with 10+ years of experience solving complex Google indexation issues for 200+ clients across US & Canada.",
+};
+
+// Person Schema for Google
+const personSchema = {
+	"@context": "https://schema.org",
+	"@type": "Person",
+	name: "Jessica Schmukler",
+	jobTitle: "Technical SEO Consultant",
+	description:
+		"Expert Technical SEO Consultant specializing in Google indexation issues, Index Bloat solutions, and server optimization",
+	url: "https://seorepairlab.com",
+	sameAs: ["https://www.linkedin.com/in/technicalseo/"],
+	worksFor: {
+		"@type": "Organization",
+		name: "SEO Repair Lab",
+	},
+	knowsAbout: [
+		"Technical SEO",
+		"Google Indexation",
+		"Index Bloat",
+		"Crawl Budget Optimization",
+		"Schema Markup",
+		"Core Web Vitals",
+		"Site Architecture",
+		"Server Optimization",
+	],
+	alumniOf: "Universidad de Buenos Aires",
+	address: {
+		"@type": "PostalAddress",
+		addressCountry: "AR",
+		addressRegion: "Buenos Aires",
+	},
 };
 ---
 
 <PageLayout meta={meta}>
-	<h1 class="title mb-6">About</h1>
-	<div class="prose prose-sm prose-cactus max-w-none">
-		<p>
-			Hi, I’m a starter Astro. I’m particularly great for getting you started with your own blogging
-			website.
-		</p>
-		<p>Here are my some of my awesome built in features:</p>
-		<ul class="list-inside list-disc" role="list">
-			<li>I'm ultra fast as I'm a static site</li>
-			<li>I'm fully responsive</li>
-			<li>I come with a light and dark mode</li>
-			<li>I'm easy to customise and add additional content</li>
-			<li>I have Tailwind CSS styling</li>
-			<li>Shiki code syntax highlighting</li>
-			<li>Satori for auto generating OG images for blog posts</li>
-		</ul>
-		<p>
-			Clone or fork my <a
-				class="cactus-link inline-block"
-				href="https://github.com/chrismwilliams/astro-cactus"
-				rel="noreferrer"
-				target="_blank">repo</a
-			> if you like me!
-		</p>
-	</div>
+	<!-- Person Schema JSON-LD -->
+	<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+
+	<section class="space-y-8">
+		<!-- Header -->
+		<div class="space-y-4">
+			<h1 class="title text-4xl">About Jessica Schmukler</h1>
+			<p class="text-xl text-gray-600 dark:text-gray-300">
+				Technical SEO Consultant specializing in <span class="text-accent font-semibold"
+					>complex indexation problems</span
+				>
+				that traditional SEO consultants can't solve.
+			</p>
+		</div>
+
+		<!-- Main Bio -->
+		<div class="prose prose-lg max-w-none">
+			<p>
+				I'm Jessica Schmukler, a <strong>Technical SEO Consultant</strong> based in Argentina, serving
+				clients across the United States and Canada remotely. For over <span
+					class="text-accent font-semibold">10 years</span
+				>, I've specialized exclusively in the technical aspects of SEO that most consultants
+				avoid—the complex, behind-the-scenes issues that prevent websites from ranking.
+			</p>
+
+			<p>
+				My expertise lies in diagnosing and fixing <strong>Google indexation problems</strong>,
+				<strong>Index Bloat issues</strong>, server-level SEO problems, and site architecture
+				optimization. I've successfully completed technical audits and implementations for
+				<span class="text-accent font-semibold">over 200 clients</span>, focusing on measurable
+				improvements in crawl efficiency and search visibility.
+			</p>
+		</div>
+
+		<!-- Expertise Areas -->
+		<div class="space-y-6">
+			<h2 class="text-2xl font-semibold">Technical Specializations</h2>
+			<div class="grid gap-6 md:grid-cols-2">
+				<div class="space-y-3">
+					<h3 class="text-accent text-lg font-medium">Core Technical Issues</h3>
+					<ul class="space-y-1 text-gray-700 dark:text-gray-300">
+						<li>• Google indexation and crawl budget optimization</li>
+						<li>• Index Bloat diagnosis and remediation</li>
+						<li>• Server performance and 5xx error resolution</li>
+						<li>• Site architecture and internal linking optimization</li>
+					</ul>
+				</div>
+				<div class="space-y-3">
+					<h3 class="text-accent text-lg font-medium">Advanced Implementation</h3>
+					<ul class="space-y-1 text-gray-700 dark:text-gray-300">
+						<li>• Schema markup implementation and debugging</li>
+						<li>• Core Web Vitals optimization</li>
+						<li>• International SEO (hreflang) configuration</li>
+						<li>• Technical SEO monitoring and validation</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!-- Background -->
+		<div class="space-y-4 rounded-lg bg-gray-50 p-6 dark:bg-gray-800">
+			<h3 class="text-xl font-semibold">Why I Focus Exclusively on Technical SEO</h3>
+			<p class="text-gray-700 dark:text-gray-300">
+				After years working on all aspects of SEO, I realized that <strong
+					>technical problems are the biggest barrier</strong
+				> to search success. Content optimization means nothing if Google can't properly crawl and index
+				your website.
+			</p>
+			<p class="text-gray-700 dark:text-gray-300">
+				I decided to specialize 100% in technical SEO because it requires deep expertise, systematic
+				problem-solving, and the ability to work directly with development teams. This focus allows
+				me to deliver more impactful results for my clients across North America.
+			</p>
+		</div>
+
+		<!-- Professional Approach -->
+		<div class="space-y-4">
+			<h3 class="text-xl font-semibold">Working with International Clients</h3>
+			<p class="text-gray-700 dark:text-gray-300">
+				Based in Argentina, I work remotely with businesses across the United States and Canada.
+				This allows me to provide <span class="text-accent font-semibold"
+					>cost-effective, high-quality technical SEO services</span
+				>
+				while maintaining clear communication and detailed documentation of all technical implementations.
+			</p>
+			<p class="text-gray-700 dark:text-gray-300">
+				My clients appreciate the systematic approach I bring to technical SEO challenges, along
+				with comprehensive reporting and ongoing monitoring to ensure long-term success.
+			</p>
+		</div>
+
+		<!-- CTA -->
+		<div class="pt-6 text-center">
+			<h3 class="mb-4 text-2xl font-semibold">Ready to Solve Your Technical SEO Issues?</h3>
+			<a
+				href="/contact/"
+				class="bg-accent hover:bg-accent/90 inline-block rounded-lg px-8 py-3 font-semibold text-white transition-colors"
+			>
+				Schedule a Technical Consultation
+			</a>
+		</div>
+	</section>
 </PageLayout>
