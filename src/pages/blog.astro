@@ -1,0 +1,147 @@
+---
+import BaseLayout from "@/layouts/Base.astro";
+import { getCollection } from "astro:content";
+
+// Get all blog posts, sorted by date (newest first)
+const allPosts = await getCollection("post");
+const sortedPosts = allPosts
+	.filter((post) => !post.data.draft)
+	.sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime());
+
+const meta = {
+	title: "Technical SEO Blog - Expert Insights",
+	description: "Latest technical SEO insights, tutorials, and case studies from Jessica Schmukler. Learn about Google indexation, Index Bloat, server optimization, and more.",
+};
+---
+
+<BaseLayout meta={meta}>
+	<section class="space-y-8">
+		<!-- Header -->
+		<div class="space-y-4">
+			<h1 class="title text-4xl">Technical SEO Blog</h1>
+			<p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl">
+				Deep dives into <span class="text-accent font-semibold">complex technical SEO problems</span> 
+				and practical solutions. Real insights from 200+ client projects.
+			</p>
+		</div>
+
+		<!-- Featured Categories -->
+		<div class="grid md:grid-cols-4 gap-4 py-6">
+			<div class="bg-accent/10 rounded-lg p-4 text-center">
+				<div class="text-2xl mb-2">🔧</div>
+				<h3 class="font-semibold text-accent">Index Bloat</h3>
+				<p class="text-xs text-gray-600 dark:text-gray-400">Crawl Budget Issues</p>
+			</div>
+			<div class="bg-accent/10 rounded-lg p-4 text-center">
+				<div class="text-2xl mb-2">⚡</div>
+				<h3 class="font-semibold text-accent">Core Web Vitals</h3>
+				<p class="text-xs text-gray-600 dark:text-gray-400">Performance Optimization</p>
+			</div>
+			<div class="bg-accent/10 rounded-lg p-4 text-center">
+				<div class="text-2xl mb-2">🌐</div>
+				<h3 class="font-semibold text-accent">Server Issues</h3>
+				<p class="text-xs text-gray-600 dark:text-gray-400">5xx Errors & Downtime</p>
+			</div>
+			<div class="bg-accent/10 rounded-lg p-4 text-center">
+				<div class="text-2xl mb-2">🔍</div>
+				<h3 class="font-semibold text-accent">Schema Markup</h3>
+				<p class="text-xs text-gray-600 dark:text-gray-400">Structured Data</p>
+			</div>
+		</div>
+
+		<!-- Blog Posts List -->
+		{sortedPosts.length > 0 ? (
+			<div class="space-y-8">
+				<h2 class="text-2xl font-semibold">Latest Articles</h2>
+				<div class="grid gap-8">
+					{sortedPosts.map((post, index) => (
+						<article class="group">
+							<div class="bg-white dark:bg-gray-800 rounded-lg border hover:border-accent/50 transition-all duration-300 overflow-hidden">
+								<div class="p-6 space-y-4">
+									<!-- Post Header -->
+									<div class="flex items-start justify-between gap-4">
+										<div class="flex-1 space-y-2">
+											<div class="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
+												<time datetime={post.data.publishDate.toISOString()}>
+													{post.data.publishDate.toLocaleDateString('en-US', {
+														year: 'numeric',
+														month: 'long',
+														day: 'numeric'
+													})}
+												</time>
+												{post.data.tags && post.data.tags.length > 0 && (
+													<>
+														<span>•</span>
+														<div class="flex gap-2">
+															{post.data.tags.slice(0, 2).map((tag) => (
+																<span class="bg-accent/20 text-accent px-2 py-1 rounded text-xs font-medium">
+																	{tag}
+																</span>
+															))}
+														</div>
+													</>
+												)}
+											</div>
+											<h2 class="text-xl font-semibold group-hover:text-accent transition-colors">
+												<a href={`/posts/${post.slug}/`} class="block">
+													{post.data.title}
+												</a>
+											</h2>
+										</div>
+										{index === 0 && (
+											<div class="bg-accent text-white text-xs px-2 py-1 rounded font-medium">
+												Latest
+											</div>
+										)}
+									</div>
+
+									<!-- Post Content -->
+									<div class="space-y-3">
+										<p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+											{post.data.description}
+										</p>
+										
+										<div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+											<span>~5 min read</span>
+											<a 
+												href={`/posts/${post.slug}/`}
+												class="text-accent hover:text-accent/80 font-medium flex items-center gap-1 group"
+											>
+												Read more 
+												<svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+													<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+												</svg>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+					))}
+				</div>
+			</div>
+		) : (
+			<!-- Simple message when no posts exist -->
+			<div class="text-center py-12">
+				<p class="text-gray-600 dark:text-gray-400">
+					More technical SEO articles coming soon.
+				</p>
+			</div>
+		)}
+
+		<!-- Newsletter/Contact Section -->
+		<div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-8 text-center space-y-4">
+			<h3 class="text-xl font-semibold">Need Technical SEO Help?</h3>
+			<p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+				If you're dealing with complex indexation issues, Index Bloat, or server problems, 
+				I'm here to help with expert technical SEO consulting.
+			</p>
+			<a 
+				href="/contact/" 
+				class="bg-accent text-white px-8 py-3 rounded-lg font-semibold hover:bg-accent/90 transition-colors inline-block"
+			>
+				Get Your Technical SEO Audit
+			</a>
+		</div>
+	</section>
+</BaseLayout>
