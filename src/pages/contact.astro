@@ -53,9 +53,13 @@ const contactSchema = {
 				>
 					<!-- Hidden fields for FormSubmit configuration -->
 					<input type="hidden" name="_subject" value="New Technical SEO Inquiry - SEO Repair Lab" />
-					<input type="hidden" name="_captcha" value="false" />
+					<!-- CHANGED: Enable captcha instead of disabling it -->
+					<input type="hidden" name="_captcha" value="true" />
 					<input type="hidden" name="_template" value="table" />
 					<input type="hidden" name="_next" value="https://seorepairlab.com/thank-you/" />
+
+					<!-- Honeypot field - hidden from users but visible to bots -->
+					<input type="text" name="_honey" style="display: none;" />
 
 					<!-- Name Field -->
 					<div class="space-y-2">
@@ -67,6 +71,8 @@ const contactSchema = {
 							id="name"
 							name="name"
 							required
+							minlength="2"
+							maxlength="100"
 							class="focus:ring-accent focus:border-accent w-full rounded-lg border border-gray-300 px-4 py-3 focus:ring-2 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
 							placeholder="Your full name"
 						/>
@@ -82,6 +88,7 @@ const contactSchema = {
 							id="email"
 							name="email"
 							required
+							maxlength="254"
 							class="focus:ring-accent focus:border-accent w-full rounded-lg border border-gray-300 px-4 py-3 focus:ring-2 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
 							placeholder="your@email.com"
 						/>
@@ -96,6 +103,7 @@ const contactSchema = {
 							type="tel"
 							id="phone"
 							name="phone"
+							maxlength="20"
 							class="focus:ring-accent focus:border-accent w-full rounded-lg border border-gray-300 px-4 py-3 focus:ring-2 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
 							placeholder="+1 (555) 123-4567"
 						/>
@@ -111,9 +119,33 @@ const contactSchema = {
 							id="website"
 							name="website"
 							required
+							maxlength="500"
 							class="focus:ring-accent focus:border-accent w-full rounded-lg border border-gray-300 px-4 py-3 focus:ring-2 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
 							placeholder="https://yourwebsite.com"
 						/>
+					</div>
+
+					<!-- Simple Math Question (Custom Captcha) -->
+					<div class="space-y-2">
+						<label
+							for="math_answer"
+							class="block text-sm font-medium text-gray-700 dark:text-gray-300"
+						>
+							Anti-Spam Question: What is 7 + 3? *
+						</label>
+						<input
+							type="number"
+							id="math_answer"
+							name="math_answer"
+							required
+							min="10"
+							max="10"
+							class="focus:ring-accent focus:border-accent w-20 rounded-lg border border-gray-300 px-4 py-3 focus:ring-2 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+							placeholder="?"
+						/>
+						<p class="text-xs text-gray-500 dark:text-gray-400">
+							This helps us prevent spam submissions
+						</p>
 					</div>
 
 					<!-- Notes/Issues Field -->
@@ -125,15 +157,20 @@ const contactSchema = {
 							id="message"
 							name="message"
 							rows="5"
+							maxlength="2000"
 							class="focus:ring-accent focus:border-accent w-full resize-y rounded-lg border border-gray-300 px-4 py-3 focus:ring-2 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
 							placeholder="Describe any known issues: pages not indexing, server errors, site speed problems, etc."
 						></textarea>
+						<div class="text-xs text-gray-500 dark:text-gray-400">
+							<span id="char-count">0</span>/2000 characters
+						</div>
 					</div>
 
 					<!-- Submit Button -->
 					<button
 						type="submit"
-						class="bg-accent hover:bg-accent/90 focus:ring-accent w-full rounded-lg px-6 py-3 font-semibold text-white transition-colors focus:ring-2 focus:ring-offset-2"
+						class="bg-accent hover:bg-accent/90 focus:ring-accent w-full rounded-lg px-6 py-3 font-semibold text-white transition-colors focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+						id="submit-btn"
 					>
 						Send Technical SEO Inquiry
 					</button>
@@ -237,4 +274,27 @@ const contactSchema = {
 			</div>
 		</div>
 	</section>
+
+	<!-- Character Counter Script -->
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const messageTextarea = document.getElementById("message");
+			const charCount = document.getElementById("char-count");
+
+			if (messageTextarea && charCount) {
+				messageTextarea.addEventListener("input", function () {
+					const currentLength = this.value.length;
+					charCount.textContent = currentLength;
+
+					if (currentLength > 1800) {
+						charCount.style.color = "#ef4444"; // red
+					} else if (currentLength > 1500) {
+						charCount.style.color = "#f59e0b"; // yellow
+					} else {
+						charCount.style.color = "#6b7280"; // gray
+					}
+				});
+			}
+		});
+	</script>
 </PageLayout>

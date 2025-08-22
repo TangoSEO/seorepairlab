@@ -1,1 +1,57 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 500 500"><path fill="#B04304" d="M295.334 103.333v-40L340.667 90v40l-45.333-26.667ZM250.001 63.333l-45.334-26.666v426.666L250.001 490V63.333Z"/><path fill="#FF5D01" d="m250.001 129.944 45.333-26.667 45.333 26.667-45.333 26.667-45.333-26.667ZM204.667 36.667 250.001 10l45.333 26.667-45.333 26.666-45.334-26.666ZM295.334 63.277l45.333-26.666L386 63.277l-45.333 26.667-45.333-26.667ZM114 223.277l45.333-26.667 45.334 26.667-45.334 26.667L114 223.277ZM250 249.944l-45.333-26.667v53.333L250 249.944Z"/><path fill="#53C68C" d="m250 63.333 45.333-26.666v120L340.667 130V90L386 63.333V170l-90.667 53.333v240L250 490V316.667L159.333 370V250l45.334-26.667v53.334L250 250V63.333Z"/><path fill="#B04304" d="M159.333 250 114 223.334v120L159.333 370V250Z"/></svg>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Robot Head -->
+  <rect x="149" y="128" width="214" height="192" rx="43" fill="#55C57A" opacity="0.9"/>
+  <rect x="171" y="149" width="171" height="149" rx="21" fill="#55C57A"/>
+  
+  <!-- Robot Eyes -->
+  <circle cx="213" cy="213" r="21" fill="#1a1a1a"/>
+  <circle cx="298" cy="213" r="21" fill="#1a1a1a"/>
+  <circle cx="213" cy="213" r="11" fill="#00FFFF"/>
+  <circle cx="298" cy="213" r="11" fill="#00FFFF"/>
+  
+  <!-- Robot Mouth/Display -->
+  <rect x="213" y="256" width="85" height="21" rx="11" fill="#1a1a1a"/>
+  
+  <!-- Robot Body -->
+  <rect x="192" y="320" width="128" height="128" rx="21" fill="#55C57A" opacity="0.7"/>
+  
+  <!-- Robot Arms -->
+  <rect x="107" y="341" width="64" height="32" rx="16" fill="#55C57A" opacity="0.8"/>
+  <rect x="341" y="341" width="64" height="32" rx="16" fill="#55C57A" opacity="0.8"/>
+  
+  <!-- Robot Hands/Tools -->
+  <circle cx="85" cy="357" r="21" fill="#55C57A"/>
+  <circle cx="427" cy="357" r="21" fill="#55C57A"/>
+  
+  <!-- Wrench tool in left hand -->
+  <path d="M64 341L107 384M64 384L107 341" stroke="#1a1a1a" stroke-width="11" stroke-linecap="round"/>
+  
+  <!-- Screwdriver in right hand -->
+  <line x1="427" y1="336" x2="427" y2="378" stroke="#1a1a1a" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="427" cy="330" r="5" fill="#1a1a1a"/>
+  
+  <!-- Robot Legs -->
+  <rect x="213" y="448" width="32" height="43" rx="16" fill="#55C57A" opacity="0.8"/>
+  <rect x="267" y="448" width="32" height="43" rx="16" fill="#55C57A" opacity="0.8"/>
+  
+  <!-- Robot Feet -->
+  <rect x="203" y="491" width="53" height="21" rx="11" fill="#55C57A"/>
+  <rect x="256" y="491" width="53" height="21" rx="11" fill="#55C57A"/>
+  
+  <!-- Antenna -->
+  <line x1="256" y1="128" x2="256" y2="85" stroke="#55C57A" stroke-width="21"/>
+  <circle cx="256" cy="85" r="16" fill="#00FFFF"/>
+  
+  <!-- Signal waves from antenna -->
+  <circle cx="256" cy="85" r="32" stroke="#00FFFF" stroke-width="5" fill="none" opacity="0.6"/>
+  <circle cx="256" cy="85" r="48" stroke="#00FFFF" stroke-width="3" fill="none" opacity="0.4"/>
+  <circle cx="256" cy="85" r="64" stroke="#00FFFF" stroke-width="2" fill="none" opacity="0.2"/>
+  
+  <!-- Body Details -->
+  <rect x="213" y="362" width="85" height="11" rx="5" fill="#1a1a1a" opacity="0.5"/>
+  <rect x="213" y="383" width="64" height="11" rx="5" fill="#1a1a1a" opacity="0.5"/>
+  <rect x="213" y="405" width="43" height="11" rx="5" fill="#1a1a1a" opacity="0.5"/>
+  
+  <!-- Power indicator on chest -->
+  <circle cx="277" cy="384" r="8" fill="#00FFFF"/>
+</svg>
