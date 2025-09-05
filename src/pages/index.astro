@@ -11,7 +11,7 @@ const meta = {
 <PageLayout meta={meta}>
 	<section class="section">
 		<!-- Hero Section -->
-		<div class="space-y-6">
+		<div class="relative space-y-6">
 			<div class="eyebrow">Technical SEO Consulting</div>
 			<h1 class="title text-gradient text-4xl lg:text-5xl">
 				Technical SEO Problems Solved
@@ -21,6 +21,19 @@ const meta = {
 				<span class="badge">200+ Audits</span>
 				<span class="badge">100% Technical Focus</span>
 			</div>
+
+			{/* Transparent hero image placeholder (desktop only) */}
+			<img
+				alt=""
+				aria-hidden="true"
+				role="presentation"
+				src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='400'></svg>"
+				class="pointer-events-none select-none absolute right-0 top-0 hidden h-40 w-72 opacity-0 md:block"
+				width="800"
+				height="400"
+				decoding="async"
+				loading="eager"
+			/>
 
 			<p class="max-w-3xl text-xl text-gray-600 lg:text-2xl dark:text-gray-300">
 				I diagnose and fix the complex technical issues that prevent Google from properly crawling,
