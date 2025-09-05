@@ -49,20 +49,28 @@ const contactSchema = {
 			<div class="space-y-6">
 				<h2 class="text-2xl font-semibold">Get Your Free Technical SEO Analysis</h2>
 
-				<form
-					action="https://formsubmit.co/jessica@seorepairlab.com"
-					method="POST"
-					class="space-y-6"
-				>
+				<form action="https://formsubmit.co/it@seorepairlab.com" method="POST" class="space-y-6">
 					<!-- Hidden fields for FormSubmit configuration -->
 					<input type="hidden" name="_subject" value="New Technical SEO Inquiry - SEO Repair Lab" />
-					<!-- CHANGED: Enable captcha instead of disabling it -->
-					<input type="hidden" name="_captcha" value="true" />
+					<!-- Captcha can be enabled if spam persists; keeping UX light -->
+					<input type="hidden" name="_captcha" value="false" />
 					<input type="hidden" name="_template" value="table" />
 					<input type="hidden" name="_next" value="https://seorepairlab.com/thank-you/" />
+					<!-- Time-on-page + submission token (set via JS) -->
+					<input type="hidden" name="_form_loaded" id="_form_loaded" value="" />
+					<input type="hidden" name="_user_interacted" id="_user_interacted" value="0" />
 
-					<!-- Honeypot field - hidden from users but visible to bots -->
-					<input type="text" name="_honey" style="display: none;" />
+					<!-- Honeypots: hidden fields that must remain empty -->
+					<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+					<label class="sr-only" for="company">Company</label>
+					<input
+						type="text"
+						id="company"
+						name="company"
+						autocomplete="off"
+						tabindex="-1"
+						style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;"
+					/>
 
 					<!-- Name Field -->
 					<div class="space-y-2">
@@ -170,6 +178,8 @@ const contactSchema = {
 					</div>
 
 					<!-- Submit Button -->
+					<p id="form-error" class="hidden text-sm text-red-600"></p>
+
 					<button
 						type="submit"
 						class="bg-accent hover:bg-accent/90 focus:ring-accent w-full rounded-lg px-6 py-3 font-semibold text-white transition-colors focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
@@ -283,6 +293,56 @@ const contactSchema = {
 		document.addEventListener("DOMContentLoaded", function () {
 			const messageTextarea = document.getElementById("message");
 			const charCount = document.getElementById("char-count");
+			const submitBtn = document.getElementById("submit-btn");
+			const formError = document.getElementById("form-error");
+			const formLoaded = document.getElementById("_form_loaded");
+			const userInteracted = document.getElementById("_user_interacted");
+			const formEl = submitBtn?.closest("form");
+
+			// Initialize anti-spam timing and interaction guard
+			const now = Date.now();
+			if (formLoaded) formLoaded.value = String(now);
+			if (submitBtn) submitBtn.disabled = true;
+			setTimeout(() => {
+				if (submitBtn) submitBtn.disabled = false;
+			}, 2000);
+
+			// Mark that the user interacted with the form
+			formEl?.addEventListener("input", () => {
+				if (userInteracted) userInteracted.value = "1";
+			});
+
+			// Client-side submission guard: quick bots and filled honeypots
+			formEl?.addEventListener("submit", (e) => {
+				const company = document.getElementById("company");
+				const honey = document.querySelector('input[name="_honey"]');
+				const ts = formLoaded?.value ? parseInt(formLoaded.value, 10) : 0;
+				const elapsed = Date.now() - ts;
+				let valid = true;
+				let msg = "";
+
+				if (company && company instanceof HTMLInputElement && company.value.trim() !== "") {
+					valid = false;
+					msg = "Submission blocked (bot detected).";
+				}
+				if (honey && honey instanceof HTMLInputElement && honey.value.trim() !== "") {
+					valid = false;
+					msg = "Submission blocked (bot detected).";
+				}
+				if (elapsed < 2000) {
+					// Require at least 2s on page
+					valid = false;
+					msg = "Please take a moment before submitting.";
+				}
+
+				if (!valid) {
+					e.preventDefault();
+					if (formError) {
+						formError.textContent = msg;
+						formError.classList.remove("hidden");
+					}
+				}
+			});
 
 			if (messageTextarea && charCount) {
 				messageTextarea.addEventListener("input", function () {
