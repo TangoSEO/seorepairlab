@@ -1,0 +1,36 @@
+---
+import PageLayout from "@/layouts/Base.astro";
+
+const meta = {
+  title: "Server & Performance Optimization",
+  description:
+    "Fix server errors, cut response times, and improve Core Web Vitals.",
+};
+---
+
+<PageLayout meta={meta}>
+  <article class="prose prose-invert max-w-none">
+    <h1 class="title text-gradient">Server & Performance Optimization</h1>
+    <img
+      src="https://placehold.co/1200x630?text=Performance+Optimization"
+      alt="Server and performance optimization placeholder"
+      class="mb-6 w-full rounded"
+      width="1200"
+      height="630"
+      loading="lazy"
+    />
+    <p>
+      Server health and speed directly influence crawling, rendering, and rankings. I resolve server errors,
+      reduce response times, and improve Core Web Vitals to support stronger organic visibility.
+    </p>
+    <ul>
+      <li>5xx/4xx error remediation and redirect cleanup</li>
+      <li>TTFB and caching improvements (headers, CDN, edge)</li>
+      <li>Render and payload optimizations affecting CWV</li>
+      <li>Monitoring and alerting for regressions</li>
+    </ul>
+    <div class="mt-6">
+      <a href="/contact/" class="btn btn-primary">Fix Server & CWV Issues</a>
+    </div>
+  </article>
+</PageLayout>

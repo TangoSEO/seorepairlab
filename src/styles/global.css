@@ -1,100 +1,39 @@
-/* would like to ignore ./src/pages/og-image/[slug].png.ts */
-@import "tailwindcss";
-/* config for tailwindcss-typography plugin */
-@config "../../tailwind.config.ts";
-
-/* use a selector-based strategy for dark mode */
-@variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
-
-/* you could refactor below to use light-dark(), depending on your target audience */
-@theme {
-	--color-global-bg: oklch(98.48% 0 0);
-	--color-global-text: oklch(26.99% 0.0096 235.05);
-	--color-link: oklch(55.44% 0.0431 185.69);
-	--color-accent: oklch(55.27% 0.195 19.06);
-	--color-accent-2: oklch(18.15% 0 0);
-	--color-quote: oklch(55.27% 0.195 19.06);
-}
-
-@layer base {
-	html {
-		color-scheme: light dark;
-		accent-color: var(--color-accent);
-		scrollbar-gutter: stable;
-		font-size: 18px; /* Aumentar tamaño base de fuente */
-
-		&[data-theme="light"] {
-			color-scheme: light;
-		}
-
-		&[data-theme="dark"] {
-			color-scheme: dark;
-			--color-global-bg: oklch(23.64% 0.0045 248);
-			--color-global-text: oklch(83.54% 0 264);
-			--color-link: oklch(70.44% 0.1133 349);
-			--color-accent: oklch(70.91% 0.1415 163.7);
-			--color-accent-2: oklch(94.66% 0 0);
-			--color-quote: oklch(94.8% 0.106 136.49);
-		}
+/* would like to ignore ./src/pages/og-image/[slug].png.ts */@import "tailwindcss";/* config for tailwindcss-typography plugin */@config "../../tailwind.config.ts";/* use a selector-based strategy for dark mode */@variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));/* you could refactor below to use light-dark(), depending on your target audience */@theme {	--color-global-bg: oklch(99% 0 0);	--color-global-text: oklch(27% 0 0);	--color-link: oklch(40% 0 0);	--color-accent: oklch(55% 0.14 19);	--color-accent-2: oklch(15% 0 0);	--color-quote: oklch(45% 0.04 185);}@layer base {	html {		color-scheme: light dark;		accent-color: var(--color-accent);		scrollbar-gutter: stable;		font-size: 18px; /* Aumentar tamaño base de fuente */		&[data-theme="light"] {			color-scheme: light;		}		&[data-theme="dark"] {			color-scheme: dark;			--color-global-bg: oklch(23% 0 0);			--color-global-text: oklch(90% 0 0);			--color-link: oklch(85% 0 0);			--color-accent: oklch(80% 0.12 163);			--color-accent-2: oklch(95% 0 0);			--color-quote: oklch(90% 0.06 136);		}	}	body {		line-height: 1.65;	 font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';}	/* Aumentar tamaño específico de párrafos */	p {		font-size: 1.1em;		line-height: 1.7;	}	/* Enlaces más visibles */	a {		font-weight: 500;	}	:target {		scroll-margin-block: 5ex;	}	@view-transition {		navigation: auto;	}	/* Astro image responsive styles, modified from -> https://docs.astro.build/en/guides/images/#responsive-image-styles */	:where([data-astro-image]) {		object-fit: var(--fit);		object-position: var(--pos);	}	[data-astro-image="full-width"] {		width: 100%;	}	[data-astro-image="constrained"] {		max-width: 100%;	}}@layer components {	@import "./components/admonition.css";	@import "./components/github-card.css";	.cactus-link {		@apply hover:decoration-link underline underline-offset-2 hover:decoration-2;	}	.title {		@apply text-accent-2 text-3xl font-semibold tracking-tight; /* Aumentado de text-2xl a text-3xl */	}	.text-gradient {
+		@apply bg-gradient-to-r from-accent to-accent/60 bg-clip-text text-transparent;
+	}
+	.btn {
+		@apply inline-flex items-center gap-2 rounded-md border px-4 py-2 text-sm font-semibold transition-colors;
+	}
+	.btn-primary {
+		@apply border-transparent bg-accent text-white hover:bg-accent/90;
+	}
+	.btn-ghost {
+		@apply border-transparent text-current hover:bg-black/5 dark:hover:bg-white/10;
+	}
+	.btn-gradient {
+		@apply border-transparent bg-gradient-to-r from-accent to-accent/70 text-white hover:from-accent/90 hover:to-accent/60;
+	}
+	.card {
+		@apply rounded-lg border p-6 transition-colors hover:bg-black/5 dark:hover:bg-white/5;
 	}
 
-	body {
-		line-height: 1.6; /* Mejor espaciado entre líneas */
+	/* AstroWind-like micro components */
+	.badge {
+		@apply inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold tracking-wide text-accent border-accent/20 bg-black/5 dark:bg-white/10;
+	}
+	/* Section wrapper for consistent vertical rhythm */
+	.section {
+		@apply space-y-6 py-12 sm:py-16;
 	}
 
-	/* Aumentar tamaño específico de párrafos */
-	p {
-		font-size: 1.1em;
-		line-height: 1.7;
+	/* AstroWind-like micro components */
+	.eyebrow {
+		@apply inline-flex items-center gap-2 rounded-full border px-2 py-1 text-xs font-semibold tracking-wide text-accent border-accent/20 bg-black/5 dark:bg-white/10;
 	}
-
-	/* Enlaces más visibles */
-	a {
-		font-weight: 500;
+	.icon-badge {
+		@apply inline-flex h-10 w-10 items-center justify-center rounded-md bg-black/5 text-accent dark:bg-white/10;
 	}
-
-	:target {
-		scroll-margin-block: 5ex;
+	.divider {
+		@apply my-8 border-t border-black/5 dark:border-white/10;
 	}
-
-	@view-transition {
-		navigation: auto;
-	}
-
-	/* Astro image responsive styles, modified from -> https://docs.astro.build/en/guides/images/#responsive-image-styles */
-	:where([data-astro-image]) {
-		object-fit: var(--fit);
-		object-position: var(--pos);
-	}
-	[data-astro-image="full-width"] {
-		width: 100%;
-	}
-	[data-astro-image="constrained"] {
-		max-width: 100%;
-	}
-}
-
-@layer components {
-	@import "./components/admonition.css";
-	@import "./components/github-card.css";
-
-	.cactus-link {
-		@apply hover:decoration-link underline underline-offset-2 hover:decoration-2;
-	}
-
-	.title {
-		@apply text-accent-2 text-3xl font-semibold; /* Aumentado de text-2xl a text-3xl */
-	}
-}
-
-@utility prose {
-	--tw-prose-body: var(--color-global-text);
-	--tw-prose-bold: var(--color-global-text);
-	--tw-prose-bullets: var(--color-global-text);
-	--tw-prose-code: var(--color-global-text);
-	--tw-prose-headings: var(--color-accent-2);
-	--tw-prose-hr: 0.5px dashed #666;
-	--tw-prose-links: var(--color-global-text);
-	--tw-prose-quotes: var(--color-quote);
-	--tw-prose-th-borders: #666;
-}
+}@utility prose {	--tw-prose-body: var(--color-global-text);	--tw-prose-bold: var(--color-global-text);	--tw-prose-bullets: var(--color-global-text);	--tw-prose-code: var(--color-global-text);	--tw-prose-headings: var(--color-accent-2);	--tw-prose-hr: 0.5px dashed #666;	--tw-prose-links: var(--color-global-text);	--tw-prose-quotes: var(--color-quote);	--tw-prose-th-borders: #666;}

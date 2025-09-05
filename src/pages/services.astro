@@ -1,5 +1,6 @@
 ---
 import PageLayout from "@/layouts/Base.astro";
+import { services } from "@/data/services";
 
 const meta = {
 	title: "Technical SEO Services",
@@ -9,12 +10,18 @@ const meta = {
 ---
 
 <PageLayout meta={meta}>
-	<div class="space-y-6">
+	<div class="section">
 		<div class="flex flex-wrap items-center justify-between gap-2">
-			<h1 class="title">Technical SEO Services</h1>
+			<div class="eyebrow">Services</div>
+			<h1 class="title text-gradient">Technical SEO Services</h1>
+			<div class="flex flex-wrap gap-2 pt-2">
+				<span class="badge">Indexation</span>
+				<span class="badge">Performance</span>
+				<span class="badge">Architecture</span>
+			</div>
 		</div>
 
-		<section class="space-y-4">
+		<section class="section">
 			<h2 class="text-2xl font-bold">Expert Solutions for Complex SEO Problems</h2>
 			<p class="text-lg">
 				I specialize in solving the technical SEO issues that prevent your website from reaching its
@@ -22,69 +29,102 @@ const meta = {
 			</p>
 		</section>
 
-		<section class="space-y-6">
-			<div class="grid gap-6 md:grid-cols-2">
-				<div class="space-y-3 rounded-lg border p-6">
-					<h3 class="text-xl font-semibold">Google Indexation Issues</h3>
-					<p>
-						Fix crawling and indexing problems that prevent Google from properly discovering and
-						ranking your content. I diagnose and resolve robots.txt errors, meta noindex issues, and
-						crawl budget optimization.
-					</p>
-				</div>
-
-				<div class="space-y-3 rounded-lg border p-6">
-					<h3 class="text-xl font-semibold">Index Bloat Solutions</h3>
-					<p>
-						Eliminate low-quality pages that dilute your site's authority. I identify and fix thin
-						content, duplicate pages, and parameter-based URLs that waste crawl budget.
-					</p>
-				</div>
-
-				<div class="space-y-3 rounded-lg border p-6">
-					<h3 class="text-xl font-semibold">Server & Performance Optimization</h3>
-					<p>
-						Detect and fix server-level issues affecting SEO: 500 errors, slow response times,
-						redirect chains, and Core Web Vitals optimization for better rankings.
-					</p>
-				</div>
-
-				<div class="space-y-3 rounded-lg border p-6">
-					<h3 class="text-xl font-semibold">Site Architecture Analysis</h3>
-					<p>
-						Optimize your website structure for maximum SEO impact. I analyze internal linking, URL
-						structure, breadcrumbs, and schema markup implementation.
-					</p>
-				</div>
+		<section class="section">
+			<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+				{
+					services.map((svc) => (
+						<a href={svc.path} class="card block">
+							<div class="flex items-start gap-4">
+								<span class="icon-badge" aria-hidden="true">
+									<svg
+										viewBox="0 0 24 24"
+										width="18"
+										height="18"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="1.5"
+									>
+										<path d="M4 7h16M4 12h10M4 17h16" stroke-linecap="round" />
+									</svg>
+								</span>
+								<div>
+									<h3 class="text-xl font-semibold">{svc.title}</h3>
+									<p class="mt-2 text-sm text-gray-700 dark:text-gray-300">{svc.description}</p>
+								</div>
+							</div>
+						</a>
+					))
+				}
 			</div>
 		</section>
+		<hr class="divider" />
 
-		<section class="space-y-4">
+		<section class="section">
 			<h2 class="text-2xl font-bold">Why Choose SEO Repair Lab?</h2>
 			<div class="space-y-3">
 				<div class="flex items-start gap-3">
-					<span class="mt-1">✓</span>
+					<span class="text-accent mt-1" aria-hidden="true"
+						><svg
+							width="16"
+							height="16"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"></path></svg
+						></span
+					>
 					<p>
 						<strong>Deep Technical Expertise:</strong> Years of experience solving complex indexation
 						and crawling issues
 					</p>
 				</div>
 				<div class="flex items-start gap-3">
-					<span class="mt-1">✓</span>
+					<span class="text-accent mt-1" aria-hidden="true"
+						><svg
+							width="16"
+							height="16"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"></path></svg
+						></span
+					>
 					<p>
 						<strong>US & Canada Focus:</strong> Understanding of North American market dynamics and search
 						behaviors
 					</p>
 				</div>
 				<div class="flex items-start gap-3">
-					<span class="mt-1">✓</span>
+					<span class="text-accent mt-1" aria-hidden="true"
+						><svg
+							width="16"
+							height="16"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"></path></svg
+						></span
+					>
 					<p>
 						<strong>Remote Efficiency:</strong> Full consulting services delivered remotely with clear
 						communication
 					</p>
 				</div>
 				<div class="flex items-start gap-3">
-					<span class="mt-1">✓</span>
+					<span class="text-accent mt-1" aria-hidden="true"
+						><svg
+							width="16"
+							height="16"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"></path></svg
+						></span
+					>
 					<p>
 						<strong>Results-Driven:</strong> Focus on measurable improvements in organic visibility and
 						rankings
@@ -93,18 +133,13 @@ const meta = {
 			</div>
 		</section>
 
-		<section class="space-y-4">
+		<section class="section">
 			<h2 class="text-2xl font-bold">Ready to Fix Your SEO Issues?</h2>
 			<p class="text-lg">
 				Let's discuss your technical SEO challenges and create a custom solution that drives real
 				results.
 			</p>
-			<a
-				href="/contact/"
-				class="inline-block rounded-lg bg-green-600 px-6 py-3 font-semibold text-white hover:bg-green-700"
-			>
-				Get Your Free SEO Audit
-			</a>
+			<a href="/contact/" class="btn btn-primary">Get Your Free SEO Audit</a>
 		</section>
 	</div>
 </PageLayout>

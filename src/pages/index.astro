@@ -9,12 +9,18 @@ const meta = {
 ---
 
 <PageLayout meta={meta}>
-	<section class="space-y-8">
+	<section class="section">
 		<!-- Hero Section -->
 		<div class="space-y-6">
-			<h1 class="title text-4xl lg:text-5xl">
-				Technical SEO <span class="text-accent">Problems Solved</span>
+			<div class="eyebrow">Technical SEO Consulting</div>
+			<h1 class="title text-gradient text-4xl lg:text-5xl">
+				Technical SEO Problems Solved
 			</h1>
+			<div class="flex flex-wrap gap-2 pt-2">
+				<span class="badge">10+ Years</span>
+				<span class="badge">200+ Audits</span>
+				<span class="badge">100% Technical Focus</span>
+			</div>
 
 			<p class="max-w-3xl text-xl text-gray-600 lg:text-2xl dark:text-gray-300">
 				I diagnose and fix the complex technical issues that prevent Google from properly crawling,
@@ -149,20 +155,10 @@ const meta = {
 			<p class="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-300">
 				Let's diagnose the technical problems preventing your website from ranking in Google.
 			</p>
-			<div class="flex flex-col justify-center gap-4 pt-4 sm:flex-row">
-				<a
-					href="/contact/"
-					class="bg-accent hover:bg-accent/90 rounded-lg px-8 py-3 font-semibold text-white transition-colors"
-				>
-					Get Technical SEO Audit
-				</a>
-				<a
-					href="/services/"
-					class="border-accent text-accent hover:bg-accent/10 rounded-lg border px-8 py-3 font-semibold transition-colors"
-				>
-					View Technical Services
-				</a>
-			</div>
+            <div class="flex flex-col justify-center gap-4 pt-4 sm:flex-row">
+                <a href="/contact/" class="btn btn-primary">Get Technical SEO Audit</a>
+                <a href="/services/" class="btn btn-ghost">View Technical Services</a>
+            </div>
 		</div>
 	</section>
 </PageLayout>

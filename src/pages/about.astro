@@ -44,10 +44,16 @@ const personSchema = {
 	<!-- Person Schema JSON-LD -->
 	<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 
-	<section class="space-y-8">
+	<section class="section">
 		<!-- Header -->
 		<div class="space-y-4">
-			<h1 class="title text-4xl">About Jessica Schmukler</h1>
+			<div class="eyebrow">About</div>
+			<h1 class="title text-gradient text-4xl">About Jessica Schmukler</h1>
+			<div class="flex flex-wrap gap-2 pt-2">
+				<span class="badge">Remote-first</span>
+				<span class="badge">US & Canada</span>
+				<span class="badge">200+ Clients</span>
+			</div>
 			<p class="text-xl text-gray-600 dark:text-gray-300">
 				Technical SEO Consultant specializing in <span class="text-accent font-semibold"
 					>complex indexation problems</span
@@ -132,15 +138,12 @@ const personSchema = {
 			</p>
 		</div>
 
+		<hr class="divider" />
+
 		<!-- CTA -->
 		<div class="pt-6 text-center">
 			<h3 class="mb-4 text-2xl font-semibold">Ready to Solve Your Technical SEO Issues?</h3>
-			<a
-				href="/contact/"
-				class="bg-accent hover:bg-accent/90 inline-block rounded-lg px-8 py-3 font-semibold text-white transition-colors"
-			>
-				Schedule a Technical Consultation
-			</a>
+			<a href="/contact/" class="btn btn-primary">Schedule a Technical Consultation</a>
 		</div>
 	</section>
 </PageLayout>
