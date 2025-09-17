@@ -2,146 +2,153 @@
 import BaseLayout from "@/layouts/Base.astro";
 import { getCollection } from "astro:content";
 
-// Get all blog posts, sorted by date (newest first)
 const allPosts = await getCollection("post");
 const sortedPosts = allPosts
-	.filter((post) => !post.data.draft)
-	.sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime());
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime());
 
 const meta = {
-	title: "Technical SEO Blog - Expert Insights",
-	description: "Latest technical SEO insights, tutorials, and case studies from Jessica Schmukler. Learn about Google indexation, Index Bloat, server optimization, and more.",
+  title: "Technical SEO Blog - Expert Insights",
+  description:
+    "Latest technical SEO insights, tutorials, and case studies from Jessica Schmukler. Learn about Google indexation, Index Bloat, server optimization, and more.",
 };
 ---
 
 <BaseLayout meta={meta}>
-	<section class="space-y-8">
-		<!-- Header -->
-		<div class="space-y-4">
-			<h1 class="title text-4xl">Technical SEO Blog</h1>
-			<p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl">
-				Deep dives into <span class="text-accent font-semibold">complex technical SEO problems</span> 
-				and practical solutions. Real insights from 200+ client projects.
-			</p>
-		</div>
+  <section class="section">
+    <div class="space-y-16">
+      <div class="relative overflow-hidden rounded-[32px] border border-[var(--color-border)] bg-[var(--color-surface)] px-10 py-14 shadow-[0_48px_100px_-70px_rgba(34,20,8,0.68)] sm:px-14">
+        <div class="pointer-events-none absolute -left-24 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(40,33,27,0.5),rgba(40,33,27,0))] blur-3xl"></div>
+        <div class="pointer-events-none absolute -top-12 right-12 h-40 w-px bg-gradient-to-b from-transparent via-[rgba(213,178,119,0.28)] to-transparent"></div>
+        <div class="pointer-events-none absolute bottom-0 right-0 h-44 w-44 translate-y-1/3 translate-x-1/3 rounded-full bg-[radial-gradient(circle_at_center,rgba(213,178,119,0.28),rgba(213,178,119,0))] blur-3xl"></div>
 
-		<!-- Featured Categories -->
-		<div class="grid md:grid-cols-4 gap-4 py-6">
-			<div class="bg-accent/10 rounded-lg p-4 text-center">
-				<div class="text-2xl mb-2">🔧</div>
-				<h3 class="font-semibold text-accent">Index Bloat</h3>
-				<p class="text-xs text-gray-600 dark:text-gray-400">Crawl Budget Issues</p>
-			</div>
-			<div class="bg-accent/10 rounded-lg p-4 text-center">
-				<div class="text-2xl mb-2">⚡</div>
-				<h3 class="font-semibold text-accent">Core Web Vitals</h3>
-				<p class="text-xs text-gray-600 dark:text-gray-400">Performance Optimization</p>
-			</div>
-			<div class="bg-accent/10 rounded-lg p-4 text-center">
-				<div class="text-2xl mb-2">🌐</div>
-				<h3 class="font-semibold text-accent">Server Issues</h3>
-				<p class="text-xs text-gray-600 dark:text-gray-400">5xx Errors & Downtime</p>
-			</div>
-			<div class="bg-accent/10 rounded-lg p-4 text-center">
-				<div class="text-2xl mb-2">🔍</div>
-				<h3 class="font-semibold text-accent">Schema Markup</h3>
-				<p class="text-xs text-gray-600 dark:text-gray-400">Structured Data</p>
-			</div>
-		</div>
+        <div class="relative grid gap-10 lg:grid-cols-[1.1fr,0.9fr]">
+          <div class="space-y-6">
+            <div class="eyebrow">Insights</div>
+            <h1 class="text-5xl font-semibold leading-tight text-[var(--color-global-text)] sm:text-6xl">
+              Technical SEO perspectives built on real remediation work
+            </h1>
+            <p class="max-w-2xl text-base leading-relaxed text-[var(--color-muted)]">
+              Articles capture the experiments, diagnostics, and cross-functional playbooks used to stabilise enterprise search performance. Expect depth on crawl management, infrastructure, and governance rather than recycled tactics.
+            </p>
+          </div>
 
-		<!-- Blog Posts List -->
-		{sortedPosts.length > 0 ? (
-			<div class="space-y-8">
-				<h2 class="text-2xl font-semibold">Latest Articles</h2>
-				<div class="grid gap-8">
-					{sortedPosts.map((post, index) => (
-						<article class="group">
-							<div class="bg-white dark:bg-gray-800 rounded-lg border hover:border-accent/50 transition-all duration-300 overflow-hidden">
-								<div class="p-6 space-y-4">
-									<!-- Post Header -->
-									<div class="flex items-start justify-between gap-4">
-										<div class="flex-1 space-y-2">
-											<div class="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
-												<time datetime={post.data.publishDate.toISOString()}>
-													{post.data.publishDate.toLocaleDateString('en-US', {
-														year: 'numeric',
-														month: 'long',
-														day: 'numeric'
-													})}
-												</time>
-												{post.data.tags && post.data.tags.length > 0 && (
-													<>
-														<span>•</span>
-														<div class="flex gap-2">
-															{post.data.tags.slice(0, 2).map((tag) => (
-																<span class="bg-accent/20 text-accent px-2 py-1 rounded text-xs font-medium">
-																	{tag}
-																</span>
-															))}
-														</div>
-													</>
-												)}
-											</div>
-											<h2 class="text-xl font-semibold group-hover:text-accent transition-colors">
-												<a href={`/posts/${post.slug}/`} class="block">
-													{post.data.title}
-												</a>
-											</h2>
-										</div>
-										{index === 0 && (
-											<div class="bg-accent text-white text-xs px-2 py-1 rounded font-medium">
-												Latest
-											</div>
-										)}
-									</div>
+          <div class="space-y-6 rounded-[28px] border border-[var(--color-border)] bg-[var(--color-surface-muted)] p-8 text-sm text-[var(--color-muted)] shadow-[0_36px_70px_-54px_rgba(24,15,7,0.6)] backdrop-blur">
+            <div class="grid gap-4 sm:grid-cols-2">
+              {[
+                {
+                  title: "Index Bloat",
+                  caption: "Crawl budget discipline",
+                },
+                {
+                  title: "Core Web Vitals",
+                  caption: "Performance strategy",
+                },
+                {
+                  title: "Server Stability",
+                  caption: "Log-led diagnostics",
+                },
+                {
+                  title: "Structured Data",
+                  caption: "Governance at scale",
+                },
+              ].map((item) => (
+                <div class="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-4 text-center">
+                  <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-muted)]">{item.title}</p>
+                  <p class="mt-2 text-[var(--color-global-text)]">{item.caption}</p>
+                </div>
+              ))}
+            </div>
+            <p class="text-xs uppercase tracking-[0.32em] text-[var(--color-muted)]">
+              200+ client engagements distilled into field notes
+            </p>
+          </div>
+        </div>
+      </div>
 
-									<!-- Post Content -->
-									<div class="space-y-3">
-										<p class="text-gray-600 dark:text-gray-300 leading-relaxed">
-											{post.data.description}
-										</p>
-										
-										<div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
-											<span>~5 min read</span>
-											<a 
-												href={`/posts/${post.slug}/`}
-												class="text-accent hover:text-accent/80 font-medium flex items-center gap-1 group"
-											>
-												Read more 
-												<svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-													<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-												</svg>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</article>
-					))}
-				</div>
-			</div>
-		) : (
-			<!-- Simple message when no posts exist -->
-			<div class="text-center py-12">
-				<p class="text-gray-600 dark:text-gray-400">
-					More technical SEO articles coming soon.
-				</p>
-			</div>
-		)}
+      {sortedPosts.length > 0 ? (
+        <div class="space-y-8">
+          <h2 class="text-2xl font-semibold text-[var(--color-global-text)]">Latest articles</h2>
+          <div class="grid gap-8">
+            {sortedPosts.map((post, index) => (
+              <article class="group relative overflow-hidden rounded-[28px] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[0_34px_75px_-60px_rgba(28,18,9,0.55)] transition-transform duration-300 hover:-translate-y-1">
+                <div class="pointer-events-none absolute -top-8 right-12 h-28 w-28 rounded-full bg-[radial-gradient(circle_at_center,rgba(213,178,119,0.2),rgba(213,178,119,0))] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div class="relative grid gap-8 px-10 py-8 lg:grid-cols-[0.85fr,1.15fr]">
+                  <div class="space-y-4 text-sm text-[var(--color-muted)]">
+                    <div class="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.32em]">
+                      <time datetime={post.data.publishDate.toISOString()} class="text-[var(--color-muted)]">
+                        {post.data.publishDate.toLocaleDateString("en-US", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })}
+                      </time>
+                      {post.data.tags && post.data.tags.length > 0 && (
+                        <div class="flex flex-wrap gap-2">
+                          {post.data.tags.slice(0, 2).map((tag) => (
+                            <span class="rounded-full border border-[var(--color-border)] bg-[var(--color-surface-muted)] px-3 py-1 text-[11px] uppercase tracking-[0.32em] text-[var(--color-muted)]">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                      {index === 0 && (
+                        <span class="rounded-full border border-[var(--color-border)] bg-[var(--color-surface-muted)] px-3 py-1 text-[11px] uppercase tracking-[0.32em] text-[var(--color-global-text)]">
+                          Latest
+                        </span>
+                      )}
+                    </div>
+                    <h2 class="text-2xl font-semibold text-[var(--color-global-text)] group-hover:text-[var(--color-accent)] transition-colors">
+                      <a href={`/posts/${post.slug}/`} class="block">
+                        {post.data.title}
+                      </a>
+                    </h2>
+                    <p class="text-base leading-relaxed text-[var(--color-muted)]">
+                      {post.data.description}
+                    </p>
+                  </div>
+                  <div class="flex flex-col justify-between gap-6">
+                    <div class="rounded-[24px] border border-[var(--color-border)] bg-[var(--color-surface-muted)] px-8 py-6 text-sm text-[var(--color-muted)]">
+                      <p class="text-xs uppercase tracking-[0.32em] text-[var(--color-muted)]">Read time</p>
+                      <p class="mt-2 text-[var(--color-global-text)]">~5 minutes</p>
+                    </div>
+                    <div class="flex items-center justify-between text-sm text-[var(--color-muted)]">
+                      <span>Search Repair Lab Journal</span>
+                      <a
+                        href={`/posts/${post.slug}/`}
+                        class="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] px-4 py-2 text-[11px] uppercase tracking-[0.32em] text-[var(--color-global-text)] transition hover:bg-[var(--color-accent-soft)]"
+                      >
+                        Read article
+                        <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 6l6 6-6 6"></path>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div class="rounded-[28px] border border-[var(--color-border)] bg-[var(--color-surface)] px-10 py-12 text-center text-[var(--color-muted)]">
+          More technical SEO articles coming soon.
+        </div>
+      )}
 
-		<!-- Newsletter/Contact Section -->
-		<div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-8 text-center space-y-4">
-			<h3 class="text-xl font-semibold">Need Technical SEO Help?</h3>
-			<p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-				If you're dealing with complex indexation issues, Index Bloat, or server problems, 
-				I'm here to help with expert technical SEO consulting.
-			</p>
-			<a 
-				href="/contact/" 
-				class="bg-accent text-white px-8 py-3 rounded-lg font-semibold hover:bg-accent/90 transition-colors inline-block"
-			>
-				Get Your Technical SEO Audit
-			</a>
-		</div>
-	</section>
+      <div class="relative overflow-hidden rounded-[30px] border border-[var(--color-border)] bg-[var(--color-surface-muted)] px-10 py-12 text-center shadow-[0_40px_90px_-60px_rgba(20,12,6,0.55)] backdrop-blur">
+        <div class="pointer-events-none absolute inset-x-16 -top-12 h-32 bg-[radial-gradient(circle_at_center,rgba(213,178,119,0.22),rgba(213,178,119,0))] blur-2xl"></div>
+        <h3 class="text-3xl font-semibold text-[var(--color-global-text)]">Need a technical escalation partner?</h3>
+        <p class="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-[var(--color-muted)]">
+          If indexation debt, server instability, or schema regressions are holding back growth, let's architect an evidence-led recovery program.
+        </p>
+        <a
+          href="/contact/"
+          class="btn btn-primary mt-8 inline-flex"
+        >
+          Start an audit conversation
+        </a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>

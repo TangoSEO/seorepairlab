@@ -2,148 +2,165 @@
 import PageLayout from "@/layouts/Base.astro";
 
 const meta = {
-	title: "About Jessica Schmukler - Technical SEO Expert",
-	description:
-		"Jessica Schmukler is a Technical SEO Consultant with 10+ years of experience solving complex Google indexation issues for 200+ clients across US & Canada.",
+  title: "About Jessica Schmukler - Technical SEO Expert",
+  description:
+    "Jessica Schmukler is a Technical SEO Consultant with 10+ years of experience solving complex Google indexation issues for 200+ clients across US & Canada.",
 };
 
 // Person Schema for Google
 const personSchema = {
-	"@context": "https://schema.org",
-	"@type": "Person",
-	name: "Jessica Schmukler",
-	jobTitle: "Technical SEO Consultant",
-	description:
-		"Expert Technical SEO Consultant specializing in Google indexation issues, Index Bloat solutions, and server optimization",
-	url: "https://seorepairlab.com",
-	sameAs: ["https://www.linkedin.com/in/technicalseo/"],
-	worksFor: {
-		"@type": "Organization",
-		name: "SEO Repair Lab",
-	},
-	knowsAbout: [
-		"Technical SEO",
-		"Google Indexation",
-		"Index Bloat",
-		"Crawl Budget Optimization",
-		"Schema Markup",
-		"Core Web Vitals",
-		"Site Architecture",
-		"Server Optimization",
-	],
-	alumniOf: "Universidad de Buenos Aires",
-	address: {
-		"@type": "PostalAddress",
-		addressCountry: "AR",
-		addressRegion: "Buenos Aires",
-	},
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Jessica Schmukler",
+  jobTitle: "Technical SEO Consultant",
+  description:
+    "Expert Technical SEO Consultant specializing in Google indexation issues, Index Bloat solutions, and server optimization",
+  url: "https://seorepairlab.com",
+  sameAs: ["https://www.linkedin.com/in/technicalseo/"],
+  worksFor: {
+    "@type": "Organization",
+    name: "SEO Repair Lab",
+  },
+  knowsAbout: [
+    "Technical SEO",
+    "Google Indexation",
+    "Index Bloat",
+    "Crawl Budget Optimization",
+    "Schema Markup",
+    "Core Web Vitals",
+    "Site Architecture",
+    "Server Optimization",
+  ],
+  alumniOf: "Universidad de Buenos Aires",
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "AR",
+    addressRegion: "Buenos Aires",
+  },
 };
 ---
 
 <PageLayout meta={meta}>
-	<!-- Person Schema JSON-LD -->
-	<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 
-	<section class="section">
-		<!-- Header -->
-		<div class="space-y-4">
-			<div class="eyebrow">About</div>
-			<h1 class="title text-gradient text-4xl">About Jessica Schmukler</h1>
-			<div class="flex flex-wrap gap-2 pt-2">
-				<span class="badge">Remote-first</span>
-				<span class="badge">US & Canada</span>
-				<span class="badge">200+ Clients</span>
-			</div>
-			<p class="text-xl text-gray-600 dark:text-gray-300">
-				Technical SEO Consultant specializing in <span class="text-accent font-semibold"
-					>complex indexation problems</span
-				>
-				that traditional SEO consultants can't solve.
-			</p>
-		</div>
+  <section class="section">
+    <div class="space-y-16">
+      <div class="relative overflow-hidden rounded-[36px] border border-[var(--color-border)] bg-[var(--color-surface)] px-10 py-14 shadow-[0_50px_110px_-70px_rgba(32,20,8,0.7)] sm:px-14">
+        <div class="pointer-events-none absolute -top-10 left-14 h-36 w-px bg-gradient-to-b from-transparent via-[rgba(213,178,119,0.28)] to-transparent"></div>
+        <div class="pointer-events-none absolute -bottom-20 right-24 h-64 w-64 rounded-full bg-[radial-gradient(circle_at_center,rgba(213,178,119,0.2),rgba(213,178,119,0))] blur-2xl"></div>
+        <div class="pointer-events-none absolute -left-24 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(40,33,27,0.5),rgba(40,33,27,0))] blur-3xl"></div>
 
-		<!-- Main Bio -->
-		<div class="prose prose-lg max-w-none">
-			<p>
-				I'm Jessica Schmukler, a <strong>Technical SEO Consultant</strong> based in Argentina, serving
-				clients across the United States and Canada remotely. For over <span
-					class="text-accent font-semibold">10 years</span
-				>, I've specialized exclusively in the technical aspects of SEO that most consultants
-				avoid—the complex, behind-the-scenes issues that prevent websites from ranking.
-			</p>
+        <div class="relative grid gap-12 lg:grid-cols-[1.1fr,0.9fr]">
+          <div class="space-y-6">
+            <div class="flex flex-wrap items-center gap-3">
+              <div class="eyebrow">About</div>
+              <div class="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-surface-muted)] px-4 py-1 text-[11px] uppercase tracking-[0.34em] text-[var(--color-muted)]">
+                Remote / North America
+              </div>
+            </div>
+            <h1 class="text-5xl font-semibold leading-tight text-[var(--color-global-text)] sm:text-6xl">
+              Precision-led technical SEO delivered by Jessica Schmukler
+            </h1>
+            <p class="max-w-2xl text-base leading-relaxed text-[var(--color-muted)]">
+              I engineer bespoke remediation programs for teams who cannot afford another generic SEO playbook. Every engagement blends disciplined diagnostics, collaborative implementation, and meticulous validation across complex infrastructures.
+            </p>
+            <div class="flex flex-wrap gap-2 pt-2 text-[11px] uppercase tracking-[0.32em] text-[var(--color-muted)]">
+              <span class="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-1">200+ engagements</span>
+              <span class="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-1">10+ years</span>
+              <span class="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-1">Full technical focus</span>
+            </div>
+          </div>
 
-			<p>
-				My expertise lies in diagnosing and fixing <strong>Google indexation problems</strong>,
-				<strong>Index Bloat issues</strong>, server-level SEO problems, and site architecture
-				optimization. I've successfully completed technical audits and implementations for
-				<span class="text-accent font-semibold">over 200 clients</span>, focusing on measurable
-				improvements in crawl efficiency and search visibility.
-			</p>
-		</div>
+          <div class="relative flex flex-col gap-6 rounded-[28px] border border-[var(--color-border)] bg-[var(--color-surface-muted)] p-8 text-sm text-[var(--color-muted)] shadow-[0_32px_70px_-50px_rgba(24,15,7,0.6)] backdrop-blur">
+            <div class="text-[11px] uppercase tracking-[0.32em] text-[var(--color-muted)]">Operating Model</div>
+            <div class="space-y-4">
+              <div class="relative rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-4">
+                <span class="text-xs font-semibold uppercase tracking-[0.32em] text-[var(--color-muted)]">Core Partner Fit</span>
+                <p class="mt-3 leading-relaxed">Scale-ups and enterprises with stalled indexation, unstable crawl signals, or debt-heavy architecture seeking accountable technical leadership.</p>
+              </div>
+              <div class="relative rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-4">
+                <span class="text-xs font-semibold uppercase tracking-[0.32em] text-[var(--color-muted)]">Delivery Rhythm</span>
+                <p class="mt-3 leading-relaxed">Audit-led sprints, cross-functional implementation, and analytics-backed validation to prove recovery and prevent regression.</p>
+              </div>
+            </div>
+            <div class="pointer-events-none absolute inset-x-10 -bottom-6 h-24 bg-[radial-gradient(circle_at_center,rgba(40,28,18,0.35),rgba(40,28,18,0))] blur-xl"></div>
+          </div>
+        </div>
+      </div>
 
-		<!-- Expertise Areas -->
-		<div class="space-y-6">
-			<h2 class="text-2xl font-semibold">Technical Specializations</h2>
-			<div class="grid gap-6 md:grid-cols-2">
-				<div class="space-y-3">
-					<h3 class="text-accent text-lg font-medium">Core Technical Issues</h3>
-					<ul class="space-y-1 text-gray-700 dark:text-gray-300">
-						<li>• Google indexation and crawl budget optimization</li>
-						<li>• Index Bloat diagnosis and remediation</li>
-						<li>• Server performance and 5xx error resolution</li>
-						<li>• Site architecture and internal linking optimization</li>
-					</ul>
-				</div>
-				<div class="space-y-3">
-					<h3 class="text-accent text-lg font-medium">Advanced Implementation</h3>
-					<ul class="space-y-1 text-gray-700 dark:text-gray-300">
-						<li>• Schema markup implementation and debugging</li>
-						<li>• Core Web Vitals optimization</li>
-						<li>• International SEO (hreflang) configuration</li>
-						<li>• Technical SEO monitoring and validation</li>
-					</ul>
-				</div>
-			</div>
-		</div>
+      <div class="grid gap-8 lg:grid-cols-[1.05fr,0.95fr]">
+        <div class="space-y-6 rounded-[30px] border border-[var(--color-border)] bg-[var(--color-surface)] p-10 shadow-[0_36px_70px_-60px_rgba(26,16,6,0.55)]">
+          <h2 class="text-2xl font-semibold text-[var(--color-global-text)]">Practitioner depth rooted in complex systems</h2>
+          <div class="space-y-4 text-base leading-relaxed text-[var(--color-muted)]">
+            <p>
+              From remote hubs in Buenos Aires I collaborate with engineering, product, and growth leaders across North America. My work begins where surface-level audits stop -- examining server behaviour, deployment patterns, and log data to expose failure points.
+            </p>
+            <p>
+              More than a decade embedded in technical SEO has shaped a methodology that privileges accuracy over speed. I translate findings into developer-ready requirements, align stakeholders, and stay present through validation so improvements withstand future releases.
+            </p>
+          </div>
+        </div>
 
-		<!-- Background -->
-		<div class="space-y-4 rounded-lg bg-gray-50 p-6 dark:bg-gray-800">
-			<h3 class="text-xl font-semibold">Why I Focus Exclusively on Technical SEO</h3>
-			<p class="text-gray-700 dark:text-gray-300">
-				After years working on all aspects of SEO, I realized that <strong
-					>technical problems are the biggest barrier</strong
-				> to search success. Content optimization means nothing if Google can't properly crawl and index
-				your website.
-			</p>
-			<p class="text-gray-700 dark:text-gray-300">
-				I decided to specialize 100% in technical SEO because it requires deep expertise, systematic
-				problem-solving, and the ability to work directly with development teams. This focus allows
-				me to deliver more impactful results for my clients across North America.
-			</p>
-		</div>
+        <div class="space-y-6 rounded-[30px] border border-[var(--color-border)] bg-[var(--color-surface)] p-10 shadow-[0_36px_70px_-60px_rgba(26,16,6,0.55)]">
+          <h2 class="text-2xl font-semibold text-[var(--color-global-text)]">Technical specialisms that anchor every engagement</h2>
+          <div class="grid gap-6 sm:grid-cols-2">
+            <div class="space-y-3">
+              <h3 class="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-muted)]">Core Failures</h3>
+              <ul class="space-y-3 text-sm leading-relaxed text-[var(--color-muted)]">
+                <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-[var(--color-accent)]">
+                  Crawl waste and index bloat suppression plans.
+                </li>
+                <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-[var(--color-accent)]">
+                  Rendering parity and discoverability for revenue-critical templates.
+                </li>
+                <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-[var(--color-accent)]">
+                  Server health triage covering 5xx, throttling, and cache policy.
+                </li>
+              </ul>
+            </div>
+            <div class="space-y-3">
+              <h3 class="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-muted)]">Advanced Implementation</h3>
+              <ul class="space-y-3 text-sm leading-relaxed text-[var(--color-muted)]">
+                <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-[var(--color-accent)]">
+                  Structured data governance and automation safeguards.
+                </li>
+                <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-[var(--color-accent)]">
+                  Core Web Vitals tuning tied to commercial KPIs.
+                </li>
+                <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-[var(--color-accent)]">
+                  Global hreflang orchestration, canonical strategy, and change monitoring.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
 
-		<!-- Professional Approach -->
-		<div class="space-y-4">
-			<h3 class="text-xl font-semibold">Working with International Clients</h3>
-			<p class="text-gray-700 dark:text-gray-300">
-				Based in Argentina, I work remotely with businesses across the United States and Canada.
-				This allows me to provide <span class="text-accent font-semibold"
-					>cost-effective, high-quality technical SEO services</span
-				>
-				while maintaining clear communication and detailed documentation of all technical implementations.
-			</p>
-			<p class="text-gray-700 dark:text-gray-300">
-				My clients appreciate the systematic approach I bring to technical SEO challenges, along
-				with comprehensive reporting and ongoing monitoring to ensure long-term success.
-			</p>
-		</div>
+      <div class="relative overflow-hidden rounded-[32px] border border-[var(--color-border)] bg-[var(--color-surface-muted)] px-10 py-12 shadow-[0_44px_90px_-60px_rgba(20,12,5,0.6)] backdrop-blur">
+        <div class="pointer-events-none absolute inset-x-12 -top-10 h-32 bg-[radial-gradient(circle_at_center,rgba(213,178,119,0.22),rgba(213,178,119,0))] blur-2xl"></div>
+        <div class="space-y-5 text-base leading-relaxed text-[var(--color-muted)]">
+          <h3 class="text-2xl font-semibold text-[var(--color-global-text)]">Why technical exclusivity matters</h3>
+          <p>
+            Content momentum collapses when foundations fracture. By focusing exclusively on the technical layer I resolve the core blockers that prevent Google from rewarding best-in-class product and editorial investments. My role is to protect that investment through disciplined engineering collaboration.
+          </p>
+          <p>
+            Engagements blend asynchronous documentation with decisive live working sessions, keeping stakeholders aligned while progress accelerates. The result: measurable recovery, sustainable governance, and a stronger partnership between growth and engineering.
+          </p>
+        </div>
+      </div>
 
-		<hr class="divider" />
-
-		<!-- CTA -->
-		<div class="pt-6 text-center">
-			<h3 class="mb-4 text-2xl font-semibold">Ready to Solve Your Technical SEO Issues?</h3>
-			<a href="/contact/" class="btn btn-primary">Schedule a Technical Consultation</a>
-		</div>
-	</section>
+      <div class="rounded-[30px] border border-[var(--color-border)] bg-[var(--color-surface)] px-8 py-10 text-center shadow-[0_40px_84px_-60px_rgba(20,12,6,0.52)]">
+        <h3 class="text-3xl font-semibold text-[var(--color-global-text)]">Ready to stabilise your technical search performance?</h3>
+        <p class="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-[var(--color-muted)]">
+          Share your crawling, rendering, or infrastructure pain points and I will map the precise technical program required to resolve them.
+        </p>
+        <div class="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+          <a href="/contact/" class="btn btn-primary">Schedule a technical consultation</a>
+          <a href="/services/" class="btn btn-ghost">View core services</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </PageLayout>
+
+

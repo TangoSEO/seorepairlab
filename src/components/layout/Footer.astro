@@ -4,24 +4,21 @@ import { menuLinks, siteConfig } from "@/site.config";
 const year = new Date().getFullYear();
 ---
 
-<footer
-	class="mt-auto flex w-full flex-col items-center justify-center gap-y-2 border-t border-black/5 pt-10 pb-8 text-center align-top text-gray-600 sm:flex-row sm:justify-between sm:text-xs dark:border-white/10 dark:text-gray-400"
->
-	<div class="me-0 sm:me-4">
-		&copy; {siteConfig.author} {year}<span class="inline-block">&nbsp;&middot;&nbsp;{siteConfig.title}</span>
-	</div>
-	<nav
-		aria-labelledby="footer_links"
-		class="flex gap-x-2 sm:gap-x-0 sm:divide-x sm:divide-gray-500"
-	>
-		<p id="footer_links" class="sr-only">More on this site</p>
-		{
-			menuLinks.map((link) => (
-				<a class="hover:text-global-text px-4 py-2 hover:underline sm:py-0" href={link.path}>
-					{link.title}
-				</a>
-			))
-		}
-	</nav>
+<footer class="mt-auto w-full border-t border-[var(--color-border)] pt-12">
+  <div class="flex flex-col items-start justify-between gap-8 text-xs uppercase tracking-[0.35em] text-[var(--color-muted)] sm:flex-row sm:items-center">
+    <div class="space-y-2">
+      <p class="text-[11px]">{siteConfig.title}</p>
+      <p class="text-[11px]">&copy; {year} {siteConfig.author}</p>
+    </div>
+    <nav aria-labelledby="footer_links" class="flex flex-wrap gap-4">
+      <p id="footer_links" class="sr-only">More on this site</p>
+      {
+        menuLinks.map((link) => (
+          <a class="transition hover:text-[var(--color-global-text)]" href={link.path}>
+            {link.title}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
 </footer>
-

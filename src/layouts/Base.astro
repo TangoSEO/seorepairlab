@@ -9,29 +9,29 @@ import { siteConfig } from "@/site.config";
 import type { SiteMeta } from "@/types";
 
 interface Props {
-	meta: SiteMeta;
+  meta: SiteMeta;
 }
 
 const {
-	meta: { articleDate, description = siteConfig.description, ogImage, title },
+  meta: { articleDate, description = siteConfig.description, ogImage, title },
 } = Astro.props;
 ---
 
 <html class="scroll-smooth" lang={siteConfig.lang}>
-	<head>
-		<BaseHead articleDate={articleDate} description={description} ogImage={ogImage} title={title} />
-	</head>
-    <body
-        class="bg-global-bg text-global-text mx-auto flex min-h-screen max-w-4xl flex-col px-5 pt-12 font-sans text-base antialiased sm:px-8"
-    >
-		<ThemeProvider />
-		<SkipLink />
-		<Header />
-		<main id="main">
-			<slot />
-		</main>
-		<Footer />
-		<!-- WhatsApp Float Button -->
-		<WhatsAppFloat />
-	</body>
+  <head>
+    <BaseHead articleDate={articleDate} description={description} ogImage={ogImage} title={title} />
+  </head>
+  <body
+    class="bg-global-bg text-global-text relative mx-auto flex min-h-screen max-w-6xl flex-col px-6 pt-14 pb-16 text-base antialiased sm:px-10 lg:px-16"
+  >
+    <ThemeProvider />
+    <SkipLink />
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    {/* WhatsApp Float Button */}
+    <WhatsAppFloat />
+  </body>
 </html>

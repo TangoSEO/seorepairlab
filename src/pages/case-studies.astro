@@ -2,356 +2,264 @@
 import PageLayout from "@/layouts/Base.astro";
 
 const meta = {
-	title: "Technical SEO Case Studies - Real Client Results",
-	description:
-		"See how Jessica Schmukler solved complex technical SEO issues for law firms, logistics companies, Shopify stores, and more. Anonymous case studies with real results.",
+  title: "Technical SEO Case Studies - Real Client Results",
+  description:
+    "See how Jessica Schmukler solved complex technical SEO issues for law firms, logistics companies, Shopify stores, and more. Anonymous case studies with real results.",
 };
 
-// Case studies schema
 const caseStudiesSchema = {
-	"@context": "https://schema.org",
-	"@type": "CollectionPage",
-	name: "Technical SEO Case Studies",
-	description: "Real-world technical SEO solutions and results from 200+ client projects",
-	about: {
-		"@type": "Service",
-		name: "Technical SEO Consulting",
-		provider: {
-			"@type": "Person",
-			name: "Jessica Schmukler",
-		},
-	},
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Technical SEO Case Studies",
+  description: "Real-world technical SEO solutions and results from 200+ client projects",
+  about: {
+    "@type": "Service",
+    name: "Technical SEO Consulting",
+    provider: {
+      "@type": "Person",
+      name: "Jessica Schmukler",
+    },
+  },
 };
+
+const caseStudies = [
+  {
+    id: "01",
+    name: "Mid-size personal injury law firm",
+    location: "California, USA",
+    metric: { value: "+340%", label: "Organic traffic" },
+    problems: [
+      { label: "Index bloat", detail: "12,000+ low-quality pages indexed" },
+      { label: "Duplicate content", detail: "Multiple URLs for the same practice areas" },
+      { label: "Crawl budget waste", detail: "75% of crawl budget spent on low-value pages" },
+      { label: "Site speed", detail: "8.2 second average load time" },
+    ],
+    solutions: [
+      "De-indexed 9,500+ low-value pages using strategic noindex directives",
+      "Implemented canonical URLs to consolidate overlapping practice areas",
+      "Optimized server response times, reducing average load to 3.2 seconds",
+      "Fixed 247 technical issues blocking Googlebot from key templates",
+    ],
+    stats: [
+      { value: "6 months", label: "Project timeline" },
+      { value: "2,500", label: "Quality pages indexed" },
+      { value: "85%", label: "Crawl budget efficiency" },
+    ],
+  },
+  {
+    id: "02",
+    name: "International logistics company",
+    location: "Toronto, Canada",
+    metric: { value: "+180%", label: "Indexed pages" },
+    problems: [
+      { label: "Server errors", detail: "500+ 5xx errors recorded daily" },
+      { label: "Internationalization", detail: "Broken hreflang across eight markets" },
+      { label: "Large scale site", detail: "50,000+ pages with weak architecture" },
+      { label: "Tracking chaos", detail: "Parameter-based URLs creating duplicates" },
+    ],
+    solutions: [
+      "Fixed server configuration and caching to cut 5xx errors by 95%",
+      "Rebuilt hreflang structure covering eight countries and languages",
+      "Configured URL parameter handling within Google Search Console",
+      "Designed a logical architectural framework with strengthened internal linking",
+    ],
+    stats: [
+      { value: "4 months", label: "Project timeline" },
+      { value: "32,000", label: "Pages successfully indexed" },
+      { value: "8", label: "Countries optimised" },
+    ],
+  },
+  {
+    id: "03",
+    name: "Shopify auto parts e-commerce",
+    location: "Texas, USA",
+    metric: { value: "+275%", label: "Product visibility" },
+    problems: [
+      { label: "Shopify limitations", detail: "Duplicate content issues baked into templates" },
+      { label: "Product schema", detail: "Broken structured data for 15,000+ products" },
+      { label: "Collections mess", detail: "Infinite pagination confusing Google" },
+      { label: "Core Web Vitals", detail: "Poor performance on mobile" },
+    ],
+    solutions: [
+      "Applied strategic canonical rules to collections and filters",
+      "Fixed Product schema markup across the entire catalogue",
+      "Optimised the Shopify theme for faster, leaner Core Web Vitals",
+      "Implemented proper pagination with rel=\"next\" and rel=\"prev\" attributes",
+    ],
+    stats: [
+      { value: "3 months", label: "Project timeline" },
+      { value: "15,000+", label: "Products optimised" },
+      { value: "45%", label: "Core Web Vitals improvement" },
+    ],
+  },
+  {
+    id: "04",
+    name: "Digital marketing agency",
+    location: "New York, USA",
+    metric: { value: "+520%", label: "Blog indexation" },
+    problems: [
+      { label: "Content not indexing", detail: "70% of new blog posts ignored by Google" },
+      { label: "WordPress issues", detail: "Plugin conflicts producing 404 errors" },
+      { label: "Sitemap problems", detail: "XML sitemap shipping broken URLs" },
+      { label: "Internal linking", detail: "Orphaned pages with zero internal references" },
+    ],
+    solutions: [
+      "Cleaned XML sitemaps and removed all error URLs",
+      "Fixed WordPress permalink structure and conflicting plugins",
+      "Implemented strategic internal linking architecture across hubs and posts",
+      "Set up focused robots.txt and crawl rules to keep the index lean",
+    ],
+    stats: [
+      { value: "2 months", label: "Project timeline" },
+      { value: "400+", label: "Blog posts indexed" },
+      { value: "95%", label: "New content indexation" },
+    ],
+  },
+  {
+    id: "05",
+    name: "Medical equipment leasing company",
+    location: "Florida, USA",
+    metric: { value: "+190%", label: "Local visibility" },
+    problems: [
+      { label: "Local SEO issues", detail: "Multiple location pages with thin content" },
+      { label: "Schema problems", detail: "Missing LocalBusiness markup" },
+      { label: "Mobile issues", detail: "Mobile experience hurting rankings" },
+      { label: "Security problems", detail: "Mixed content warnings from HTTP resources" },
+    ],
+    solutions: [
+      "Consolidated location pages with substantial unique content",
+      "Implemented comprehensive LocalBusiness schema",
+      "Fixed mobile usability and Core Web Vitals issues",
+      "Resolved HTTPS mixed content warnings across the site",
+    ],
+    stats: [
+      { value: "3 months", label: "Project timeline" },
+      { value: "12", label: "Locations optimised" },
+      { value: "100%", label: "HTTPS compliance" },
+    ],
+  },
+];
 ---
 
 <PageLayout meta={meta}>
-	<!-- Case Studies Schema JSON-LD -->
-	<script type="application/ld+json" set:html={JSON.stringify(caseStudiesSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(caseStudiesSchema)} />
 
-	<section class="section">
-		<!-- Header -->
-		<div class="space-y-4">
-			<div class="eyebrow">Results</div>
-			<h1 class="title text-gradient text-4xl">Technical SEO Case Studies</h1>
-			<p class="max-w-3xl text-xl text-gray-600 dark:text-gray-300">
-				Real results from complex technical SEO challenges. Client names anonymized due to <span
-					class="text-accent font-semibold">NDAs</span
-				>, but problems and solutions are 100% authentic.
-			</p>
-		</div>
-		<hr class="divider" />
+  <section class="section">
+    <div class="space-y-16">
+      <div class="relative overflow-hidden rounded-[36px] border border-[var(--color-border)] bg-[var(--color-surface)] px-10 py-14 shadow-[0_50px_120px_-72px_rgba(32,20,8,0.7)] sm:px-14">
+        <div class="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-[radial-gradient(circle_at_center,rgba(40,33,27,0.5),rgba(40,33,27,0))] blur-3xl"></div>
+        <div class="pointer-events-none absolute -right-20 bottom-4 h-72 w-72 rounded-full bg-[radial-gradient(circle_at_center,rgba(213,178,119,0.24),rgba(213,178,119,0))] blur-3xl"></div>
+        <div class="pointer-events-none absolute inset-x-20 -top-10 h-20 bg-[radial-gradient(circle_at_center,rgba(213,178,119,0.24),rgba(213,178,119,0))] blur-2xl"></div>
 
-		<!-- Case Study 1: Law Firm -->
-		<div class="space-y-6 rounded-lg border bg-white p-8 dark:bg-gray-800">
-			<div class="flex items-start justify-between">
-				<div>
-					<h2 class="text-accent text-2xl font-semibold">Case Study #1</h2>
-					<p class="text-lg font-medium text-gray-700 dark:text-gray-300">
-						Mid-Size Personal Injury Law Firm
-					</p>
-					<p class="text-sm text-gray-500">Location: California, USA</p>
-				</div>
-				<div class="text-right">
-					<div class="text-2xl font-bold text-green-600">+340%</div>
-					<div class="text-sm text-gray-500">Organic Traffic</div>
-				</div>
-			</div>
+        <div class="relative grid gap-10 lg:grid-cols-[1.15fr,0.85fr]">
+          <div class="space-y-6">
+            <div class="eyebrow">Results Portfolio</div>
+            <h1 class="text-5xl font-semibold leading-tight text-[var(--color-global-text)] sm:text-6xl">
+              Proven technical SEO interventions
+            </h1>
+            <p class="max-w-2xl text-base leading-relaxed text-[var(--color-muted)]">
+              Client identities stay confidential. The failures, remediations, and performance outcomes below are real engagements that demonstrate the depth of technical problem solving.
+            </p>
+            <div class="flex flex-wrap gap-2 text-[11px] uppercase tracking-[0.3em] text-[var(--color-muted)]">
+              <span class="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-1">Crawl recovery</span>
+              <span class="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-1">Architecture rebuilds</span>
+              <span class="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-1">Performance hardening</span>
+            </div>
+          </div>
+          <div class="space-y-5 rounded-[28px] border border-[var(--color-border)] bg-[var(--color-surface-muted)] p-8 text-sm text-[var(--color-muted)] shadow-[0_34px_72px_-48px_rgba(24,15,7,0.55)] backdrop-blur">
+            <p class="text-xs uppercase tracking-[0.3em] text-[var(--color-muted)]">Inside each engagement</p>
+            <ul class="space-y-3">
+              <li class="relative pl-6 leading-relaxed before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-[var(--color-accent)]">Structured discovery using crawls, logs, and analytics diagnostics.</li>
+              <li class="relative pl-6 leading-relaxed before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-[var(--color-accent)]">Prioritised remediation mapped to engineering effort and revenue impact.</li>
+              <li class="relative pl-6 leading-relaxed before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-[var(--color-accent)]">Implementation partnership and validation to prevent regression.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
-			<div class="grid gap-6 md:grid-cols-2">
-				<div>
-					<h3 class="mb-3 font-semibold text-gray-900 dark:text-white">The Problem</h3>
-					<ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-						<li>• <strong>Index Bloat:</strong> 12,000+ low-quality pages indexed</li>
-						<li>• <strong>Duplicate Content:</strong> Multiple URLs for same practice areas</li>
-						<li>• <strong>Crawl Budget Waste:</strong> 75% budget on useless pages</li>
-						<li>• <strong>Site Speed:</strong> 8.2s average load time</li>
-					</ul>
-				</div>
-				<div>
-					<h3 class="mb-3 font-semibold text-gray-900 dark:text-white">The Solution</h3>
-					<ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-						<li>• De-indexed 9,500+ low-value pages using strategic noindex</li>
-						<li>• Implemented canonical URLs for practice area consolidation</li>
-						<li>• Optimized server response times (3.2s avg load time)</li>
-						<li>• Fixed 247 technical errors blocking Googlebot</li>
-					</ul>
-				</div>
-			</div>
+      {caseStudies.map((study) => (
+        <div class="relative overflow-hidden rounded-[32px] border border-[var(--color-border)] bg-[var(--color-surface)] px-10 py-12 shadow-[0_48px_110px_-70px_rgba(30,18,8,0.7)]">
+          <div class="pointer-events-none absolute -left-24 top-12 h-72 w-72 rounded-full bg-[radial-gradient(circle_at_center,rgba(40,33,27,0.45),rgba(40,33,27,0))] blur-3xl"></div>
+          <div class="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 translate-y-1/3 rounded-full bg-[radial-gradient(circle_at_center,rgba(213,178,119,0.24),rgba(213,178,119,0))] blur-3xl"></div>
 
-			<div class="rounded-lg bg-gray-50 p-4 dark:bg-gray-700">
-				<div class="grid grid-cols-3 gap-4 text-center">
-					<div>
-						<div class="text-accent text-lg font-bold">6 months</div>
-						<div class="text-xs text-gray-500">Project Timeline</div>
-					</div>
-					<div>
-						<div class="text-accent text-lg font-bold">2,500</div>
-						<div class="text-xs text-gray-500">Quality Pages Indexed</div>
-					</div>
-					<div>
-						<div class="text-accent text-lg font-bold">85%</div>
-						<div class="text-xs text-gray-500">Crawl Budget Efficiency</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<hr class="divider" />
+          <div class="relative space-y-10">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <div class="space-y-3">
+                <div class="inline-flex items-center gap-3">
+                  <div class="eyebrow">Case Study #{study.id}</div>
+                  <span class="rounded-full border border-[var(--color-border)] bg-[var(--color-surface-muted)] px-3 py-1 text-[11px] uppercase tracking-[0.3em] text-[var(--color-muted)]">
+                    {study.location}
+                  </span>
+                </div>
+                <h2 class="text-3xl font-semibold leading-tight text-[var(--color-global-text)] sm:text-4xl">
+                  {study.name}
+                </h2>
+              </div>
+              <div class="rounded-full border border-[var(--color-border)] bg-[var(--color-surface-muted)] px-6 py-4 text-center shadow-[0_24px_50px_-36px_rgba(26,16,6,0.55)]">
+                <p class="text-sm uppercase tracking-[0.32em] text-[var(--color-muted)]">{study.metric.label}</p>
+                <p class="text-2xl font-semibold text-[var(--color-global-text)]">{study.metric.value}</p>
+              </div>
+            </div>
 
-		<!-- Case Study 2: Logistics -->
-		<div class="space-y-6 rounded-lg border bg-white p-8 dark:bg-gray-800">
-			<div class="flex items-start justify-between">
-				<div>
-					<h2 class="text-accent text-2xl font-semibold">Case Study #2</h2>
-					<p class="text-lg font-medium text-gray-700 dark:text-gray-300">
-						International Logistics Company
-					</p>
-					<p class="text-sm text-gray-500">Location: Toronto, Canada</p>
-				</div>
-				<div class="text-right">
-					<div class="text-2xl font-bold text-green-600">+180%</div>
-					<div class="text-sm text-gray-500">Indexed Pages</div>
-				</div>
-			</div>
+            <div class="grid gap-8 md:grid-cols-2">
+              <div class="space-y-4">
+                <h3 class="text-lg font-semibold text-[var(--color-global-text)]">Failures diagnosed</h3>
+                <ul class="space-y-3 text-sm leading-relaxed text-[var(--color-muted)]">
+                  {study.problems.map((item) => (
+                    <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-[var(--color-accent)]">
+                      {item.label ? <strong>{item.label}:</strong> : null} {item.detail}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div class="space-y-4">
+                <h3 class="text-lg font-semibold text-[var(--color-global-text)]">Remediation</h3>
+                <ul class="space-y-3 text-sm leading-relaxed text-[var(--color-muted)]">
+                  {study.solutions.map((line) => (
+                    <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-[var(--color-accent)]">
+                      {line}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
 
-			<div class="grid gap-6 md:grid-cols-2">
-				<div>
-					<h3 class="mb-3 font-semibold text-gray-900 dark:text-white">The Problem</h3>
-					<ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-						<li>• <strong>Server Errors:</strong> 500+ 5xx errors daily</li>
-						<li>• <strong>Internationalization:</strong> Broken hreflang implementation</li>
-						<li>• <strong>Large Scale Site:</strong> 50,000+ pages, poor architecture</li>
-						<li>• <strong>Tracking Chaos:</strong> Parameter-based URLs creating duplicates</li>
-					</ul>
-				</div>
-				<div>
-					<h3 class="mb-3 font-semibold text-gray-900 dark:text-white">The Solution</h3>
-					<ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-						<li>• Fixed server configuration reducing 5xx errors by 95%</li>
-						<li>• Rebuilt hreflang structure for 8 countries/languages</li>
-						<li>• Implemented URL parameter handling in GSC</li>
-						<li>• Created logical site architecture with proper internal linking</li>
-					</ul>
-				</div>
-			</div>
+            <div class="rounded-[28px] border border-[var(--color-border)] bg-[var(--color-surface-muted)] px-6 py-6 shadow-[0_30px_70px_-54px_rgba(22,14,7,0.55)] backdrop-blur">
+              <div class="grid gap-4 sm:grid-cols-3">
+                {study.stats.map((stat) => (
+                  <div class="text-center">
+                    <p class="text-2xl font-semibold text-[var(--color-global-text)]">{stat.value}</p>
+                    <p class="text-xs uppercase tracking-[0.3em] text-[var(--color-muted)]">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
 
-			<div class="rounded-lg bg-gray-50 p-4 dark:bg-gray-700">
-				<div class="grid grid-cols-3 gap-4 text-center">
-					<div>
-						<div class="text-accent text-lg font-bold">4 months</div>
-						<div class="text-xs text-gray-500">Project Timeline</div>
-					</div>
-					<div>
-						<div class="text-accent text-lg font-bold">32,000</div>
-						<div class="text-xs text-gray-500">Pages Successfully Indexed</div>
-					</div>
-					<div>
-						<div class="text-accent text-lg font-bold">8</div>
-						<div class="text-xs text-gray-500">Countries Optimized</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<hr class="divider" />
+      <div class="rounded-[32px] border border-[var(--color-border)] bg-[var(--color-surface-muted)] px-10 py-10 text-sm text-[var(--color-muted)] shadow-[0_42px_90px_-60px_rgba(20,12,6,0.55)] backdrop-blur">
+        <h3 class="text-lg font-semibold text-[var(--color-global-text)]">Case study confidentiality</h3>
+        <p class="mt-3 leading-relaxed">
+          Every engagement shown reflects real technical programs delivered by Jessica Schmukler. Client identities are anonymised under NDAs, but the industries, blockers, and outcomes remain accurate so you can evaluate methodology and impact.
+        </p>
+      </div>
 
-		<!-- Case Study 3: Shopify Auto Parts -->
-		<div class="space-y-6 rounded-lg border bg-white p-8 dark:bg-gray-800">
-			<div class="flex items-start justify-between">
-				<div>
-					<h2 class="text-accent text-2xl font-semibold">Case Study #3</h2>
-					<p class="text-lg font-medium text-gray-700 dark:text-gray-300">
-						Shopify Auto Parts E-commerce
-					</p>
-					<p class="text-sm text-gray-500">Location: Texas, USA</p>
-				</div>
-				<div class="text-right">
-					<div class="text-2xl font-bold text-green-600">+275%</div>
-					<div class="text-sm text-gray-500">Product Visibility</div>
-				</div>
-			</div>
-
-			<div class="grid gap-6 md:grid-cols-2">
-				<div>
-					<h3 class="mb-3 font-semibold text-gray-900 dark:text-white">The Problem</h3>
-					<ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-						<li>• <strong>Shopify Limitations:</strong> Massive duplicate content issues</li>
-						<li>• <strong>Product Schema:</strong> Broken structured data for 15,000+ products</li>
-						<li>• <strong>Collections Mess:</strong> Infinite pagination confusing Google</li>
-						<li>• <strong>Core Web Vitals:</strong> Poor performance on mobile</li>
-					</ul>
-				</div>
-				<div>
-					<h3 class="mb-3 font-semibold text-gray-900 dark:text-white">The Solution</h3>
-					<ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-						<li>• Strategic canonical implementation for collections</li>
-						<li>• Fixed Product schema markup across entire catalog</li>
-						<li>• Optimized Shopify theme for better Core Web Vitals</li>
-						<li>• Implemented proper pagination with rel="next/prev"</li>
-					</ul>
-				</div>
-			</div>
-
-			<div class="rounded-lg bg-gray-50 p-4 dark:bg-gray-700">
-				<div class="grid grid-cols-3 gap-4 text-center">
-					<div>
-						<div class="text-accent text-lg font-bold">3 months</div>
-						<div class="text-xs text-gray-500">Project Timeline</div>
-					</div>
-					<div>
-						<div class="text-accent text-lg font-bold">15,000+</div>
-						<div class="text-xs text-gray-500">Products Optimized</div>
-					</div>
-					<div>
-						<div class="text-accent text-lg font-bold">45%</div>
-						<div class="text-xs text-gray-500">CWV Improvement</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Case Study 4: Digital Marketing Agency -->
-		<div class="space-y-6 rounded-lg border bg-white p-8 dark:bg-gray-800">
-			<div class="flex items-start justify-between">
-				<div>
-					<h2 class="text-accent text-2xl font-semibold">Case Study #4</h2>
-					<p class="text-lg font-medium text-gray-700 dark:text-gray-300">
-						Digital Marketing Agency
-					</p>
-					<p class="text-sm text-gray-500">Location: New York, USA</p>
-				</div>
-				<div class="text-right">
-					<div class="text-2xl font-bold text-green-600">+520%</div>
-					<div class="text-sm text-gray-500">Blog Indexation</div>
-				</div>
-			</div>
-
-			<div class="grid gap-6 md:grid-cols-2">
-				<div>
-					<h3 class="mb-3 font-semibold text-gray-900 dark:text-white">The Problem</h3>
-					<ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-						<li>
-							• <strong>Content Not Indexing:</strong> 70% of new blog posts ignored by Google
-						</li>
-						<li>• <strong>WordPress Issues:</strong> Plugin conflicts causing 404s</li>
-						<li>• <strong>Sitemap Problems:</strong> XML sitemap containing 404 pages</li>
-						<li>• <strong>Internal Linking:</strong> Orphaned pages with zero internal links</li>
-					</ul>
-				</div>
-				<div>
-					<h3 class="mb-3 font-semibold text-gray-900 dark:text-white">The Solution</h3>
-					<ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-						<li>• Cleaned XML sitemap removing all error pages</li>
-						<li>• Fixed WordPress permalink structure and plugin conflicts</li>
-						<li>• Implemented strategic internal linking architecture</li>
-						<li>• Set up proper robots.txt and crawl optimization</li>
-					</ul>
-				</div>
-			</div>
-
-			<div class="rounded-lg bg-gray-50 p-4 dark:bg-gray-700">
-				<div class="grid grid-cols-3 gap-4 text-center">
-					<div>
-						<div class="text-accent text-lg font-bold">2 months</div>
-						<div class="text-xs text-gray-500">Project Timeline</div>
-					</div>
-					<div>
-						<div class="text-accent text-lg font-bold">400+</div>
-						<div class="text-xs text-gray-500">Blog Posts Indexed</div>
-					</div>
-					<div>
-						<div class="text-accent text-lg font-bold">95%</div>
-						<div class="text-xs text-gray-500">New Content Indexation</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Case Study 5: Medical Equipment Lease -->
-		<div class="space-y-6 rounded-lg border bg-white p-8 dark:bg-gray-800">
-			<div class="flex items-start justify-between">
-				<div>
-					<h2 class="text-accent text-2xl font-semibold">Case Study #5</h2>
-					<p class="text-lg font-medium text-gray-700 dark:text-gray-300">
-						Medical Equipment Leasing Company
-					</p>
-					<p class="text-sm text-gray-500">Location: Florida, USA</p>
-				</div>
-				<div class="text-right">
-					<div class="text-2xl font-bold text-green-600">+190%</div>
-					<div class="text-sm text-gray-500">Local Visibility</div>
-				</div>
-			</div>
-
-			<div class="grid gap-6 md:grid-cols-2">
-				<div>
-					<h3 class="mb-3 font-semibold text-gray-900 dark:text-white">The Problem</h3>
-					<ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-						<li>• <strong>Local SEO Issues:</strong> Multiple location pages with thin content</li>
-						<li>• <strong>Schema Problems:</strong> Missing LocalBusiness markup</li>
-						<li>• <strong>Mobile Issues:</strong> Poor mobile experience affecting rankings</li>
-						<li>
-							• <strong>Security Problems:</strong> Mixed content warnings from HTTP resources
-						</li>
-					</ul>
-				</div>
-				<div>
-					<h3 class="mb-3 font-semibold text-gray-900 dark:text-white">The Solution</h3>
-					<ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-						<li>• Consolidated location pages with substantial unique content</li>
-						<li>• Implemented comprehensive LocalBusiness schema</li>
-						<li>• Fixed mobile usability and Core Web Vitals issues</li>
-						<li>• Resolved HTTPS mixed content warnings site-wide</li>
-					</ul>
-				</div>
-			</div>
-
-			<div class="rounded-lg bg-gray-50 p-4 dark:bg-gray-700">
-				<div class="grid grid-cols-3 gap-4 text-center">
-					<div>
-						<div class="text-accent text-lg font-bold">3 months</div>
-						<div class="text-xs text-gray-500">Project Timeline</div>
-					</div>
-					<div>
-						<div class="text-accent text-lg font-bold">12</div>
-						<div class="text-xs text-gray-500">Locations Optimized</div>
-					</div>
-					<div>
-						<div class="text-accent text-lg font-bold">100%</div>
-						<div class="text-xs text-gray-500">HTTPS Compliance</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Disclaimer -->
-		<div
-			class="rounded-lg border border-yellow-200 bg-yellow-50 p-6 dark:border-yellow-800 dark:bg-yellow-900/20"
-		>
-			<h3 class="mb-2 font-semibold text-yellow-800 dark:text-yellow-200">
-				📋 Case Study Disclaimer
-			</h3>
-			<p class="text-sm text-yellow-700 dark:text-yellow-300">
-				All case studies represent real client projects completed by Jessica Schmukler. Client names
-				and identifying details have been anonymized due to Non-Disclosure Agreements (NDAs).
-				Results and metrics shown are authentic and verifiable. Industry sectors and technical
-				challenges are accurately represented to demonstrate methodology and expertise.
-			</p>
-		</div>
-
-		<!-- CTA -->
-		<div class="py-8 text-center">
-			<h3 class="mb-4 text-2xl font-semibold">
-				Ready to Be My Next <span class="text-accent">Success Story</span>?
-			</h3>
-			<p class="mx-auto mb-6 max-w-2xl text-lg text-gray-600 dark:text-gray-300">
-				Let's solve your technical SEO challenges with the same systematic approach that delivered
-				these results.
-			</p>
-			<a
-				href="/contact/"
-				class="bg-accent hover:bg-accent/90 inline-block rounded-lg px-8 py-3 font-semibold text-white transition-colors"
-			>
-				Start Your Technical SEO Project
-			</a>
-		</div>
-	</section>
+      <div class="rounded-[30px] border border-[var(--color-border)] bg-[var(--color-surface)] px-8 py-12 text-center shadow-[0_40px_84px_-60px_rgba(20,12,6,0.52)]">
+        <h3 class="text-3xl font-semibold text-[var(--color-global-text)]">Ready to become the next recovery story?</h3>
+        <p class="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-[var(--color-muted)]">
+          Share the crawl failures, indexation gaps, or performance regressions slowing your growth. I will outline the technical program to fix them with the same discipline shown above.
+        </p>
+        <div class="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+          <a href="/contact/" class="btn btn-primary">Start a technical engagement</a>
+          <a href="/services/" class="btn btn-ghost">Review service programs</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </PageLayout>
+
+
+
+
+

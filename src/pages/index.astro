@@ -2,176 +2,181 @@
 import PageLayout from "@/layouts/Base.astro";
 
 const meta = {
-	title: "Jessica Schmukler - Technical SEO Consultant",
-	description:
-		"Expert Technical SEO Consultant with 10+ years fixing complex Google indexation issues, Index Bloat, and server problems. Serving 200+ clients across US & Canada.",
+  title: "Jessica Schmukler - Technical SEO Consultant",
+  description:
+    "Expert Technical SEO Consultant with 10+ years fixing complex Google indexation issues, Index Bloat, and server problems. Serving 200+ clients across US & Canada.",
 };
 ---
 
 <PageLayout meta={meta}>
-	<section class="section">
-		<!-- Hero Section -->
-		<div class="relative space-y-6">
-			<div class="eyebrow">Technical SEO Consulting</div>
-			<h1 class="title text-gradient text-4xl lg:text-5xl">
-				Technical SEO Problems Solved
-			</h1>
-			<div class="flex flex-wrap gap-2 pt-2">
-				<span class="badge">10+ Years</span>
-				<span class="badge">200+ Audits</span>
-				<span class="badge">100% Technical Focus</span>
-			</div>
+  <section class="section">
+    <div class="space-y-20">
+      <div class="relative overflow-hidden rounded-[40px] border border-[var(--color-border)] bg-[var(--color-surface)] px-7 py-14 shadow-[0_48px_90px_-60px_rgba(35,20,8,0.65)] sm:px-12 lg:px-16">
+        <div class="pointer-events-none absolute -left-20 top-10 h-72 w-72 rounded-full bg-[radial-gradient(circle_at_center,rgba(200,164,106,0.28),rgba(200,164,106,0))] blur-3xl"></div>
+        <div class="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-[radial-gradient(circle_at_center,rgba(44,32,22,0.45),rgba(44,32,22,0))] blur-3xl"></div>
+        <div class="pointer-events-none absolute left-8 top-6 h-14 w-px bg-gradient-to-b from-transparent via-[rgba(200,164,106,0.35)] to-transparent"></div>
+        <div class="pointer-events-none absolute right-8 bottom-6 h-px w-24 bg-gradient-to-r from-transparent via-[rgba(200,164,106,0.3)] to-transparent"></div>
 
-			{/* Transparent hero image placeholder (desktop only) */}
-			<img
-				alt=""
-				aria-hidden="true"
-				role="presentation"
-				src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='400'></svg>"
-				class="pointer-events-none select-none absolute right-0 top-0 hidden h-40 w-72 opacity-0 md:block"
-				width="800"
-				height="400"
-				decoding="async"
-				loading="eager"
-			/>
-
-			<p class="max-w-3xl text-xl text-gray-600 lg:text-2xl dark:text-gray-300">
-				I diagnose and fix the complex technical issues that prevent Google from properly crawling,
-				indexing, and ranking your website. <span class="text-accent font-semibold"
-					>200+ clients</span
-				>
-				across North America trust my systematic approach.
-			</p>
-		</div>
-
-		<!-- Stats Section -->
-		<div class="grid grid-cols-2 gap-6 py-8 md:grid-cols-3">
-			<div class="text-center">
-				<div class="text-accent text-3xl font-bold">200+</div>
-				<div class="text-sm text-gray-600 dark:text-gray-400">Technical Audits</div>
-			</div>
-			<div class="text-center">
-				<div class="text-accent text-3xl font-bold">10+</div>
-				<div class="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
-			</div>
-			<div class="col-span-2 text-center md:col-span-1">
-				<div class="text-accent text-3xl font-bold">100%</div>
-				<div class="text-sm text-gray-600 dark:text-gray-400">Technical Focus</div>
-			</div>
-		</div>
-
-		<!-- Core Expertise Section -->
-		<div class="space-y-6">
-			<h2 class="text-2xl font-semibold">
-				When Your Website Has <span class="text-accent">Technical SEO Issues</span>
-			</h2>
-
-			<div class="grid gap-8 md:grid-cols-2">
-				<div class="space-y-4">
-					<h3 class="text-accent text-lg font-medium">Complex Problems I Solve:</h3>
-					<ul class="space-y-2 text-gray-700 dark:text-gray-300">
-						<li>
-							• <strong>Index Bloat:</strong> Fixing low-quality pages destroying crawl budget
-						</li>
-						<li>
-							• <strong>Indexation Issues:</strong> Pages not appearing in Google search results
-						</li>
-						<li>• <strong>Server Problems:</strong> 5xx errors, slow response times, downtime</li>
-						<li>• <strong>Site Architecture:</strong> Poor internal linking and URL structure</li>
-					</ul>
-				</div>
-
-				<div class="space-y-4">
-					<h3 class="text-accent text-lg font-medium">My Technical Expertise:</h3>
-					<ul class="space-y-2 text-gray-700 dark:text-gray-300">
-						<li>• Advanced crawl budget optimization</li>
-						<li>• Schema markup implementation and debugging</li>
-						<li>• Core Web Vitals and performance optimization</li>
-						<li>• International SEO (hreflang) configuration</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-
-		<!-- Why Technical SEO -->
-		<div class="space-y-4 rounded-lg bg-gray-50 p-6 dark:bg-gray-800">
-			<h3 class="text-xl font-semibold">
-				Why <span class="text-accent">Technical SEO</span> Matters More Than Content
-			</h3>
-			<p class="text-gray-700 dark:text-gray-300">
-				You can have the best content in the world, but if Google can't crawl, understand, or index
-				your website properly, it won't rank. I focus exclusively on the technical foundation that
-				makes everything else possible.
-			</p>
-			<p class="text-sm text-gray-600 dark:text-gray-400">
-				<strong
-					>No keyword research. No content strategy. Just pure technical problem-solving.</strong
-				>
-				That's what 200+ businesses across US & Canada have relied on me for.
-			</p>
-		</div>
-
-		<!-- Process Section -->
-		<div class="space-y-6">
-			<h3 class="text-xl font-semibold">My Technical SEO Process</h3>
-			<div class="grid gap-4 md:grid-cols-4">
-				<div class="space-y-2 text-center">
-					<div
-						class="bg-accent mx-auto flex h-12 w-12 items-center justify-center rounded-full font-bold text-white"
-					>
-						1
-					</div>
-					<h4 class="font-medium">Deep Technical Audit</h4>
-					<p class="text-sm text-gray-600 dark:text-gray-400">
-						Crawl analysis, server diagnostics, architecture review
-					</p>
-				</div>
-				<div class="space-y-2 text-center">
-					<div
-						class="bg-accent mx-auto flex h-12 w-12 items-center justify-center rounded-full font-bold text-white"
-					>
-						2
-					</div>
-					<h4 class="font-medium">Issue Prioritization</h4>
-					<p class="text-sm text-gray-600 dark:text-gray-400">
-						Rank problems by impact on indexation and rankings
-					</p>
-				</div>
-				<div class="space-y-2 text-center">
-					<div
-						class="bg-accent mx-auto flex h-12 w-12 items-center justify-center rounded-full font-bold text-white"
-					>
-						3
-					</div>
-					<h4 class="font-medium">Technical Implementation</h4>
-					<p class="text-sm text-gray-600 dark:text-gray-400">
-						Fix critical issues affecting Google's understanding
-					</p>
-				</div>
-				<div class="space-y-2 text-center">
-					<div
-						class="bg-accent mx-auto flex h-12 w-12 items-center justify-center rounded-full font-bold text-white"
-					>
-						4
-					</div>
-					<h4 class="font-medium">Monitoring & Validation</h4>
-					<p class="text-sm text-gray-600 dark:text-gray-400">
-						Ensure fixes work and performance improves
-					</p>
-				</div>
-			</div>
-		</div>
-
-		<!-- CTA Section -->
-		<div class="space-y-4 text-center">
-			<h3 class="text-2xl font-semibold">Ready to Fix Your Technical SEO Issues?</h3>
-			<p class="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-300">
-				Let's diagnose the technical problems preventing your website from ranking in Google.
-			</p>
-            <div class="flex flex-col justify-center gap-4 pt-4 sm:flex-row">
-                <a href="/contact/" class="btn btn-primary">Get Technical SEO Audit</a>
-                <a href="/services/" class="btn btn-ghost">View Technical Services</a>
+        <div class="relative grid gap-14 lg:grid-cols-[1.05fr,0.95fr]">
+          <div class="space-y-8">
+            <div class="eyebrow">Bespoke Technical SEO Leadership</div>
+            <h1 class="title text-4xl leading-tight sm:text-6xl">
+              <span class="block text-gradient">Technical SEO failures neutralised.</span>
+              <span class="block text-[var(--color-muted)] text-2xl font-medium tracking-[0.28em] uppercase sm:text-3xl">
+                Precision diagnostics. Disciplined remediation.
+              </span>
+            </h1>
+            <p class="max-w-xl text-base leading-relaxed text-[var(--color-muted)]">
+              I partner with enterprise teams to eliminate crawl waste, stabilise complex architectures, and unlock growth that stalls when fundamentals break. 200+ engagements across North America have proven the value of rigorous technical focus.
+            </p>
+            <div class="flex flex-col gap-4 pt-2 sm:flex-row">
+              <a href="/contact/" class="btn btn-primary">Book Private Audit</a>
+              <a href="/services/" class="btn btn-ghost">View Capabilities</a>
             </div>
-		</div>
-	</section>
+            <div class="grid gap-4 pt-6 sm:grid-cols-3">
+              <div class="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-4 shadow-[0_24px_48px_-36px_rgba(28,18,10,0.45)]">
+                <p class="text-[11px] uppercase tracking-[0.38em] text-[var(--color-muted)]">Audits Delivered</p>
+                <p class="mt-2 text-3xl font-semibold text-[var(--color-global-text)]">200+</p>
+              </div>
+              <div class="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-4 shadow-[0_24px_48px_-36px_rgba(28,18,10,0.45)]">
+                <p class="text-[11px] uppercase tracking-[0.38em] text-[var(--color-muted)]">Years Specialising</p>
+                <p class="mt-2 text-3xl font-semibold text-[var(--color-global-text)]">10+</p>
+              </div>
+              <div class="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] px-5 py-4 shadow-[0_24px_48px_-36px_rgba(28,18,10,0.45)]">
+                <p class="text-[11px] uppercase tracking-[0.38em] text-[var(--color-muted)]">Technical Commitment</p>
+                <p class="mt-2 text-3xl font-semibold text-[var(--color-global-text)]">100%</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div class="rounded-[32px] border border-[var(--color-border)] bg-[var(--color-surface-muted)] px-8 py-8 shadow-[0_34px_60px_-44px_rgba(16,9,4,0.6)] backdrop-blur">
+              <p class="text-[11px] uppercase tracking-[0.38em] text-[var(--color-muted)]">
+                Engagement Snapshot
+              </p>
+              <ul class="mt-6 space-y-5">
+                <li class="relative pl-6 text-sm leading-relaxed text-[var(--color-muted)] before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-[var(--color-accent)]">
+                  Executive-level audit and remediation programs guided by hard data and crawl validation.
+                </li>
+                <li class="relative pl-6 text-sm leading-relaxed text-[var(--color-muted)] before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-[var(--color-accent)]">
+                  Collaboration with engineering, ops, and product teams to ship resilient technical fixes.
+                </li>
+                <li class="relative pl-6 text-sm leading-relaxed text-[var(--color-muted)] before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-[var(--color-accent)]">
+                  Ongoing monitoring to validate indexation recovery and protect future performance.
+                </li>
+              </ul>
+            </div>
+            <div class="flex flex-col gap-4 rounded-[28px] border border-[var(--color-border)] bg-[var(--color-surface)] px-8 py-6 shadow-[0_28px_60px_-44px_rgba(22,14,6,0.55)]">
+              <div class="flex items-center justify-between text-[11px] uppercase tracking-[0.34em] text-[var(--color-muted)]">
+                <span>Trusted By</span>
+                <span>US · Canada</span>
+              </div>
+              <div class="grid grid-cols-2 gap-4 text-sm font-medium text-[var(--color-muted)] sm:grid-cols-3">
+                <span class="rounded-full border border-[var(--color-border)] px-4 py-2 text-center">Enterprise SaaS</span>
+                <span class="rounded-full border border-[var(--color-border)] px-4 py-2 text-center">Marketplaces</span>
+                <span class="rounded-full border border-[var(--color-border)] px-4 py-2 text-center">Ecommerce</span>
+                <span class="rounded-full border border-[var(--color-border)] px-4 py-2 text-center">Publishing</span>
+                <span class="rounded-full border border-[var(--color-border)] px-4 py-2 text-center">Fintech</span>
+                <span class="rounded-full border border-[var(--color-border)] px-4 py-2 text-center">Travel</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2">
+        <div class="card space-y-5">
+          <h2 class="text-2xl font-semibold text-[var(--color-global-text)]">
+            Critical failures I solve with precision
+          </h2>
+          <ul class="space-y-3 text-sm leading-relaxed text-[var(--color-muted)]">
+            <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-[var(--color-accent)]">
+              Index bloat draining crawl budget and diluting relevance across vast URL sets.
+            </li>
+            <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-[var(--color-accent)]">
+              Discoverability gaps that keep strategic pages out of the index despite best-in-class content.
+            </li>
+            <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-[var(--color-accent)]">
+              Server and infrastructure instability triggering 5xx and throttled crawling.
+            </li>
+            <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-[var(--color-accent)]">
+              Misaligned architectures and internal linking that bury commercial intent.
+            </li>
+          </ul>
+        </div>
+        <div class="card space-y-5">
+          <h2 class="text-2xl font-semibold text-[var(--color-global-text)]">
+            Depth of technical fluency you can rely on
+          </h2>
+          <ul class="space-y-3 text-sm leading-relaxed text-[var(--color-muted)]">
+            <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-[var(--color-accent)]">
+              Crawl-budget engineering using server logs, Search Console, and custom crawlers.
+            </li>
+            <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-[var(--color-accent)]">
+              Schema, structured data debugging, and rendering parity for complex JavaScript stacks.
+            </li>
+            <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-[var(--color-accent)]">
+              Performance hardening aligned with Core Web Vitals and revenue-critical KPIs.
+            </li>
+            <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-[var(--color-accent)]">
+              Global hreflang orchestration and canonical governance for multi-market sites.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rounded-[36px] border border-[var(--color-border)] bg-[var(--color-surface-muted)] px-8 py-10 shadow-[0_40px_80px_-60px_rgba(20,12,5,0.58)] backdrop-blur">
+        <h3 class="text-2xl font-semibold text-[var(--color-global-text)]">
+          Why decisive technical SEO outranks another content sprint
+        </h3>
+        <div class="mt-6 grid gap-10 md:grid-cols-[1.1fr,0.9fr]">
+          <p class="text-base leading-relaxed text-[var(--color-muted)]">
+            Organic growth compounds only when Google can crawl, interpret, and serve the pages you invest in. My mandate is to fortify that foundation—resolving the edge cases, legacy debt, and infrastructure limitations that keep critical URLs from earning their place on the results page.
+          </p>
+          <div class="space-y-3 text-sm text-[var(--color-muted)]">
+            <p class="inline-flex items-center gap-3 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3 uppercase tracking-[0.28em]">No keyword guesswork</p>
+            <p class="inline-flex items-center gap-3 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3 uppercase tracking-[0.28em]">No content outsourcing</p>
+            <p class="inline-flex items-center gap-3 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3 uppercase tracking-[0.28em]">Zero vanity dashboards</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-10">
+        <h3 class="text-2xl font-semibold text-[var(--color-global-text)]">How engagements unfold</h3>
+        <ol class="grid gap-6 md:grid-cols-4">
+          <li class="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] px-6 py-8 text-sm text-[var(--color-muted)] shadow-[0_28px_60px_-44px_rgba(20,12,5,0.55)]">
+            <span class="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-accent-soft)] text-sm font-semibold text-[var(--color-accent)]">01</span>
+            <h4 class="text-base font-semibold text-[var(--color-global-text)]">Deep technical audit</h4>
+            <p class="mt-3 leading-relaxed">Full crawl, log, and infrastructure analysis to surface the hidden failures limiting indexation.</p>
+          </li>
+          <li class="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] px-6 py-8 text-sm text-[var(--color-muted)] shadow-[0_28px_60px_-44px_rgba(20,12,5,0.55)]">
+            <span class="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-accent-soft)] text-sm font-semibold text-[var(--color-accent)]">02</span>
+            <h4 class="text-base font-semibold text-[var(--color-global-text)]">Impact-driven roadmap</h4>
+            <p class="mt-3 leading-relaxed">Prioritised remediation plan tied to revenue-critical templates and product bets.</p>
+          </li>
+          <li class="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] px-6 py-8 text-sm text-[var(--color-muted)] shadow-[0_28px_60px_-44px_rgba(20,12,5,0.55)]">
+            <span class="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-accent-soft)] text-sm font-semibold text-[var(--color-accent)]">03</span>
+            <h4 class="text-base font-semibold text-[var(--color-global-text)]">Cross-functional execution</h4>
+            <p class="mt-3 leading-relaxed">Partnering with engineering and ops to land fixes that withstand scale and releases.</p>
+          </li>
+          <li class="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] px-6 py-8 text-sm text-[var(--color-muted)] shadow-[0_28px_60px_-44px_rgba(20,12,5,0.55)]">
+            <span class="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-accent-soft)] text-sm font-semibold text-[var(--color-accent)]">04</span>
+            <h4 class="text-base font-semibold text-[var(--color-global-text)]">Validation & vigilance</h4>
+            <p class="mt-3 leading-relaxed">Measurement, Search Console oversight, and regression prevention post-launch.</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="rounded-[32px] border border-[var(--color-border)] bg-[var(--color-surface)] px-8 py-12 text-center shadow-[0_40px_84px_-60px_rgba(20,12,6,0.52)]">
+        <h3 class="text-3xl font-semibold text-[var(--color-global-text)]">Ready to stabilise your technical search performance?</h3>
+        <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-[var(--color-muted)]">
+          Let’s isolate the exact crawl, rendering, and infrastructure issues stopping Google from rewarding your most valuable pages.
+        </p>
+        <div class="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+          <a href="/contact/" class="btn btn-primary">Start an Audit Conversation</a>
+          <a href="/services/" class="btn btn-ghost">Explore Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </PageLayout>
