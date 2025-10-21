@@ -65,6 +65,8 @@ export default defineConfig({
 				insertManifestLink: false,
 			},
 		}),
+		// Copy sitemap-index.xml to sitemap.xml for broader tool compatibility
+		sitemapCompat(),
 	],
 	markdown: {
 		rehypePlugins: [
@@ -115,6 +117,23 @@ function rawFonts(ext: string[]) {
 					map: null,
 				};
 			}
+		},
+	};
+}
+
+function sitemapCompat() {
+	return {
+		name: "sitemap-compat",
+		hooks: {
+			"astro:build:done": async ({ dir }) => {
+				try {
+					const indexPath = new URL("sitemap-index.xml", dir);
+					const outPath = new URL("sitemap.xml", dir);
+					await fs.promises.copyFile(indexPath, outPath);
+				} catch (err) {
+					// no-op if sitemap-index.xml not present
+				}
+			},
 		},
 	};
 }
