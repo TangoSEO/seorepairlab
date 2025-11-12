@@ -1,0 +1,49 @@
+---
+import { getEntryCTM } from "@/lib/customContentLoader.astro";
+import overrideObjects from "@/lib/utils/overrideObjects.ts";
+import { markdownify } from "@/lib/utils/textConverter";
+
+type TrustStat = {
+  value: string;
+  label: string;
+};
+
+type TrustStripInterface = {
+  enable?: boolean;
+  list?: TrustStat[];
+};
+
+type Props = {
+  content?: TrustStripInterface;
+};
+
+let defaultContent = (
+  await getEntryCTM("sections", "trust-strip", Astro.currentLocale)
+)?.data as TrustStripInterface;
+
+let actualContent = overrideObjects(
+  { ...defaultContent },
+  Astro.props.content,
+) as TrustStripInterface;
+
+const { enable = true, list = [] } = actualContent || {};
+
+if (!enable) {
+  return null;
+}
+---
+
+<section id="trust" data-aos="fade" data-aos-duration="300">
+  <div class="bg-white">
+    <div class="container">
+      <div class="mx-auto -mt-10 md:-mt-20 grid max-w-5xl grid-cols-2 gap-3 rounded-xl bg-black p-4 text-white shadow-lg sm:grid-cols-4">
+        {list.map((item) => (
+          <div class="group rounded-lg border border-white/10 bg-white/5 p-4 text-center transition-colors duration-300 hover:border-accent">
+            <div class="font-secondary text-3xl font-bold text-accent">{item.value}</div>
+            <div class="mt-1 text-sm text-white/80" set:html={markdownify(item.label)} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

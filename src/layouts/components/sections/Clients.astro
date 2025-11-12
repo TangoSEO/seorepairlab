@@ -1,0 +1,70 @@
+---
+import type { Section } from "@/types";
+import type { z } from "astro:content";
+import { markdownify } from "@/lib/utils/textConverter";
+import { getEntryCTM } from "@/lib/customContentLoader.astro";
+import overrideObjects from "@/lib/utils/overrideObjects.ts";
+import type { clientsSectionSchema } from "@/sections.schema";
+import OptimizedImage from "../utilities/OptimizedImage.astro";
+
+export type ClientsSection = Section & z.infer<typeof clientsSectionSchema>;
+
+type Props = {
+  content?: ClientsSection;
+};
+
+let defaultContent = (
+  await getEntryCTM("sections", "clients", Astro.currentLocale)
+)?.data as ClientsSection;
+
+let actualContent = overrideObjects(
+  { ...defaultContent },
+  Astro.props.content,
+) as ClientsSection;
+
+let {
+  enable = true,
+  title,
+  list,
+  options: { appearance } = {},
+} = actualContent;
+
+const isDarkAppearance = appearance === "dark";
+
+if (!enable) {
+  return null;
+}
+---
+
+<section data-aos="fade" data-aos-duration="300">
+  <div class="container space-y-6 md:space-y-16">
+    {
+      title && (
+        <div class="mx-auto lg:max-w-3xl">
+          <h2
+            class:list={[
+              "section-title text-h1-sm md:text-h1 text-center",
+              isDarkAppearance && "text-light",
+            ]}
+            set:html={markdownify(title)}
+          />
+        </div>
+      )
+    }
+    <ul class="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+      {
+        list?.map((item, idx) => (
+          <li
+            data-aos="fade"
+            data-aos-duration="300"
+            data-aos-delay={String(idx * 75)}
+            class="opacity-80 hover:opacity-100 transition-opacity">
+            <div class="relative flex items-center justify-center px-2">
+              <OptimizedImage width={200} height={40} src={item.src} alt={item.alt} class="h-8 sm:h-9 md:h-10 lg:h-12 w-auto" />
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

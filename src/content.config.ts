@@ -1,58 +1,84 @@
+import { parseTomlToJson } from "@/lib/utils/tomlUtils";
 import { defineCollection, z } from "astro:content";
+import { button, sectionsSchema } from "./sections.schema";
 import { glob } from "astro/loaders";
 
-function removeDupsAndLowerCase(array: string[]) {
-	return [...new Set(array.map((str) => str.toLowerCase()))];
-}
+const config = parseTomlToJson();
+const portfolioFolder = config.settings.portfolioFolder || "portfolio";
+const servicesFolder = config.settings.servicesFolder || "services";
 
-const titleSchema = z.string().max(60);
-
-const baseSchema = z.object({
-	title: titleSchema,
+// Universal Page Schema
+export const page = z.object({
+  title: z.string(),
+  author: z.string().optional(),
+  categories: z.array(z.string()).default(["others"]).optional(),
+  tags: z.array(z.string()).default(["others"]).optional(),
+  date: z.date().optional(), // example date format 2022-01-01 or 2022-01-01T00:00:00+00:00 (Year-Month-Day Hour:Minute:Second+Timezone)
+  description: z.string().optional(),
+  image: z.string().optional(),
+  draft: z.boolean().optional(),
+  button: button.optional(),
+  metaTitle: z.string().optional(),
+  metaDescription: z.string().optional(),
+  robots: z.string().optional(),
+  excludeFromSitemap: z.boolean().optional(),
+  excludeFromCollection: z.boolean().optional(),
+  customSlug: z.string().optional(),
+  canonical: z.string().optional(),
+  keywords: z.array(z.string()).optional(),
+  disableTagline: z.boolean().optional(),
+  ...sectionsSchema,
 });
 
-const post = defineCollection({
-	loader: glob({ base: "./src/content/post", pattern: "**/*.{md,mdx}" }),
-	schema: ({ image }) =>
-		baseSchema.extend({
-			description: z.string(),
-			coverImage: z
-				.object({
-					alt: z.string(),
-					src: image(),
-				})
-				.optional(),
-			draft: z.boolean().default(false),
-			ogImage: z.string().optional(),
-			tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
-			publishDate: z
-				.string()
-				.or(z.date())
-				.transform((val) => new Date(val)),
-			updatedDate: z
-				.string()
-				.optional()
-				.transform((str) => (str ? new Date(str) : undefined)),
-		}),
+// Pages collection schema
+const pagesCollection = defineCollection({
+  schema: page,
 });
 
-const note = defineCollection({
-	loader: glob({ base: "./src/content/note", pattern: "**/*.{md,mdx}" }),
-	schema: baseSchema.extend({
-		description: z.string().optional(),
-		publishDate: z
-			.string()
-			.datetime({ offset: true }) // Ensures ISO 8601 format with offsets allowed (e.g. "2024-01-01T00:00:00Z" and "2024-01-01T00:00:00+02:00")
-			.transform((val) => new Date(val)),
-	}),
+// Service collection schema
+const serviceCollection = defineCollection({
+  schema: page.merge(
+    z.object({
+      icon: z.string().optional(),
+    }),
+  ),
 });
 
-const tag = defineCollection({
-	loader: glob({ base: "./src/content/tag", pattern: "**/*.{md,mdx}" }),
-	schema: z.object({
-		title: titleSchema.optional(),
-		description: z.string().optional(),
-	}),
+// Portfolio Collection
+const portfolioCollection = defineCollection({
+  // Load Markdown and MDX files in the `src/content/portfolio/` directory.
+  loader: glob({ base: "./src/content/portfolio", pattern: "**/*.{md,mdx}" }),
+  schema: page.merge(
+    z.object({
+      images: z.array(z.string()).min(1).optional(),
+      options: z
+        .object({
+          layout: z.enum(["masonry", "grid", "full-width", "slider"]),
+          appearance: z.enum(["dark", "light"]).optional(),
+          limit: z.union([z.number().int(), z.literal(false)]).optional(),
+        })
+        .optional(),
+      information: z
+        .array(
+          z.object({
+            label: z.string(),
+            value: z.string(),
+          }),
+        )
+        .optional(),
+    }),
+  ),
 });
 
-export const collections = { post, note, tag };
+// Export collections
+export const collections = {
+  // To prevent, getEntry (Content fetching API) throws error when collection does not exist, we specify a default collection along with the schema of each required collection
+  [servicesFolder]: serviceCollection,
+  services: serviceCollection,
+  [portfolioFolder]: portfolioCollection,
+  portfolio: portfolioCollection,
+
+  pages: pagesCollection,
+  sections: defineCollection({}),
+  homepage: defineCollection({}),
+};

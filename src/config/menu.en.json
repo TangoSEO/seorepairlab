@@ -1,0 +1,24 @@
+{
+  "headerPrimary": [
+    {
+      "enable": true,
+      "name": "Home",
+      "url": "/"
+    },
+    {
+      "enable": true,
+      "name": "Services",
+      "url": "/#services"
+    },
+    {
+      "enable": true,
+      "name": "SEO Minitools",
+      "url": "/#minitools"
+    },
+    {
+      "enable": true,
+      "name": "Pricing",
+      "url": "/#pricing"
+    }
+  ]
+}
