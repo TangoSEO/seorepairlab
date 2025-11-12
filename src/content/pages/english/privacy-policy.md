@@ -6,7 +6,7 @@ draft: false
 
 **Effective Date: July, 2022**
 
-Welcome to Folex ("we," "our," or "us"). Your privacy is important to us, and we are committed to protecting the personal information you share with us. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website, https://www.folex.com ("Website").
+Welcome to SEO Repair Lab ("we," "our," or "us"). Your privacy is important to us, and we are committed to protecting the personal information you share with us. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website, https://seorepairlab.com ("Website").
 
 ### Information We Collect
 
@@ -68,7 +68,7 @@ Depending on your location, you may have the following rights regarding your per
 - Restrict processing of your data
 - Withdraw consent for data usage
 
-To exercise your rights, please contact us at privacy@folex.com.
+To exercise your rights, please contact us at it@seorepairlab.com.
 
 ### Third-Party Links
 
@@ -86,8 +86,8 @@ We may update this Privacy Policy from time to time. Any changes will be posted 
 
 If you have any questions or concerns about this Privacy Policy, please contact us at:
 
-Folex
-Email: privacy@folex.com
-Address: 123 Folex Lane, Imaginary City, IC 12345, USA
+SEO Repair Lab
+Email: it@seorepairlab.com
+Address: Tandil, Argentina (Remote - US/Canada/EU)
 
-Thank you for trusting Folex with your personal information!
+Thank you for trusting SEO Repair Lab with your personal information!

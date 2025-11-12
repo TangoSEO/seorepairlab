@@ -289,7 +289,7 @@
 /* Hide alternate logo */
 header {
   .logo {
-    @apply hidden;
+    @apply inline-block;
   }
 
   .logo-text {
@@ -297,7 +297,7 @@ header {
   }
 
   /* Show main logo in home page and alternate logo in other pages */
-  &.header-dark {
+  &.has-dark-background {
     .logo {
       @apply inline-block;
     }

@@ -8,8 +8,8 @@
   logo             = "/images/logo.svg" # Path to the site's logo
   logoAlternate    = "/images/logo-light.svg" # Path to the site's alternate logo
   logoText         = "" # Text displayed next to the logo
-  logoWidth        = "86px" # Width of the logo
-  logoHeight       = "24px" # Height of the logo
+  logoWidth        = "140px" # Width of the logo
+  logoHeight       = "32px" # Height of the logo
 
   # Add a trailing slash at the end of URLs (e.g., https://example.com/, https://example.com/contact/)
   # Note: Manually restart your server when you change this value
@@ -18,7 +18,7 @@
   # Add your site logo in image path below and open your terminal and run "npm run generate-favicons" to generate favicons for different devices and platform (https://realfavicongenerator.net/checker)
   [site.favicon]
     path  = "/images/favicons" # favicon images path (No need to change it)
-    image = "/images/favicon.png" # Add your site logo path here and follow upper instruction
+    image = "/images/favicon.svg" # Add your site logo path here and follow upper instruction
 
 
 # SEO Metadata
@@ -126,3 +126,6 @@
   content = """
   <script defer async src="/umami.is.js" data-website-id=""></script>
   """
+
+
+
