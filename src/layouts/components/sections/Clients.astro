@@ -58,9 +58,9 @@ if (!enable) {
             data-aos="fade"
             data-aos-duration="300"
             data-aos-delay={String(idx * 75)}
-            class="opacity-80 hover:opacity-100 transition-opacity">
+            class="transition-opacity">
             <div class="relative flex items-center justify-center px-2">
-              <OptimizedImage width={200} height={40} src={item.src} alt={item.alt} class="h-8 sm:h-9 md:h-10 lg:h-12 w-auto" />
+              <OptimizedImage width={200} height={40} src={item.src} alt={item.alt} class="h-8 sm:h-9 md:h-10 lg:h-12 w-auto grayscale brightness-0 opacity-70 hover:opacity-100 transition-all duration-300" />
             </div>
           </li>
         ))
