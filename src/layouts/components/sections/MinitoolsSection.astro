@@ -42,10 +42,10 @@ if (!enable) {
 ---
 
 <section id="minitools" data-aos="fade" data-aos-duration="300">
-  <div class="bg-theme-darker py-20 md:py-32">
+  <div class="bg-theme-darker py-20 md:py-32 decor-spot">
     <div class="container space-y-10">
       <div class="text-center space-y-4">
-        <h2 class="section-title text-h1-sm md:text-h1 text-light" set:html={markdownify(title)} />
+        <h2 data-aos="reveal-anim-top" data-aos-duration="1000" class="section-title text-h1-sm md:text-h1 text-light" set:html={markdownify(title)} />
         {description && (
           <p class="mx-auto max-w-3xl text-light/80" set:html={markdownify(description)} />
         )}
@@ -56,7 +56,7 @@ if (!enable) {
           <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {items.map((tool) => (
               <a
-                class="group block rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/10"
+                class="group block rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/10 hover:ring-1 hover:ring-accent/30"
                 href={tool.url || "#"}
                 target={tool.url?.startsWith("http") ? "_blank" : undefined}
                 rel={tool.url?.startsWith("http") ? "noopener noreferrer" : undefined}

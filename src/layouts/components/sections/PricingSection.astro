@@ -36,12 +36,12 @@ if (!enable) {
 ---
 
 <section id="pricing" data-aos="fade" data-aos-duration="300">
-  <div class="bg-theme-light py-20 md:py-32">
+  <div class="bg-theme-light py-20 md:py-32 decor-spot">
   <div class="container space-y-10 md:space-y-14">
     {
       title && (
         <div class="text-center">
-          <h2 class="section-title text-h1-sm md:text-h1 mb-12" set:html={markdownify(title)} />
+          <h2 data-aos="reveal-anim-top" data-aos-duration="1000" class="section-title text-h1-sm md:text-h1 mb-12" set:html={markdownify(title)} />
         </div>
       )
     }

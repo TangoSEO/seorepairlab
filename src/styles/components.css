@@ -15,7 +15,34 @@
   background: var(--color-accent);
   margin: 12px auto 0 auto;
   border-radius: 9999px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 700ms ease;
 }
+
+/* Animate underline when AOS marks the title as visible */
+.section-title.aos-animate::after {
+  transform: scaleX(1);
+}
+
+/* Subtle section decorative spots (very light, behind content) */
+.decor-spot {
+  position: relative;
+}
+.decor-spot::before,
+.decor-spot::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 140px;
+  height: 140px;
+  border-radius: 9999px;
+  filter: blur(12px);
+  opacity: 0.12;
+  background: radial-gradient(circle, var(--color-accent) 0%, transparent 70%);
+}
+.decor-spot::before { top: -36px; left: -36px; }
+.decor-spot::after { bottom: -36px; right: -36px; }
 
 [data-aos] {
   opacity: 0;
