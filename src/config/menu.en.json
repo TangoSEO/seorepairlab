@@ -19,6 +19,11 @@
       "enable": true,
       "name": "Pricing",
       "url": "/#pricing"
+    },
+    {
+      "enable": true,
+      "name": "Free SEO Check",
+      "url": "/seo-check"
     }
   ]
 }
