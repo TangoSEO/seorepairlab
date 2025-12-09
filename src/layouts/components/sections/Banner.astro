@@ -66,13 +66,13 @@ const fontSize = titleSize ? fontSizeMap[titleSize] : fontSizeMap["display-1"];
             class:list={[
               "text-inherit",
               fontSize,
-              "block leading-tight font-bold break-words text-inherit",
+              "block leading-tight font-bold break-words text-inherit uppercase tracking-tighter",
             ]}>
             {primaryTitle && (
-              <span class="text-accent" set:html={markdownify(primaryTitle)} />
+              <span class="text-white" set:html={markdownify(primaryTitle)} />
             )}
             {secondaryTitle && (
-              <span class="block text-inherit/85 text-display-6 md:text-display-5" set:html={markdownify(secondaryTitle)} />
+              <span class="block text-inherit/80 text-xl md:text-2xl font-normal mt-4 max-w-3xl mx-auto normal-case tracking-normal" set:html={markdownify(secondaryTitle)} />
             )}
           </h1>
         )
@@ -93,18 +93,27 @@ const fontSize = titleSize ? fontSizeMap[titleSize] : fontSizeMap["display-1"];
 
             
 
-            {/* Initials badge (JS) */}
-            <div class="mx-auto my-6 h-24 w-24 md:h-32 md:w-32 rounded-full bg-[linear-gradient(180deg,#FCD34D_0%,#F59E0B_100%)] grid place-items-center">
-              <span class="font-bold text-[36px] md:text-[48px] leading-none text-black">JS</span>
+            {/* SEO CORE High-Vis Highlight */}
+            <div class="mx-auto my-6 p-8 border-2 border-green-600 bg-black/50 inline-block max-w-2xl relative">
+                 <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-green-600 text-white text-xs font-bold px-3 py-1 uppercase tracking-widest">
+                    Recommended
+                </div>
+
+                <span class="block text-green-500 font-bold uppercase tracking-widest text-sm mb-4">Including The New</span>
+                <span class="block text-white text-5xl font-bold tracking-tighter mb-4">SEO CORE <span class="text-green-500">®</span></span>
+                <span class="block text-white text-xl font-mono uppercase pb-6 mb-6 border-b border-green-600/30">$97/Mo Early Bird</span>
+                
+                <div class="flex flex-col md:flex-row justify-center gap-6 text-sm font-mono text-gray-300 mb-8">
+                    <span class="flex items-center gap-2"><span class="text-green-500">✓</span> 3 Core Fixes/mo</span>
+                    <span class="flex items-center gap-2"><span class="text-green-500">✓</span> Founder Supervision</span>
+                </div>
+
+                <a href="/apply/" class="inline-block bg-green-600 text-white font-bold uppercase tracking-widest py-4 px-8 hover:bg-green-500 transition-colors text-lg border-2 border-green-500">
+                    Send Me More Info
+                </a>
             </div>
 
-            {button && button.enable && (
-              <CustomButton
-                hoverEffect="creative-fill"
-                class="btn-accent effect-color-dark mx-auto"
-                {...button}
-              />
-            )}
+            {/* Button Removed - Replaced by SEO Core Highlight */}
             <p class="mt-6 text-sm text-inherit/80">2M+ Pages Recovered | 180% Traffic Boost | CWV 'Good' on 20+ Sites</p>
           </div>
         ) : (

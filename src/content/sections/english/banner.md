@@ -3,15 +3,15 @@
 
 enable: true # Control the visibility of this section across all pages where it is used
 titleSize: "display-3" # Shrink ~20%
-title: "Technical SEO Architect: 8+ Years Recovering Lost Rankings"
+title: "Technical SEO Architect: Expert Optimization for Small Business Owners"
 
 image: ""
-description: "Jessica Schmukler | Core Web Vitals, Index Recovery & Data‑Driven Audits for Google & AI Search"
+description: "Jessica Schmukler | Founder-Led Optimization for Sites Ready to Grow Beyond Basic SEO."
 
 button:
   # Refer to the `sharedButton` schema in `src/sections.schema.ts` for all available configuration options (e.g., enable, label, url, hoverEffect, variant, icon, tag, rel, class, target, etc.)
   enable: true
-  label: "Schedule a Free Call"
+  label: "SEE THE $97 FORMULA"
   url: "/#footer-with-contact"
   # hoverEffect: "" # Optional: text-flip | creative-fill | magnetic | magnetic-text-flip
   # variant: "" # Optional: fill | outline | text | circle

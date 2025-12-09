@@ -3,11 +3,11 @@
 /* ====================================================== */
 
 @utility btn {
-  @apply font-secondary text-light inline-block overflow-hidden px-6 py-4 text-sm font-normal whitespace-nowrap uppercase disabled:cursor-not-allowed xl:px-9 xl:py-5;
+  @apply font-secondary text-light inline-block overflow-hidden px-6 py-4 text-sm font-normal whitespace-nowrap uppercase disabled:cursor-not-allowed xl:px-9 xl:py-5 rounded-none;
 }
 
 @utility btn-circle {
-  @apply font-secondary inline-flex h-44 w-44 items-center justify-center rounded-full px-8 py-3 text-center text-sm;
+  @apply font-secondary inline-flex h-44 w-44 items-center justify-center px-8 py-3 text-center text-sm rounded-none;
 }
 
 @utility btn-accent {

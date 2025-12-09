@@ -33,17 +33,15 @@ if (!enable) {
 }
 ---
 
-<section id="trust" data-aos="fade" data-aos-duration="300">
-  <div class="bg-white">
-    <div class="container">
-      <div class="mx-auto -mt-10 md:-mt-20 grid max-w-5xl grid-cols-2 gap-3 rounded-xl bg-black p-4 text-white shadow-lg sm:grid-cols-4">
-        {list.map((item) => (
-          <div class="group rounded-lg border border-white/10 bg-white/5 p-4 text-center transition-colors duration-300 hover:border-accent">
-            <div class="font-secondary text-3xl font-bold text-accent">{item.value}</div>
-            <div class="mt-1 text-sm text-white/80" set:html={markdownify(item.label)} />
-          </div>
-        ))}
-      </div>
+<section id="trust" data-aos="fade" data-aos-duration="300" class="bg-white border-b-2 border-black">
+  <div class="container">
+    <div class="grid grid-cols-2 md:grid-cols-4 divide-x-2 divide-black border-x-2 border-black">
+      {list.map((item) => (
+        <div class="p-6 text-center transform transition-transform hover:-translate-y-1">
+          <div class="font-bold text-3xl md:text-4xl text-black tracking-tight">{item.value}</div>
+          <div class="mt-1 text-xs font-bold uppercase tracking-widest text-gray-500" set:html={markdownify(item.label)} />
+        </div>
+      ))}
     </div>
   </div>
 </section>

@@ -22,9 +22,10 @@ const {
   data: { title, description },
 } = await getEntryCTM("sections", "call-to-action", Astro.currentLocale);
 
-let { form } = (
-  await getEntryCTM("sections", "contact-section", Astro.currentLocale)
-)?.data;
+// Load the 'apply-form' content for the footer contact form
+const entry = await getEntryCTM("sections", "apply-form", Astro.currentLocale);
+
+let form = entry?.data?.form;
 
 footerDescription = footerDescription || t("footer.description") || "";
 

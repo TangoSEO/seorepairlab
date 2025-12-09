@@ -1,6 +1,7 @@
 ---
 enable: true # Control the visibility of this section across all pages where it is used
-title: "Trusted Tools & Data-Driven Methods<br /><span class='block mt-2 text-[14px] leading-[1.5] font-normal text-[#A1A1AA]'>Scientific on-page scoring & white-hat testing — No guesswork, proven results</span>"
+title: "Trusted Tools & Data-Driven Methods"
+description: "Scientific on-page scoring & white-hat testing — No guesswork, proven results"
 
 list:
   - alt: "Google Search Console"

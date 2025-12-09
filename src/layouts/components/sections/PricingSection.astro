@@ -46,9 +46,62 @@ if (!enable) {
       )
     }
 
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {list.map((item, idx) => <PricingCard content={item} recommended={idx === 1} />)}
-    </div>
+    {list.length === 1 ? (
+      // REVOLUTIONARY HERO LAYOUT FOR SINGLE OFFER
+      <div class="border-4 border-black bg-white p-0 relative overflow-hidden">
+        
+        {/* Top Label */}
+         <div class="bg-black text-white text-center py-2 font-mono uppercase tracking-[0.3em] font-bold text-sm">
+            Limited Availability • Founder's Access
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2">
+            {/* Left Col: The Offer */}
+            <div class="p-12 lg:p-20 border-b-4 lg:border-b-0 lg:border-r-4 border-black flex flex-col justify-center bg-theme-light">
+                <h3 class="text-4xl lg:text-6xl font-bold uppercase leading-none mb-6 text-black tracking-tighter" set:html={markdownify(list[0].name)} />
+                <p class="text-xl font-mono mb-12 text-gray-700 leading-relaxed" set:html={markdownify(list[0].description)} />
+                
+                <div class="flex items-baseline gap-2 mb-12">
+                    <span class="text-8xl lg:text-9xl font-bold text-black tracking-tighter">{list[0].price.prependValue}{list[0].price.value}</span>
+                    <span class="text-2xl font-mono text-gray-500 uppercase">{list[0].price.appendValue}</span>
+                </div>
+
+                <div class="w-full">
+                     <a href={list[0].button.url} class="w-full block bg-black text-white text-center py-6 text-xl lg:text-2xl font-bold uppercase tracking-widest hover:bg-accent hover:text-black transition-colors border-2 border-black">
+                        {list[0].button.label}
+                    </a>
+                </div>
+                <p class="text-center mt-4 text-xs font-mono uppercase text-gray-500">No long-term commitment. Cancel anytime.</p>
+            </div>
+
+            {/* Right Col: The Value (Features) */}
+            <div class="p-12 lg:p-20 bg-white flex flex-col justify-center">
+                 <h4 class="text-2xl font-bold uppercase tracking-widest mb-10 border-b-2 border-black pb-4 inline-block self-start">
+                    The Formula Includes:
+                </h4>
+                <ul class="space-y-8">
+                     {list[0].features.map((feature) => (
+                        <li class="flex items-start gap-6 group">
+                           <div class="w-8 h-8 flex items-center justify-center bg-green-600 text-white font-bold shrink-0 mt-1">✓</div>
+                           <span class="text-xl lg:text-2xl font-medium text-black leading-tight group-hover:translate-x-2 transition-transform" set:html={markdownify(feature)} />
+                        </li>
+                      ))}
+                </ul>
+                
+                <div class="mt-16 p-6 border-2 border-dashed border-gray-300 bg-gray-50">
+                    <p class="text-sm font-mono text-gray-600">
+                        "This replaces your agency, your tools, and your uncertainty. It's not just a service; it's a structural correction for your business."
+                    </p>
+                </div>
+            </div>
+        </div>
+      </div>
+    ) : (
+      // STANDARD GRID FOR MULTIPLE OFFERS
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {list.map((item, idx) => <PricingCard content={item} recommended={idx === 1} />)}
+      </div>
+    )}
   </div>
   </div>
 </section>

@@ -64,13 +64,13 @@ if (!enable) {
 }
 ---
 
-<section id="services" data-aos="fade" data-aos-duration="300" class="bg-white py-20 md:py-24">
+<section id="services" data-aos="fade" data-aos-duration="300" class="bg-white py-16">
   <div
     class:list={[
       "container",
       isHorizontalSection
-        ? "grid grid-cols-1 items-start space-y-14 gap-x-10 lg:grid-cols-2 lg:space-y-0"
-        : "space-y-14",
+        ? "grid grid-cols-1 items-start space-y-10 gap-x-10 lg:grid-cols-2 lg:space-y-0"
+        : "space-y-10",
     ]}>
     {
       title && (
@@ -78,7 +78,7 @@ if (!enable) {
           data-aos="reveal-anim-top"
           data-aos-duration="1000"
           class:list={[
-            "section-title text-h1-sm md:text-h1 mx-auto max-w-3xl",
+            "text-3xl font-bold uppercase tracking-tight text-black mx-auto max-w-3xl",
             appearance === "dark" && "text-light",
             isHorizontalSection ? "lg:sticky lg:top-32" : "text-center",
           ]}
@@ -89,19 +89,19 @@ if (!enable) {
 
     {
       layout === "accordion" ? (
-        <div class="hs-accordion-group mx-auto w-full max-w-4xl">
+        <div class="hs-accordion-group mx-auto w-full max-w-3xl border-t-2 border-black">
           {services.map((item, index): { item: Service; index: number } => {
             const id = uniqueIdGenerator(item.title);
             return (
               <div
                 class:list={[
-                  "hs-accordion relative border-b py-6 text-start first:border-t lg:pe-20",
-                  "transition-all duration-300 lg:flex lg:flex-row lg:items-start lg:justify-between lg:gap-16",
+                  "hs-accordion relative border-b-2 border-black py-4 first:border-t-0",
+                  "transition-all duration-0 lg:flex lg:flex-row lg:items-start lg:justify-between lg:gap-8",
                   index === 0 && "active",
                 ]}
                 id={"accordion-" + id}>
                 <div
-                  class="font-secondary mt-2.5 mb-4 text-2xl font-semibold lg:mb-0 lg:text-sm"
+                  class="font-mono mt-1 mb-2 text-sm font-bold opacity-60 lg:mb-0"
                   set:html={(index <= 9 ? "0" : "") + (index + 1)}
                 />
                 <button
@@ -112,27 +112,27 @@ if (!enable) {
                   title="show or hide accordion content"
                   aria-controls={"accordion-content-" + id}
                   aria-expanded={index === 0 ? "true" : "false"}
-                  class="hs-accordion-toggle text-dark font-secondary text-h5 w-full pe-20 text-start font-medium lg:pe-0"
-                  set:html={item.title}
-                />
+                  class="hs-accordion-toggle w-full text-start text-xl font-bold uppercase tracking-tight text-black flex items-center justify-between"
+                >
+                  <span set:html={item.title}></span>
+                  <div class="hs-accordion-active:rotate-180 pointer-events-none transition duration-300">
+                    <ReactIcons
+                      icon="RxArrowDown"
+                      class="text-black text-xl"
+                    />
+                  </div>
+                </button>
                 <div
                   role="region"
                   id={"accordion-content-" + id}
                   aria-labelledby={"accordion-" + id}
                   class:list={[
-                    "hs-accordion-content hs-accordion-active:opacity-100 w-full max-w-lg overflow-hidden opacity-0 transition-all duration-300 ease-linear",
+                    "hs-accordion-content hs-accordion-active:opacity-100 w-full overflow-hidden opacity-0 transition-all duration-300 ease-linear",
                     index !== 0 && "hidden",
                   ]}>
-                  <div class="prose-styles prose-p:first:mt-0 prose-p:last:mb-0 pt-3 lg:pt-0">
+                  <div class="prose-styles prose-p:text-sm prose-p:leading-relaxed prose-p:font-secondary pt-3 text-gray-600">
                     <div set:html={markdownify(item.description, true)} />
                   </div>
-                </div>
-
-                <div class="hs-accordion-active:rotate-180 pointer-events-none absolute end-0 top-8 flex transition duration-300">
-                  <ReactIcons
-                    icon="RxArrowTopRight"
-                    class="text-dark text-xl"
-                  />
                 </div>
               </div>
             );

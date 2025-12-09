@@ -91,3 +91,24 @@ button:not(:disabled),
 [role="button"]:not(:disabled) {
   cursor: pointer;
 }
+
+/* BAUHAUS GLOBAL OVERRIDES */
+/* Enforce sharp corners everywhere */
+* {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+/* Inputs and interactive elements should have solid borders */
+input, select, textarea {
+    border: 1px solid #000 !important;
+    border-radius: 0 !important;
+    padding: 1rem !important;
+}
+
+/* Focus states should be sharp */
+*:focus {
+    outline: 2px solid #000 !important;
+    outline-offset: 2px !important;
+    box-shadow: none !important;
+}
