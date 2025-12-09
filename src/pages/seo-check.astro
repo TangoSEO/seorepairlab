@@ -1,24 +1,10 @@
 
 ---
 import Base from "@/layouts/Base.astro";
-import SeoCheckApp from "@/components/SeoCheckApp";
+import SeoCheckApp from "@/layouts/components/SeoCheckApp";
 
-export const prerender = false; // We need SSR for this page if we wanted, but actually standard static page + client side fetch works too. 
-// However, since we are fetching from an internal API route /api/analyze, that API route requires SSR or output: 'server'/'hybrid' in Astro config.
-// The default Astro config usually is static. Let's check if the user has SSR enabled. 
-// Looking at package.json, `astro build` suggests static site generation. 
-// BUT `src/pages/api/analyze.ts` only works if the output is server or hybrid.
-// If the site is purely static, we cannot host the API route easily unless we use an adapter (Vercel/Netlify).
-// The user has `vercel.json` and `netlify.toml`, so likely deploying there.
-// If the mode is static, API routes render to static files at build time... which won't work for dynamic input.
-// We'll assume the user has a way to run API functions (hybrid) or we act as if it's SPA.
-// Actually, for a fully static site, we can't really have an internal dynamic API route without an adapter.
-// But let's proceed assuming standard Astro hybrid/server capabilities or that the user will configure the adapter.
-// Wait, for `output: 'static'` (default), API routes are built at build time.
-// If the user wants dynamic API, they need an adapter.
-// I will add `export const prerender = false` to be safe if they are in hybrid mode, 
-// but if they are static, this might fail or just not work as expected.
-// Given the prompt "create a page... and backend", I'm assuming server capabilities.
+// Static page is fine since we use client-side fetching for the API.
+// No need for 'export const prerender = false' unless using SSR adapter.
 ---
 
 <Base 
