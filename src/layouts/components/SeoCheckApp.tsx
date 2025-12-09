@@ -104,7 +104,7 @@ export default function SeoCheckApp() {
     setResult(null);
 
     try {
-      const API_KEY = 'AIzaSyB4CK4Xr3gLCGagiWGyDtzOPiIe2V5tozI'; 
+      const API_KEY = import.meta.env.PUBLIC_GOOGLE_API_KEY; 
       let apiEndpoint = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(validUrl)}&strategy=mobile`;
       if (API_KEY) {
           apiEndpoint += `&key=${API_KEY}`;
