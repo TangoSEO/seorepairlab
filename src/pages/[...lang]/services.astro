@@ -1,0 +1,100 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getCollectionCTM } from "@/lib/customContentLoader.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import CustomButton from "@/components/CustomButton.astro";
+import uniqueIdGenerator from "@/lib/utils/uniqueIdGenerator";
+
+import { generatePaths } from "@/lib/utils/i18nUtils";
+
+export function getStaticPaths() {
+  return generatePaths();
+}
+
+// Fetch all services
+const { lang } = Astro.params;
+const services = await getCollectionCTM("services", lang || "en");
+
+const title = "Our Expertise";
+const description = "Comprehensive Technical SEO solutions for complex site challenges.";
+---
+
+<Base title={title} metaDescription={description}>
+  {/* Header Section */}
+  <section class="py-24 bg-white border-b-2 border-black" style="background-image: linear-gradient(#f0f0f0 1px, transparent 1px), linear-gradient(90deg, #f0f0f0 1px, transparent 1px); background-size: 40px 40px;">
+    <div class="container text-center space-y-8">
+         <h1 class="text-display-4 font-bold uppercase tracking-tighter text-black">
+            Technical SEO <br/><span class="text-black decoration-4 underline decoration-[#00C853] underline-offset-4">Capabilities</span>
+         </h1>
+         <p class="text-xl font-mono text-black max-w-2xl mx-auto">
+            We don't do generic audits. We solve specific, high-stakes infrastructure problems that prevent ranking.
+         </p>
+    </div>
+  </section>
+
+  {/* Services Stack */}
+  <section class="bg-white">
+      {services.map((service, index) => (
+        <div id={service.slug.split('/').pop()} class="border-b-2 border-black group">
+            <div class="container py-24">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                    {/* Sidebar / Title */}
+                    <div class="lg:col-span-4 lg:sticky lg:top-32 self-start">
+                        <div class="flex items-center gap-4 mb-4 opacity-50 font-mono font-bold">
+                            <span>0{index + 1}</span>
+                            <span class="w-16 h-[2px] bg-black"></span>
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-bold uppercase tracking-tighter leading-none mb-6">
+                            {service.data.title}
+                        </h2>
+                         <div class="hidden lg:block">
+                            <CustomButton 
+                                label="Inquire" 
+                                url="/contact" 
+                                class="btn-primary space-x-2" 
+                            />
+                        </div>
+                    </div>
+
+                    {/* Content Block */}
+                    <div class="lg:col-span-8 space-y-8">
+                        <div class="bg-white p-8 border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 transition-transform">
+                             <p class="text-xl font-mono text-black leading-relaxed mb-8 border-b-2 border-black pb-8">
+                                {service.data.description}
+                             </p>
+                             
+                             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div>
+                                    <h3 class="font-bold uppercase tracking-widest mb-4 flex items-center gap-2">
+                                        <span class="w-3 h-3 bg-red-500 border border-black"></span>
+                                        The Challenge
+                                    </h3>
+                                    <p class="text-sm font-mono leading-relaxed opacity-80">
+                                        Complex technical debts often act as silent anchors. {service.data.title} issues are typically invisible to standard crawlers but devastating to ROI.
+                                    </p>
+                                </div>
+                                <div>
+                                     <h3 class="font-bold uppercase tracking-widest mb-4 flex items-center gap-2">
+                                        <span class="w-3 h-3 bg-[#00C853] border border-black"></span>
+                                        Our Protocol
+                                    </h3>
+                                    <p class="text-sm font-mono leading-relaxed opacity-80">
+                                        We deploy custom extraction logic and server-side validation to resolve {service.data.title} at the root, ensuring permanent indexation stability.
+                                    </p>
+                                </div>
+                             </div>
+                        </div>
+                         <div class="lg:hidden">
+                            <CustomButton 
+                                label="Start Project" 
+                                url="/contact" 
+                                class="btn-primary w-full" 
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      ))}
+  </section>
+</Base>

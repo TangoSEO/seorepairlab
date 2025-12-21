@@ -141,7 +141,7 @@ if (!enable) {
       ) : layout === "grid" ? (
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((item) => (
-            <a href={`/english/services/${item.slug}`} class="block group h-full">
+            <a href={`/services/#${item.slug.split('/').pop()}`} class="block group h-full">
               <div class="bg-white p-8 border-2 border-black transition-all duration-200 h-full hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:-translate-x-1">
                  <div class="mb-6 border-b-2 border-black pb-4">
                     <h3 class="text-2xl font-bold uppercase tracking-tight group-hover:text-black transition-colors">{item.data.title}</h3>
