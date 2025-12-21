@@ -1,0 +1,35 @@
+---
+import Base from "@/layouts/Base.astro";
+import { generatePaths } from "@/lib/utils/i18nUtils";
+import { markdownify } from "@/lib/utils/textConverter";
+import CustomButton from "@/components/CustomButton.astro";
+
+export function getStaticPaths() {
+    return [
+       { params: { lang: "en" } },
+     ];
+}
+
+const title = "Service Details";
+const description = "Practical implementation rather than just handing you a PDF report.";
+---
+
+<Base title={title} metaDescription={description}>
+  <section class="py-24 bg-white">
+    <div class="container max-w-3xl space-y-10 text-center">
+        <h1 class="text-display-4 font-bold uppercase tracking-tighter">My Approach</h1>
+        
+        <div class="prose prose-lg text-text-default/80 mx-auto font-secondary leading-relaxed">
+             <p>This is a core area of my consulting practice. I focus on practical implementation rather than just handing you a PDF report. Whether you are on WordPress, Shopify, or a custom stack, I work directly with your team to implement these fixes.</p>
+        </div>
+
+        <div class="pt-8">
+            <CustomButton 
+                label="Ask me about this" 
+                url="/contact" 
+                class="btn-primary" 
+            />
+        </div>
+    </div>
+  </section>
+</Base>

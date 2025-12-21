@@ -5,7 +5,7 @@ enable: true
 options:
   layout: "grid" # masonry | grid | full-width | slider
   appearance: "light" # dark | light - applicable only if layout is "grid"
-  limit: 4
+  limit: 12
 
 button:
   # Refer to the `sharedButton` schema in `src/sections.schema.ts` for all available configuration options (e.g., enable, label, url, hoverEffect, variant, icon, tag, rel, class, target, etc.)

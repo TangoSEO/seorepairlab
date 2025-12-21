@@ -1,4 +1,8 @@
 ---
-title: "Jessica Schmukler | Technical SEO Architect & Data-Driven Audits"
-metaDescription: "8+ Years: 180% Recovery, CWV Fixes, Schema for Google/AI. $500 Audits."
+title: "Technical SEO Specialist"
+metaDescription: "I fix broken websites and help startups grow. No magic formulas, just solid technical work."
+button:
+  enable: true
+  label: "View My Work"
+  url: "/portfolio"
 ---

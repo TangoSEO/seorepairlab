@@ -1,13 +1,12 @@
 ---
 import Base from "@/layouts/Base.astro";
 import { generatePaths } from "@/lib/utils/i18nUtils";
-import Clients from "@/components/sections/Clients.astro";
+
 import { getEntryCTM } from "@/lib/customContentLoader.astro";
 import BannerAgencyStartup from "@/components/sections/Banner.astro";
-import PricingSection from "@/components/sections/PricingSection.astro";
+
 import ServicesSection from "@/components/sections/ServicesSection.astro";
-// Removed portfolio; using Minitools instead
-import MinitoolsSection from "@/components/sections/MinitoolsSection.astro";
+import FeaturedCaseStudy from "@/components/sections/FeaturedCaseStudy.astro";
 import TrustStrip from "@/components/sections/TrustStrip.astro";
 
 export function getStaticPaths() {
@@ -41,8 +40,6 @@ const structuredData = [
 <Base {...page?.data} structuredData={structuredData} headerPosition="fixed" hasHeaderDarkBackground={true}>
   <BannerAgencyStartup />
   <TrustStrip />
-  <Clients />
   <ServicesSection />
-  <MinitoolsSection />
-  <PricingSection />
+  <FeaturedCaseStudy />
 </Base>

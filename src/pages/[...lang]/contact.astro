@@ -1,0 +1,41 @@
+---
+import Base from "@/layouts/Base.astro";
+import { generatePaths } from "@/lib/utils/i18nUtils";
+import { markdownify } from "@/lib/utils/textConverter";
+import CustomButton from "@/components/CustomButton.astro";
+
+export function getStaticPaths() {
+  return generatePaths();
+}
+
+const title = "Get in Touch";
+const description = "Contact Jessica Schmukler for senior technical SEO roles and opportunities.";
+---
+
+<Base title={title} metaDescription={description}>
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container max-w-3xl text-center space-y-10">
+        <h1 class="text-display-4 font-bold uppercase tracking-tighter" set:html={markdownify(title)}></h1>
+        
+        <div class="prose prose-lg text-text-default/80 mx-auto font-secondary">
+             <p>Thank you for reviewing my work. I am currently open to discussing <strong>senior full-time remote roles</strong> and select <strong>high-impact contract opportunities.</strong> The best way to reach me is via email or LinkedIn.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8">
+            <div class="bg-gray-50 p-8 border hover:border-black transition-all flex flex-col items-center justify-center">
+                <h3 class="text-xl font-bold uppercase mb-4">Email</h3>
+                <a href="mailto:jessie.bsas@gmail.com" class="text-lg border-b-2 border-primary hover:text-primary transition-colors">jessie.bsas@gmail.com</a>
+            </div>
+             <div class="bg-gray-50 p-8 border hover:border-black transition-all flex flex-col items-center justify-center">
+                <h3 class="text-xl font-bold uppercase mb-4">LinkedIn</h3>
+                <CustomButton 
+                    label="View Profile" 
+                    url="https://www.linkedin.com/in/technicalseo/" 
+                    target="_blank" 
+                    class="btn-primary" 
+                />
+            </div>
+        </div>
+    </div>
+  </section>
+</Base>

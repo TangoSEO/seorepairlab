@@ -223,7 +223,7 @@ export default function SeoCheckApp() {
             <div className="border-t-4 border-black pt-12 flex flex-col md:flex-row items-baseline justify-between gap-8">
                 <div>
                     <h3 className="text-3xl font-bold text-black tracking-tight mb-2">
-                        OPTIMIZE YOUR ARCHITECTURE
+                        OPTIMIZE YOUR SITE
                     </h3>
                     <p className="text-lg text-gray-600 font-mono">
                         Correct errors. Improve structure.

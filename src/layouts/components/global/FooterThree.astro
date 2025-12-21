@@ -6,7 +6,7 @@ import SocialComponent from "@/components/widgets/Social.astro";
 import social from "@/config/social.json";
 import { useTranslations } from "@/lib/utils/i18nUtils";
 import { getEntryCTM } from "@/lib/customContentLoader.astro";
-import ContactForm from "../widgets/ContactForm.astro";
+
 
 const config = parseTomlToJson();
 const t = await useTranslations(Astro.currentLocale as string);
@@ -22,11 +22,6 @@ const {
   data: { title, description },
 } = await getEntryCTM("sections", "call-to-action", Astro.currentLocale);
 
-// Load the 'apply-form' content for the footer contact form
-const entry = await getEntryCTM("sections", "apply-form", Astro.currentLocale);
-
-let form = entry?.data?.form;
-
 footerDescription = footerDescription || t("footer.description") || "";
 
 const copyrightText = copyright.text || t("footer.copyright") || "";
@@ -38,7 +33,7 @@ const copyrightParts = splitProtectedText(copyrightText);
   class:list={["bg-accent", !footerSpaceTop && "mt-0"]}>
   <div class="container pb-8 md:pb-16">
     <div
-      class="grid grid-cols-1 gap-y-10 border-b-2 border-black py-16 md:py-24 lg:grid-cols-2 lg:gap-x-20 xl:gap-x-10">
+      class="border-b-2 border-black py-16 md:py-24">
       <div class="space-y-10">
         {
           title && (
@@ -78,7 +73,6 @@ const copyrightParts = splitProtectedText(copyrightText);
           />
         </div>
       </div>
-      <ContactForm form={form} />
     </div>
     <div
       class="font-secondary flex flex-wrap items-center justify-between gap-x-8 gap-y-6 pt-6 text-sm leading-loose font-semibold uppercase">

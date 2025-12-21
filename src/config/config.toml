@@ -1,8 +1,8 @@
 # Site Configuration
 [site]
-  title            = "Jessica Schmukler — Technical SEO Architect" # Shared title for SEO and OpenGraph
-  description      = "Technical SEO Architect. Indexation Recovery, EEAT, Core Web Vitals, AI Search." # Shared description for SEO and OpenGraph
-  tagline          = "Technical SEO Architect"
+  title            = "Jessica Schmukler — Technical SEO Specialist" # Shared title for SEO and OpenGraph
+  description      = "Technical SEO Specialist in Argentina. Indexation Recovery, EEAT, Core Web Vitals, AI Search." # Shared description for SEO and OpenGraph
+  tagline          = "Technical SEO Specialist"
   taglineSeparator = "" # default is " - " 
   baseUrl          = "https://seorepairlab.com/" # Base URL for the site and used in OpenGraph meta tags.
   logo             = "/images/logo.svg" # Path to the site's logo
@@ -72,7 +72,7 @@
   # We kindly appreciate it if you retain the theme copyright. Thank you for supporting Getastrothemes!
   [settings.copyright]
     enable = true
-    text   = "Copyright © 2025 by SEO Repair Lab / Crafted by Jessica Schmukler" # Overrides i18n footer text
+    text   = "Copyright © 2025 Jessica Schmukler | SEO Repair Lab" # Overrides i18n footer text
 
   # Multilingual settings (check src/config/language.json for changing the languages)
   # NOTE: Manually restart your server when you change the following multilingual table values
@@ -87,7 +87,7 @@
   # Global Contact Information
   [settings.contactInfo]
     address = "Tandil, Argentina (Remote - US/Canada/EU)"
-    email   = "[it@seorepairlab.com](mailto:it@seorepairlab.com)"
+    email   = "[jessie.bsas@gmail.com](mailto:jessie.bsas@gmail.com)"
     phone   = ""
 
   # Header Offcanvas Configuration
@@ -107,7 +107,7 @@
 [settings.navigationButton]
   enable = true
   label  = "" # Check src/i18n/en.json and src/i18n/fr.json for changing the navigation button label in different languages or directly add value here if you are not using internationalization feature
-  url    = "/"
+  url    = "/contact"
 
 
 # OpenGraph Metadata

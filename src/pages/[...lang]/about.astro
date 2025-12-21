@@ -1,0 +1,49 @@
+---
+import Base from "@/layouts/Base.astro";
+import { generatePaths } from "@/lib/utils/i18nUtils";
+import { markdownify } from "@/lib/utils/textConverter";
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+
+export function getStaticPaths() {
+  return generatePaths();
+}
+
+const title = "About Me";
+const metaDescription = "My journey from IT support and logistics to Senior Technical SEO Specialist.";
+const image = "/images/about-me-placeholder.jpg"; // Placeholder
+---
+
+<Base title={title} metaDescription={metaDescription}>
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start">
+        <div class="md:col-span-5 lg:col-span-4">
+             <div class="relative">
+                <OptimizedImage
+                    src={image}
+                    alt="Jessica Schmukler"
+                    class="w-full rounded-lg shadow-lg grayscale md:grayscale-0 hover:grayscale transition-all duration-500"
+                    width={500}
+                    height={600}
+                />
+             </div>
+        </div>
+        <div class="md:col-span-7 lg:col-span-8 space-y-6">
+            <h1 class="text-display-4 font-bold uppercase tracking-tighter" set:html={markdownify(title)}></h1>
+            <div class="prose prose-lg text-text-default/80 font-secondary">
+                <p>My journey to technical SEO wasn't direct—it was built on a foundation of IT systems and logistics.</p>
+                <p>I started my career in IT support for companies like <strong>Cisco and MSN</strong> during the dial-up era, learning how networks and systems function from the ground up. Later, as an International Trade Manager, I spent years optimizing complex logistics with data, spreadsheets, and scripts.</p>
+                <p>In 2017, I pivoted fully into SEO, where my systems-thinking background became my greatest asset. I don't just see keywords; I see the technical infrastructure that allows them to rank.</p>
+                <p>I am currently pursuing a <strong>Systems Engineering degree at UNICEN</strong> to deepen my backend knowledge. I thrive on solving the complex technical puzzles that drive real business growth.</p>
+                <p>When I'm not analyzing log files, you can find me experimenting with new web frameworks or contributing to technical SEO communities.</p>
+                
+                <h2 class="text-2xl font-bold uppercase tracking-tight mt-12 mb-6">Beyond the Code</h2>
+                <p>I'm not just an SEO; I'm a systems thinker who loves solving puzzles. I live in <strong>Tandil, Argentina</strong>, where I balance deep technical work with enjoying life.</p>
+                <p>I spent years in logistics and IT support before finding my home in SEO. That background means I don't panic when things break—I just look for the logic error and fix it.</p>
+                <p>I believe in clear communication, honest deadlines, and treating your business with the same care I treat my own.</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

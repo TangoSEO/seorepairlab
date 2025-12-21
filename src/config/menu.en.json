@@ -7,23 +7,18 @@
     },
     {
       "enable": true,
-      "name": "Services",
-      "url": "/#services"
+      "name": "Case Studies",
+      "url": "/portfolio"
     },
     {
       "enable": true,
-      "name": "SEO Minitools",
-      "url": "/#minitools"
+      "name": "About Me",
+      "url": "/about"
     },
     {
       "enable": true,
-      "name": "Pricing",
-      "url": "/#pricing"
-    },
-    {
-      "enable": true,
-      "name": "Free SEO Check",
-      "url": "/seo-check"
+      "name": "Contact",
+      "url": "/contact"
     }
   ]
 }

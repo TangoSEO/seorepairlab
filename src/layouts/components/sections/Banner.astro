@@ -78,12 +78,11 @@ const fontSize = titleSize ? fontSizeMap[titleSize] : fontSizeMap["display-1"];
         )
       }
       {
-        button?.enable ? (
           <div
             data-aos="reveal-anim-top"
             data-aos-duration="1500"
             data-aos-delay="200"
-            class="mx-auto max-w-2xl space-y-6">
+            class="mx-auto max-w-2xl space-y-8">
             {description && (
               <p
                 class="text-base sm:text-lg text-inherit/80"
@@ -91,42 +90,21 @@ const fontSize = titleSize ? fontSizeMap[titleSize] : fontSizeMap["display-1"];
               />
             )}
 
-            
-
-            {/* SEO CORE High-Vis Highlight */}
-            <div class="mx-auto my-6 p-8 border-2 border-green-600 bg-black/50 inline-block max-w-2xl relative">
-                 <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-green-600 text-white text-xs font-bold px-3 py-1 uppercase tracking-widest">
-                    Recommended
-                </div>
-
-                <span class="block text-green-500 font-bold uppercase tracking-widest text-sm mb-4">Including The New</span>
-                <span class="block text-white text-5xl font-bold tracking-tighter mb-4">SEO CORE <span class="text-green-500">®</span></span>
-                <span class="block text-white text-xl font-mono uppercase pb-6 mb-6 border-b border-green-600/30">$97/Mo Early Bird</span>
-                
-                <div class="flex flex-col md:flex-row justify-center gap-6 text-sm font-mono text-gray-300 mb-8">
-                    <span class="flex items-center gap-2"><span class="text-green-500">✓</span> 3 Core Fixes/mo</span>
-                    <span class="flex items-center gap-2"><span class="text-green-500">✓</span> Founder Supervision</span>
-                </div>
-
-                <a href="/apply/" class="inline-block bg-green-600 text-white font-bold uppercase tracking-widest py-4 px-8 hover:bg-green-500 transition-colors text-lg border-2 border-green-500">
-                    Send Me More Info
+            { button?.enable && (
+              <div class="flex flex-col items-center gap-4">
+                <CustomButton
+                    variant="fill"
+                    label={button.label}
+                    url={button.url}
+                    class="btn-primary"
+                />
+                <a href="/about" class="text-white/80 hover:text-white text-sm underline underline-offset-4 decoration-white/30 transition-colors">
+                  Or read a bit about me first
                 </a>
-            </div>
+              </div>
+            )}
 
-            {/* Button Removed - Replaced by SEO Core Highlight */}
-            <p class="mt-6 text-sm text-inherit/80">2M+ Pages Recovered | 180% Traffic Boost | CWV 'Good' on 20+ Sites</p>
           </div>
-        ) : (
-          description && (
-            <p
-              data-aos="reveal-anim-top"
-              data-aos-delay="200"
-              data-aos-duration="1500"
-              class="mx-auto max-w-2xl text-lg text-inherit opacity-80"
-              set:html={markdownify(description)}
-            />
-          )
-        )
       }
 
       {
