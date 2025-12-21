@@ -71,7 +71,7 @@ form:
 
   # This note will show at the end of form
   # note: |
-  #   Your data is safe with us. We respect your privacy and never share your information. <br /> Read our [Privacy Policy](/privacy-policy/).
+  #   Your data is safe with me. I respect your privacy and never share your information. <br /> Read my [Privacy Policy](/privacy-policy/).
   inputs:
     - label: ""
       placeholder: "Full Name *"
@@ -154,7 +154,7 @@ form:
       defaultValue: ""
     - note: success # info | warning | success | deprecated | hint
       parentClass: "hidden text-sm message success"
-      content: We have received your message! We'll get back to you as soon as possible.
+      content: I have received your message! I'll get back to you as soon as possible.
     - note: deprecated # info | warning | success | deprecated | hint
       parentClass: "hidden text-sm message error"
       content: Something went wrong! If the issue persists, please email [it@seorepairlab.com](mailto:it@seorepairlab.com).

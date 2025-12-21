@@ -15,7 +15,7 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 const services = await getCollectionCTM("services", lang || "en");
 
-const title = "Our Expertise";
+const title = "My Expertise";
 const description = "Comprehensive Technical SEO solutions for complex site challenges.";
 ---
 
@@ -27,7 +27,7 @@ const description = "Comprehensive Technical SEO solutions for complex site chal
             Technical SEO <br/><span class="text-black decoration-4 underline decoration-[#00C853] underline-offset-4">Capabilities</span>
          </h1>
          <p class="text-xl font-mono text-black max-w-2xl mx-auto">
-            We don't do generic audits. We solve specific, high-stakes infrastructure problems that prevent ranking.
+            I don't do generic audits. I solve specific, high-stakes infrastructure problems that prevent ranking.
          </p>
     </div>
   </section>
@@ -76,10 +76,10 @@ const description = "Comprehensive Technical SEO solutions for complex site chal
                                 <div>
                                      <h3 class="font-bold uppercase tracking-widest mb-4 flex items-center gap-2">
                                         <span class="w-3 h-3 bg-[#00C853] border border-black"></span>
-                                        Our Protocol
+                                        My Protocol
                                     </h3>
                                     <p class="text-sm font-mono leading-relaxed opacity-80">
-                                        We deploy custom extraction logic and server-side validation to resolve {service.data.title} at the root, ensuring permanent indexation stability.
+                                        I deploy custom extraction logic and server-side validation to resolve {service.data.title} at the root, ensuring permanent indexation stability.
                                     </p>
                                 </div>
                              </div>
