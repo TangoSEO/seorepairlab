@@ -1,7 +1,7 @@
 ---
 title: "Crawl Budget & Content Pruning"
 description: "Rescued a 10,000+ page website by eliminating 97% of its thin content."
-image: "/images/portfolio/portfolio-1.png"
+image: "/images/portfolio/1.jpg"
 categories: ["US Law Firm"]
 date: 2023-01-01
 ---
