@@ -30,7 +30,9 @@ const copyrightParts = splitProtectedText(copyrightText);
 
 <footer
   id="footer-with-contact"
-  class:list={["bg-accent", !footerSpaceTop && "mt-0"]}>
+  class:list={["bg-white border-t-2 border-black", !footerSpaceTop && "mt-0"]}
+  style="background-image: linear-gradient(#f0f0f0 1px, transparent 1px), linear-gradient(90deg, #f0f0f0 1px, transparent 1px); background-size: 40px 40px;"
+  >
   <div class="container pb-8 md:pb-16">
     <div
       class="border-b-2 border-black py-16 md:py-24">
@@ -38,7 +40,7 @@ const copyrightParts = splitProtectedText(copyrightText);
         {
           title && (
             <h2
-              class="text-display-6 xs:text-display-5 md:text-display-4"
+              class="text-display-6 xs:text-display-5 md:text-display-4 uppercase tracking-tighter"
               set:html={markdownify(title)}
             />
           )
@@ -46,7 +48,7 @@ const copyrightParts = splitProtectedText(copyrightText);
         {
           description && (
             <div
-              class="w-full max-w-lg text-lg"
+              class="w-full max-w-lg text-lg font-mono bg-white inline-block px-1 border-2 border-transparent"
               set:html={markdownify(description, true)}
             />
           )
@@ -54,9 +56,9 @@ const copyrightParts = splitProtectedText(copyrightText);
         <div class="space-y-4">
           {
             config.settings.copyright?.enable && (
-              <ul class="has-list has-list-slash prose-a:text-inherit flex flex-wrap gap-y-2">
+              <ul class="has-list has-list-slash prose-a:text-inherit flex flex-wrap gap-y-2 font-bold uppercase tracking-widest text-xs">
                 {copyrightParts.map((value) => (
-                  <li class="prose-a:text-text-default/70 prose-a:hover:text-text-default">
+                  <li class="prose-a:text-black prose-a:hover:text-primary">
                     <span set:html={markdownify(value)} />
                   </li>
                 ))}
@@ -75,7 +77,7 @@ const copyrightParts = splitProtectedText(copyrightText);
       </div>
     </div>
     <div
-      class="font-secondary flex flex-wrap items-center justify-between gap-x-8 gap-y-6 pt-6 text-sm leading-loose font-semibold uppercase">
+      class="font-mono flex flex-wrap items-center justify-between gap-x-8 gap-y-6 pt-6 text-sm leading-loose font-bold uppercase tracking-widest text-black">
       {address && <p set:html={markdownify(address)} />}
       <div class="md:text-end">
         {phone && <p set:html={markdownify(phone)} />}

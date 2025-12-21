@@ -96,19 +96,38 @@ button:not(:disabled),
 /* Enforce sharp corners everywhere */
 * {
     border-radius: 0 !important;
-    box-shadow: none !important;
+}
+
+/* Remove default soft shadows */
+*, *::before, *::after {
+    box-shadow: none;
 }
 
 /* Inputs and interactive elements should have solid borders */
 input, select, textarea {
-    border: 1px solid #000 !important;
+    border: 2px solid #000 !important;
     border-radius: 0 !important;
     padding: 1rem !important;
+    background-color: #fff;
+    color: #000;
+    font-weight: 700;
 }
 
-/* Focus states should be sharp */
+input::placeholder {
+   color: #666;
+   text-transform: uppercase;
+   font-size: 0.8rem;
+   letter-spacing: 1px;
+}
+
+/* Focus states should be sharp and high contrast */
 *:focus {
     outline: 2px solid #000 !important;
     outline-offset: 2px !important;
     box-shadow: none !important;
+}
+
+/* Links */
+a {
+    text-decoration-thickness: 2px;
 }
