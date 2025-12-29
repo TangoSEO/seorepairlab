@@ -55,35 +55,39 @@ if (Array.isArray(information)) {
   <div class="container">
     <div class="mx-auto w-full max-w-6xl space-y-10 md:space-y-20">
       {
-        Array.isArray(images) && images.length > 1 && (
+        Array.isArray(images) && images.length > 0 && (
           <div
-            id="portfolio-slider"
-            class="swiper"
-            aria-label="Portfolio image slider">
-            <div class="swiper-wrapper">
+            id={images.length > 1 ? "portfolio-slider" : "portfolio-image"}
+            class:list={[images.length > 1 && "swiper"]}
+            aria-label="Portfolio image">
+            <div class:list={[images.length > 1 && "swiper-wrapper"]}>
               {images.map((item: string, index: number) => (
-                <div class="swiper-slide h-auto!">
+                <div class:list={[images.length > 1 ? "swiper-slide h-auto!" : "w-full"]}>
                   <OptimizedImage
                     src={item}
                     alt={`${title} image ${index + 1}`}
-                    class="h-112.5 w-full object-cover md:h-137.5"
+                    class="h-112.5 w-full object-cover md:h-137.5 border-2 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]"
                   />
                 </div>
               ))}
             </div>
-            {/* <!-- Left Arrow --> */}
-            <button
-              class="portfolio-slider-btn-prev hover:bg-accent hover:text-dark absolute start-4 top-1/2 z-10 flex min-h-14 min-w-14 -translate-y-1/2 items-center justify-center rounded-full bg-white transition duration-300 [--swiper-navigation-size:1.25rem]"
-              aria-label="Previous slide">
-              <ReactIcons icon="FaArrowLeftLong" />
-            </button>
+            {images.length > 1 && (
+              <>
+                {/* <!-- Left Arrow --> */}
+                <button
+                  class="portfolio-slider-btn-prev hover:bg-accent hover:text-dark absolute start-4 top-1/2 z-10 flex min-h-14 min-w-14 -translate-y-1/2 items-center justify-center rounded-full bg-white transition duration-300 [--swiper-navigation-size:1.25rem]"
+                  aria-label="Previous slide">
+                  <ReactIcons icon="FaArrowLeftLong" />
+                </button>
 
-            {/* <!-- Right Arrow --> */}
-            <button
-              class="portfolio-slider-btn-next hover:bg-accent hover:text-dark absolute end-4 top-1/2 z-10 flex min-h-14 min-w-14 -translate-y-1/2 items-center justify-center rounded-full bg-white transition duration-300 [--swiper-navigation-size:1.25rem]"
-              aria-label="Next slide">
-              <ReactIcons icon="FaArrowRightLong" />
-            </button>
+                {/* <!-- Right Arrow --> */}
+                <button
+                  class="portfolio-slider-btn-next hover:bg-accent hover:text-dark absolute end-4 top-1/2 z-10 flex min-h-14 min-w-14 -translate-y-1/2 items-center justify-center rounded-full bg-white transition duration-300 [--swiper-navigation-size:1.25rem]"
+                  aria-label="Next slide">
+                  <ReactIcons icon="FaArrowRightLong" />
+                </button>
+              </>
+            )}
           </div>
         )
       }

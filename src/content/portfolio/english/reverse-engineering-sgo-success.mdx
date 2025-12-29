@@ -1,0 +1,101 @@
+---
+title: "Reverse Engineering SGO Success"
+description: "Analyze schema-driven visibility in Google AI Overviews (SGE) and define a replication framework using an 'Authority-First' approach."
+date: 2025-12-29
+categories:
+  - Case Study
+  - SGO Strategy
+  - Technical Schema
+
+information:
+  - label: "Subject:"
+    value: "The Spruce Pets – Methylene Blue"
+  - label: "Focus:"
+    value: "Search Generative Optimization (SGO)"
+  - label: "Service:"
+    value: "Entity Graph Engineering"
+  - label: "Date:"
+    value: "date"
+
+image: "/images/portfolio/sgo-case-study.png"
+images:
+  - "/images/portfolio/sgo-case-study.png"
+---
+
+<div class="border-y-4 border-black py-10 my-12 bg-[#f0f0f0] relative overflow-hidden">
+  <div class="absolute top-0 left-0 w-2 h-full bg-[#00C853]"></div>
+  <p class="text-2xl md:text-3xl font-bold uppercase tracking-tighter leading-none pl-14 pr-8 text-black">How does a legacy content site maintain dominance in the AI-first search era? By reverse-engineering this page, we uncover an "Authority-First" schema strategy that prioritizes trust over technical checklists.</p>
+</div>
+
+## 1. The Challenge
+
+The core question for legacy publishers is no longer "How do I rank #1?" but "How do I become the **grounded source** for AI Overviews?". The Spruce Pets provides a masterclass in this transition.
+
+<div class="my-12">
+  <img 
+    src="/src/assets/images/portfolio/ai-overview-search.png" 
+    alt="Google AI Overview for Methylene Blue" 
+    class="w-full border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]"
+  />
+  <p class="text-sm font-mono mt-4 text-center uppercase tracking-widest text-black/60">Fig 1.0: Real-world AI Overview extraction from indexed trust signals.</p>
+</div>
+
+## 2. Methodology: The Reverse Engineering Process
+
+To analyze this success, I performed a technical audit of the page's structured data (JSON-LD) to identify hidden "Trust Signals" that Google's AI prefers:
+
+- **Schema Extraction**: Isolated the `application/ld+json` blocks.
+- **Entity Mapping**: Identified how the site connects Content (`Article`) to Expertise (`Person`) and Authority (`MedicalWebPage`).
+- **Correlation**: Looked at how AI Overviews extract steps even without explicit `HowTo` schema.
+
+## 3. Key Findings: The "Why" Behind the Ranking
+
+### A. The "Reviewer" Moat (EEAT) [.text-h3]
+Spruce Pets uses a `reviewedBy` field to create a layer of verification that AI models crave.
+
+- **The Data**: The schema points to Nick Saint-Erne, a Doctor of Veterinary Medicine (DVM).
+- **SGO Impact**: Google’s AI avoids giving harmful medical advice. By linking to a verified DVM, the content passes the "Safety Filter," making it eligible for the top AI Overview slot.
+
+### B. Semantic Contextualization [.text-h3]
+The content is dual-typed as `Article` AND `MedicalWebPage`.
+
+- **The Data**: `@type: ["Article", "MedicalWebPage"]`.
+- **SGO Impact**: This tells the AI precisely which "knowledge bucket" to place the information in, ensuring it shows up for high-intent queries like "how to treat fish fungus."
+
+### C. Factual Grounding [.text-h3]
+The logic isn't just "Trust us," it's "Trust the source."
+
+- **The Data**: Inclusion of a `citation` field linked to the University of Florida (EDU).
+- **SGO Impact**: AI models (like Gemini) value "Grounding." Providing citable sources in the code helps the AI verify the facts before presenting them to the user.
+
+<div class="bg-black text-white p-8 md:p-12 my-12 border-4 border-black shadow-[12px_12px_0px_0px_#00C853]">
+  <h2 class="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-10 text-[#00C853] leading-none border-b-2 border-[#00C853] pb-4">
+    4. Replication Strategy: <br/> The SGO Framework
+  </h2>
+  
+  <div class="space-y-10">
+    <div class="flex flex-col md:flex-row gap-4 md:gap-8">
+      <span class="text-4xl font-bold text-[#00C853] font-mono leading-none">01</span>
+      <div class="space-y-2">
+        <h3 class="text-xl font-bold uppercase tracking-tight text-white m-0">Map Authority Entities</h3>
+        <p class="text-lg leading-snug text-white/90 m-0">Don't just list a writer. Add an Expert Reviewer to the schema via <code class="text-[#00C853] bg-white/10 px-1 font-mono">reviewedBy</code>. Link authors to their social profiles to build an entity graph.</p>
+      </div>
+    </div>
+    
+    <div class="flex flex-col md:flex-row gap-4 md:gap-8">
+      <span class="text-4xl font-bold text-[#00C853] font-mono leading-none">02</span>
+      <div class="space-y-2">
+        <h3 class="text-xl font-bold uppercase tracking-tight text-white m-0">Define the Knowledge Bucket</h3>
+        <p class="text-lg leading-snug text-white/90 m-0">Use specific schema types like <code class="text-[#00C853] bg-white/10 px-1 font-mono">MedicalWebPage</code> or <code class="text-[#00C853] bg-white/10 px-1 font-mono">TechArticle</code> instead of generic Article.</p>
+      </div>
+    </div>
+    
+    <div class="flex flex-col md:flex-row gap-4 md:gap-8">
+      <span class="text-4xl font-bold text-[#00C853] font-mono leading-none">03</span>
+      <div class="space-y-2">
+        <h3 class="text-xl font-bold uppercase tracking-tight text-white m-0">Ground the Content</h3>
+        <p class="text-lg leading-snug text-white/90 m-0">Use the <code class="text-[#00C853] bg-white/10 px-1 font-mono">citation</code> field within your JSON-LD to link to GOV, EDU, or peer-reviewed Research.</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,4 @@
 ---
-title: "Case Studies"
-description: "Examples of technical SEO problems solved: from crawl budget optimization to site migrations and penalty recovery."
+title: "THE LAB"
+description: "Experimental data, technical deep-dives, and utility tools for SGO and technical SEO."
 ---

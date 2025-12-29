@@ -15,8 +15,8 @@ const page = await getEntryCTM("pages", "portfolio", Astro.currentLocale);
 <Base {...page?.data}>
   <section class="py-24 bg-white">
       <div class="container space-y-6 text-center">
-            <h1 class="text-display-3 font-bold uppercase tracking-tighter" set:html={markdownify(page?.data.title || "Case Studies")}></h1>
-            <p class="text-lg md:text-xl text-text-default/80 max-w-2xl mx-auto font-secondary">Here are a few examples of technical SEO problems I've solved. Each project involved deep analysis, a clear strategy, and hands-on implementation.</p>
+            <h1 class="text-display-3 font-bold uppercase tracking-tighter" set:html={markdownify(page?.data.title || "THE LAB")}></h1>
+            <p class="text-lg md:text-xl text-text-default/80 max-w-2xl mx-auto font-secondary">A repository of technical SEO experiments, case studies, deep-dive guides, and utility tools developed to solve complex search challenges.</p>
       </div>
   </section>
   <PortfolioSection />
