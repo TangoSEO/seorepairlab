@@ -22,6 +22,8 @@ images:
   - "/images/portfolio/sgo-case-study.png"
 ---
 
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+
 <div class="border-y-4 border-black py-10 my-12 bg-[#f0f0f0] relative overflow-hidden">
   <div class="absolute top-0 left-0 w-2 h-full bg-[#00C853]"></div>
   <p class="text-2xl md:text-3xl font-bold uppercase tracking-tighter leading-none pl-14 pr-8 text-black">How does a legacy content site maintain dominance in the AI-first search era? By reverse-engineering this page, we uncover an "Authority-First" schema strategy that prioritizes trust over technical checklists.</p>
@@ -32,8 +34,8 @@ images:
 The core question for legacy publishers is no longer "How do I rank #1?" but "How do I become the **grounded source** for AI Overviews?". The Spruce Pets provides a masterclass in this transition.
 
 <div class="my-12">
-  <img 
-    src="/src/assets/images/portfolio/ai-overview-search.png" 
+  <OptimizedImage 
+    src="/images/portfolio/ai-overview-search.png" 
     alt="Google AI Overview for Methylene Blue" 
     class="w-full border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]"
   />
