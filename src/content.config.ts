@@ -46,8 +46,8 @@ const serviceCollection = defineCollection({
 
 // Portfolio Collection
 const portfolioCollection = defineCollection({
-  // Load Markdown and MDX files in the `src/content/portfolio/` directory.
-  loader: glob({ base: "./src/content/portfolio", pattern: "**/*.{md,mdx}" }),
+  // Load Markdown and MDX files in the `src/content/the-lab/` directory.
+  loader: glob({ base: "./src/content/the-lab", pattern: "**/*.{md,mdx}" }),
   schema: page.merge(
     z.object({
       images: z.array(z.string()).min(1).optional(),
@@ -76,7 +76,7 @@ export const collections = {
   [servicesFolder]: serviceCollection,
   services: serviceCollection,
   [portfolioFolder]: portfolioCollection,
-  portfolio: portfolioCollection,
+  "the-lab": portfolioCollection,
 
   pages: pagesCollection,
   sections: defineCollection({}),

@@ -56,7 +56,7 @@
   # - "src/content.config.ts" collection object
   blogFolder      = "blog" # Folder where blog posts are stored
   servicesFolder  = "services" # Folder where services are stored
-  portfolioFolder = "portfolio" # Folder where portfolio/projects are stored
+  portfolioFolder = "the-lab" # Folder where portfolio/projects are stored
 
   stickyHeader = true # Enables scroll-aware sticky behavior (e.g., hide on scroll down), not applicable to fixed headers
 
