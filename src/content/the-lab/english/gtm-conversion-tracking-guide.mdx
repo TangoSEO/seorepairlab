@@ -265,29 +265,41 @@ Click ID        → ID attribute of element
 ```
 
 <div class="bg-black text-white p-8 md:p-12 my-12 border-4 border-black shadow-[12px_12px_0px_0px_#4361ee]">
-  <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-tighter mb-8 text-[#4361ee] leading-none border-b-2 border-[#4361ee] pb-4">
+  <h2 class="text-4xl md:text-5xl font-bold uppercase tracking-tighter mb-10 text-[#4361ee] leading-none border-b-2 border-[#4361ee] pb-4">
     Key Takeaways
   </h2>
   
-  <div class="space-y-6">
-    <div class="flex gap-4">
-      <span class="text-2xl font-bold text-[#4361ee] font-mono">01</span>
-      <p class="text-lg text-white/90 m-0"><strong>Choose the right trigger type.</strong> Links use "Just Links," everything else uses "All Elements."</p>
+  <div class="space-y-10">
+    <div class="flex flex-col md:flex-row gap-4 md:gap-8">
+      <span class="text-4xl font-bold text-[#4361ee] font-mono leading-none">01</span>
+      <div class="space-y-2">
+        <h3 class="text-xl font-bold uppercase tracking-tight text-white m-0">Choose the Right Trigger Type</h3>
+        <p class="text-lg leading-snug text-white/90 m-0">Links use "Just Links," everything else uses "All Elements." Getting this wrong is the #1 cause of tracking failures.</p>
+      </div>
     </div>
     
-    <div class="flex gap-4">
-      <span class="text-2xl font-bold text-[#4361ee] font-mono">02</span>
-      <p class="text-lg text-white/90 m-0"><strong>Always add page path filters.</strong> Prevents triggers from firing sitewide when you only want specific pages.</p>
+    <div class="flex flex-col md:flex-row gap-4 md:gap-8">
+      <span class="text-4xl font-bold text-[#4361ee] font-mono leading-none">02</span>
+      <div class="space-y-2">
+        <h3 class="text-xl font-bold uppercase tracking-tight text-white m-0">Always Add Page Path Filters</h3>
+        <p class="text-lg leading-snug text-white/90 m-0">Prevents triggers from firing sitewide when you only want specific pages. Keeps your data clean and your boss's other tracking intact.</p>
+      </div>
     </div>
     
-    <div class="flex gap-4">
-      <span class="text-2xl font-bold text-[#4361ee] font-mono">03</span>
-      <p class="text-lg text-white/90 m-0"><strong>Google Ads needs its own tags.</strong> GA4 events don't feed Smart Bidding—create separate conversion tags.</p>
+    <div class="flex flex-col md:flex-row gap-4 md:gap-8">
+      <span class="text-4xl font-bold text-[#4361ee] font-mono leading-none">03</span>
+      <div class="space-y-2">
+        <h3 class="text-xl font-bold uppercase tracking-tight text-white m-0">Google Ads Needs Its Own Tags</h3>
+        <p class="text-lg leading-snug text-white/90 m-0">GA4 events don't feed Smart Bidding. You need separate Google Ads Conversion tags, even if they use the same trigger.</p>
+      </div>
     </div>
     
-    <div class="flex gap-4">
-      <span class="text-2xl font-bold text-[#4361ee] font-mono">04</span>
-      <p class="text-lg text-white/90 m-0"><strong>Preview mode is your best friend.</strong> Always test before publishing.</p>
+    <div class="flex flex-col md:flex-row gap-4 md:gap-8">
+      <span class="text-4xl font-bold text-[#4361ee] font-mono leading-none">04</span>
+      <div class="space-y-2">
+        <h3 class="text-xl font-bold uppercase tracking-tight text-white m-0">Preview Mode Is Your Best Friend</h3>
+        <p class="text-lg leading-snug text-white/90 m-0">Always test before publishing. Check that triggers fire, tags execute, and variables have expected values.</p>
+      </div>
     </div>
   </div>
 </div>
